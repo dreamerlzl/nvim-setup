@@ -60,7 +60,8 @@ endfunction
 
 " {{{ key remap
 
-let mapleader = ' '
+nnoremap <SPACE> <Nop>
+let mapleader = " "
 let g:netrw_winsize = 25
 
 " }}}

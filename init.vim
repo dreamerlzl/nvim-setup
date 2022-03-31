@@ -9,6 +9,8 @@ else
     " inoremap <silent><expr> <c-space> coc#refresh()
 
     call plug#begin('~/.vim/plugged')
+    " debug
+    Plug 'puremourning/vimspector'
 
     Plug 'arkav/lualine-lsp-progress'
 
@@ -79,5 +81,6 @@ else
     " note that go.vim depends on treesitter
     source $HOME/.config/nvim/modules/go.vim
     source $HOME/.config/nvim/modules/python.vim
+    source $HOME/.config/nvim/modules/vimspector.vim
 
 endif
