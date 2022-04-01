@@ -9,6 +9,12 @@ else
     " inoremap <silent><expr> <c-space> coc#refresh()
 
     call plug#begin('~/.vim/plugged')
+
+    Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+
+    Plug 'mfussenegger/nvim-dap'
+    Plug 'rcarriga/nvim-dap-ui'
+
     " debug
     Plug 'puremourning/vimspector'
 
@@ -58,7 +64,7 @@ else
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-buffer'
 
-    " To enable more of the features of rust-analyzer, such as inlay hints and more!
+    " launch ra, add hover action, run test, debug, etc. 
     Plug 'simrat39/rust-tools.nvim'
 
     Plug 'rust-lang/rust.vim'
@@ -82,5 +88,7 @@ else
     source $HOME/.config/nvim/modules/go.vim
     source $HOME/.config/nvim/modules/python.vim
     source $HOME/.config/nvim/modules/vimspector.vim
+    source $HOME/.config/nvim/modules/leaderf.vim
+    source $HOME/.config/nvim/modules/dap.vim
 
 endif

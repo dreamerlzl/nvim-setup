@@ -4,9 +4,20 @@
 
 " source /Users/lin/.config/nvim/rust_fold.vim
 
+packadd! termdebug
+let g:termdebugger="rust-gdb"
+
 lua << END
+-- Update this path
+local extension_path = '/home/wright/vscode-lldb/'
+local codelldb_path = extension_path .. 'adapter/codelldb'
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 
 local opts = {
+    dap = {
+        adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path)
+    },
+
     tools = { -- rust-tools options
         autoSetHints = true,
         hover_with_actions = true,
