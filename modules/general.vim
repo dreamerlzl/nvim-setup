@@ -4,7 +4,7 @@
 " {{{ setting
 
 " left bar toggled by lsp
-set signcolumn=no
+set signcolumn=yes
 set smartindent
 set softtabstop=0 expandtab 
 set shiftwidth=2 smarttab
