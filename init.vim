@@ -9,6 +9,8 @@ else
     " inoremap <silent><expr> <c-space> coc#refresh()
 
     call plug#begin('~/.vim/plugged')
+    Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'folke/trouble.nvim'
 
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
@@ -18,11 +20,11 @@ else
     " debug
     Plug 'puremourning/vimspector'
 
-    Plug 'arkav/lualine-lsp-progress'
+    Plug 'nvim-lua/lsp-status.nvim'
 
-    " Plug 'easymotion/vim-easymotion'
+    " Plug 'arkav/lualine-lsp-progress'
 
-    Plug 'neovim/nvim-lspconfig'
+    Plug 'easymotion/vim-easymotion'
 
     Plug 'nvim-lua/lsp-status.nvim'
 
@@ -90,5 +92,6 @@ else
     source $HOME/.config/nvim/modules/vimspector.vim
     source $HOME/.config/nvim/modules/leaderf.vim
     source $HOME/.config/nvim/modules/dap.vim
+    source $HOME/.config/nvim/modules/trouble.vim
 
 endif

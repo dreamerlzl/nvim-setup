@@ -14,12 +14,12 @@ require('lualine').setup {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {
-        {
-          'filename',
-          file_status = ture,
-          path = 2,
-          shorting_target = 20
-        },
+      {
+        'filename',
+        file_status = ture,
+        path = 2,
+        shorting_target = 20
+      },
       {'lsp_progress', }
       },
     lualine_x = {'encoding', 'fileformat', 'filetype'},

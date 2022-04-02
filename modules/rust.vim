@@ -8,10 +8,13 @@ packadd! termdebug
 let g:termdebugger="rust-gdb"
 
 lua << END
--- Update this path
 local extension_path = '/home/wright/vscode-lldb/'
 local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+
+-- for lsp index progress
+local lsp_status = require('lsp-status')
+lsp_status.register_progress()
 
 local opts = {
     dap = {
@@ -33,7 +36,8 @@ local opts = {
     -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
     server = {
         -- on_attach is a callback called when the language server attachs to the buffer
-        -- on_attach = on_attach,
+        on_attach = lsp_status.on_attach,
+        capabilities = lsp_status.capabilities,
         settings = {
             -- to enable rust-analyzer settings visit:
             -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
@@ -51,3 +55,12 @@ require('rust-tools').setup(opts)
 require('rust-tools.runnables').runnables()
 
 END
+
+" Statusline
+function! LspStatus() abort
+  if luaeval('#vim.lsp.buf_get_clients() > 0')
+    return luaeval("require('lsp-status').status()")
+  endif
+
+  return ''
+endfunction
