@@ -14,9 +14,11 @@ nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
 
+
 " Setup Completion
 " See https://github.com/hrsh7th/nvim-cmp#basic-configuration
 lua <<EOF
+vim.lsp.set_log_level("debug")
 local cmp = require'cmp'
 cmp.setup({
   -- Enable LSP snippets

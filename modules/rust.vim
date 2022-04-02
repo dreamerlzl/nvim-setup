@@ -4,8 +4,8 @@
 
 " source /Users/lin/.config/nvim/rust_fold.vim
 
-packadd! termdebug
-let g:termdebugger="rust-gdb"
+" packadd! termdebug
+" let g:termdebugger="rust-gdb"
 
 lua << END
 local extension_path = '/home/wright/vscode-lldb/'

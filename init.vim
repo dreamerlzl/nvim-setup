@@ -18,7 +18,7 @@ else
     Plug 'rcarriga/nvim-dap-ui'
 
     " debug
-    Plug 'puremourning/vimspector'
+    " Plug 'puremourning/vimspector'
 
     Plug 'nvim-lua/lsp-status.nvim'
 
@@ -89,7 +89,7 @@ else
     " note that go.vim depends on treesitter
     source $HOME/.config/nvim/modules/go.vim
     source $HOME/.config/nvim/modules/python.vim
-    source $HOME/.config/nvim/modules/vimspector.vim
+    " source $HOME/.config/nvim/modules/vimspector.vim
     source $HOME/.config/nvim/modules/leaderf.vim
     source $HOME/.config/nvim/modules/dap.vim
     source $HOME/.config/nvim/modules/trouble.vim
