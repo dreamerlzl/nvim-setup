@@ -8,9 +8,9 @@
 let g:rustfmt_autosave = 1
 
 lua << END
-local extension_path = '/home/wright/vscode-lldb/'
+local extension_path = '/Users/lin/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/'
 local codelldb_path = extension_path .. 'adapter/codelldb'
-local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.dylib'
 
 -- for lsp index progress
 local lsp_status = require('lsp-status')
