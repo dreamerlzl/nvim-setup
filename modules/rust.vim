@@ -7,6 +7,8 @@
 " packadd! termdebug
 " let g:termdebugger="rust-gdb"
 
+let g:rustfmt_autosave = 1
+
 lua << END
 local extension_path = '/home/wright/vscode-lldb/'
 local codelldb_path = extension_path .. 'adapter/codelldb'

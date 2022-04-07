@@ -28,7 +28,7 @@ require("dapui").setup({
       { id = "breakpoints", size = 0.25 },
       {
         id = "scopes",
-        size = 0.25, -- Can be float or integer > 1
+        size = 0.5, -- Can be float or integer > 1
       },
       -- { id = "stacks", size = 0.25 },
       -- { id = "watches", size = 00.25 },

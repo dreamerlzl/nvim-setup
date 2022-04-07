@@ -69,6 +69,7 @@ else
     " launch ra, add hover action, run test, debug, etc. 
     Plug 'simrat39/rust-tools.nvim'
 
+    " for fmt on save
     Plug 'rust-lang/rust.vim'
 
     " Snippet engine
