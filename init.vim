@@ -24,7 +24,7 @@ else
 
     " Plug 'arkav/lualine-lsp-progress'
 
-    Plug 'easymotion/vim-easymotion'
+    Plug 'justinmk/vim-sneak'
 
     Plug 'nvim-lua/lsp-status.nvim'
 
@@ -94,5 +94,6 @@ else
     source $HOME/.config/nvim/modules/leaderf.vim
     source $HOME/.config/nvim/modules/dap.vim
     source $HOME/.config/nvim/modules/trouble.vim
+    source $HOME/.config/nvim/modules/sneak.vim
 
 endif
