@@ -28,6 +28,7 @@ else
 
     Plug 'nvim-lua/lsp-status.nvim'
 
+    Plug 'ray-x/guihua.lua'
     Plug 'ray-x/go.nvim'
 
     Plug 'jiangmiao/auto-pairs'
