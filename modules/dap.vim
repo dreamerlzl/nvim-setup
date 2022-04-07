@@ -69,7 +69,7 @@ require("dapui").setup({
 --   local stderr = vim.loop.new_pipe(false)
 -- 
 --   -- CHANGE THIS!
---   local cmd = '/home/wright/vscode-lldb/adapter/codelldb'
+--   local cmd = ''
 -- 
 --   local handle, pid_or_err
 --   local opts = {

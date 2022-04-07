@@ -2,8 +2,6 @@
 " enable folding
 " let g:rust_fold = 1
 
-" source /Users/lin/.config/nvim/rust_fold.vim
-
 " packadd! termdebug
 " let g:termdebugger="rust-gdb"
 
