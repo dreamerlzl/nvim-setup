@@ -8,6 +8,8 @@ set signcolumn=yes
 set smartindent
 set softtabstop=0 expandtab 
 set shiftwidth=2 smarttab
+set splitbelow
+set splitright
 
 set autochdir
 
