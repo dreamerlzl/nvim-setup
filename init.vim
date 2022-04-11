@@ -77,7 +77,7 @@ else
     Plug 'hrsh7th/vim-vsnip'
 
     " for auto pair completion
-    Plug 'rstacruz/vim-closer'
+    " Plug 'rstacruz/vim-closer'
 
     " for file tree explorer
     Plug 'preservim/nerdtree'
