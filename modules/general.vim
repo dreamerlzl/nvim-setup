@@ -44,6 +44,7 @@ nnoremap K gt
 vnoremap d "_d
 " yank to/paste from system clipboard
 vnoremap p "+p
+vnoremap x "+x
 vnoremap y "+y
 
 " for tab completion
