@@ -5,9 +5,12 @@
 - for python, golang and rust dev
 
 # prerequisite(separate installation)
-- [pynvim](https://github.com/neovim/pynvim)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [fzf](https://github.com/junegunn/fzf)
+- command-line utilities (for leaderF)
+  - [ripgrep](https://github.com/BurntSushi/ripgrep)
+  - [fzf](https://github.com/junegunn/fzf)
+- python
+  - [pynvim](https://github.com/neovim/pynvim)
+  - pyright: `npm i -g pyright`
 - rust
   - [rust-analyzer](https://rust-analyzer.github.io/manual.html#installation)
   - [codelldb](https://github.com/vadimcn/vscode-lldb/releases)
