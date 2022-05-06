@@ -24,6 +24,7 @@ nvim_lsp.gopls.setup {
 }
 
 require('go').setup({
+  go = 'go1.18beta1',
   run_in_floaterm = true,
 })
 -- require("go.format").goimport()  -- goimport + gofmt
