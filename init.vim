@@ -9,6 +9,10 @@ else
     " inoremap <silent><expr> <c-space> coc#refresh()
 
     call plug#begin('~/.vim/plugged')
+
+    "auto-set cwd; for leaderf
+    Plug 'airblade/vim-rooter'
+
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'folke/trouble.nvim'
 
