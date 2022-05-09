@@ -29,8 +29,8 @@ else
 
     Plug 'nvim-lua/lsp-status.nvim'
 
-    " Plug 'ray-x/guihua.lua'
-    " Plug 'ray-x/go.nvim'
+    Plug 'ray-x/guihua.lua'
+    Plug 'ray-x/go.nvim'
 
     Plug 'jiangmiao/auto-pairs'
 
@@ -53,7 +53,7 @@ else
     Plug 'glepnir/lspsaga.nvim'
 
     " Collection of common configurations for the Nvim LSP client
-    " Plug 'neovim/nvim-lspconfig'
+    Plug 'neovim/nvim-lspconfig'
 
     " Completion framework
     Plug 'hrsh7th/nvim-cmp'
@@ -69,10 +69,10 @@ else
     Plug 'hrsh7th/cmp-buffer'
 
     " launch ra, add hover action, run test, debug, etc. 
-    Plug 'simrat39/rust-tools.nvim'
+    " Plug 'simrat39/rust-tools.nvim'
 
     " for fmt on save
-    Plug 'rust-lang/rust.vim'
+    " Plug 'rust-lang/rust.vim'
 
     " Snippet engine
     " Plug 'hrsh7th/vim-vsnip'
@@ -87,10 +87,10 @@ else
 
     source $HOME/.config/nvim/modules/tree.vim
     source $HOME/.config/nvim/modules/lualine.vim
-    " source $HOME/.config/nvim/modules/lsp.vim
+    source $HOME/.config/nvim/modules/lsp.vim
     " source $HOME/.config/nvim/modules/rust.vim
     " note that go.vim depends on treesitter
-    " source $HOME/.config/nvim/modules/go.vim
+    source $HOME/.config/nvim/modules/go.vim
     " source $HOME/.config/nvim/modules/python.vim
     source $HOME/.config/nvim/modules/leaderf.vim
     source $HOME/.config/nvim/modules/dap.vim
