@@ -12,9 +12,8 @@ else
 
     "auto-set cwd; for leaderf
     Plug 'airblade/vim-rooter'
-
-    Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'folke/trouble.nvim'
+    " Plug 'kyazdani42/nvim-web-devicons'
+    " Plug 'folke/trouble.nvim'
 
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
@@ -24,16 +23,14 @@ else
     " debug
     " Plug 'puremourning/vimspector'
 
-    Plug 'nvim-lua/lsp-status.nvim'
-
     " Plug 'arkav/lualine-lsp-progress'
 
     Plug 'justinmk/vim-sneak'
 
     Plug 'nvim-lua/lsp-status.nvim'
 
-    Plug 'ray-x/guihua.lua'
-    Plug 'ray-x/go.nvim'
+    " Plug 'ray-x/guihua.lua'
+    " Plug 'ray-x/go.nvim'
 
     Plug 'jiangmiao/auto-pairs'
 
@@ -56,16 +53,16 @@ else
     Plug 'glepnir/lspsaga.nvim'
 
     " Collection of common configurations for the Nvim LSP client
-    Plug 'neovim/nvim-lspconfig'
+    " Plug 'neovim/nvim-lspconfig'
 
     " Completion framework
     Plug 'hrsh7th/nvim-cmp'
 
     " LSP completion source for nvim-cmp
-    Plug 'hrsh7th/cmp-nvim-lsp'
+    " Plug 'hrsh7th/cmp-nvim-lsp'
 
     " Snippet completion source for nvim-cmp
-    Plug 'hrsh7th/cmp-vsnip'
+    " Plug 'hrsh7th/cmp-vsnip'
 
     " Other usefull completion sources
     Plug 'hrsh7th/cmp-path'
@@ -90,15 +87,14 @@ else
 
     source $HOME/.config/nvim/modules/tree.vim
     source $HOME/.config/nvim/modules/lualine.vim
-    source $HOME/.config/nvim/modules/lsp.vim
-    source $HOME/.config/nvim/modules/rust.vim
+    " source $HOME/.config/nvim/modules/lsp.vim
+    " source $HOME/.config/nvim/modules/rust.vim
     " note that go.vim depends on treesitter
-    source $HOME/.config/nvim/modules/go.vim
-    source $HOME/.config/nvim/modules/python.vim
-    " source $HOME/.config/nvim/modules/vimspector.vim
+    " source $HOME/.config/nvim/modules/go.vim
+    " source $HOME/.config/nvim/modules/python.vim
     source $HOME/.config/nvim/modules/leaderf.vim
     source $HOME/.config/nvim/modules/dap.vim
-    source $HOME/.config/nvim/modules/trouble.vim
+    " source $HOME/.config/nvim/modules/trouble.vim
     source $HOME/.config/nvim/modules/sneak.vim
 
 endif
