@@ -10,6 +10,8 @@ else
 
     call plug#begin('~/.vim/plugged')
 
+    Plug 'dstein64/vim-startuptime'
+
     "auto-set cwd; for leaderf
     Plug 'airblade/vim-rooter'
     " Plug 'kyazdani42/nvim-web-devicons'
