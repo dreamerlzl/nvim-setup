@@ -10,6 +10,9 @@ else
 
     call plug#begin('~/.vim/plugged')
 
+    " lualine theme
+    Plug 'yorik1984/lualine-theme.nvim'
+
     "auto-set cwd; for leaderf
     Plug 'airblade/vim-rooter'
 
@@ -32,8 +35,8 @@ else
 
     Plug 'nvim-lua/lsp-status.nvim'
 
-    Plug 'ray-x/guihua.lua'
-    Plug 'ray-x/go.nvim'
+    " Plug 'ray-x/guihua.lua'
+    " Plug 'ray-x/go.nvim'
 
     Plug 'jiangmiao/auto-pairs'
 
@@ -93,7 +96,7 @@ else
     source $HOME/.config/nvim/modules/lsp.vim
     source $HOME/.config/nvim/modules/rust.vim
     " note that go.vim depends on treesitter
-    source $HOME/.config/nvim/modules/go.vim
+    " source $HOME/.config/nvim/modules/go.vim
     source $HOME/.config/nvim/modules/python.vim
     " source $HOME/.config/nvim/modules/vimspector.vim
     source $HOME/.config/nvim/modules/leaderf.vim
