@@ -29,7 +29,9 @@ let s:enable_transparent_bg = get(g:,'colorscheme_primary_enable_transparent_bg'
 
 if has('gui_running') || (has('termguicolors') && &termguicolors)  "Graphical Vim
   "Set color palette with RGB colors
-  let s:RED    = '#EA4335'
+  " RED is for Conditionals like if/while/return
+  " let s:RED    = '#EA4335'
+  let s:RED    = '#689d6a'
   " let s:GREEN  = '#34A853'
   let s:GREEN  = '#8DA101'
   let s:YELLOW = '#DFA000'
@@ -39,8 +41,8 @@ if has('gui_running') || (has('termguicolors') && &termguicolors)  "Graphical Vi
   let s:LGREY  = '#c0c0c0'
   let s:WHITE  = '#FFFFFF'
   " let s:PURPLE = '#DF69BA'
-  " let s:PURPLE = '#967bb6'
-  let s:PURPLE = '#ff33ff'
+  let s:PURPLE = '#B16286'
+  " let s:PURPLE = '#ff33ff'
   let s:AQUA   = '#35A77C'
 
   "Set gui mode and italics
@@ -107,7 +109,7 @@ else
   exe 'hi NonText      '.s:M.'bg='.s:BG    .' '.s:M.'fg='.s:GREY1.' '.s:M.'=bold'
 endif
 
-exe 'hi String         '.s:M.'fg='.s:RED   .' '.s:M.'='.s:I
+exe 'hi String         '.s:M.'fg='.s:GREEN   .' '.s:M.'='.s:I
 exe 'hi Character      '.s:M.'fg='.s:RED   .' '.s:M.'='.s:I
 exe 'hi Conditional    '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
 exe 'hi Label          '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
