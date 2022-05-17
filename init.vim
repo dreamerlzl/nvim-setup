@@ -10,14 +10,16 @@ else
 
     call plug#begin('~/.vim/plugged')
 
+    Plug 'rcarriga/nvim-notify'
+
     " lualine theme
     Plug 'yorik1984/lualine-theme.nvim'
 
     "auto-set cwd; for leaderf
     Plug 'airblade/vim-rooter'
 
-    Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'folke/trouble.nvim'
+    " Plug 'kyazdani42/nvim-web-devicons'
+    " Plug 'folke/trouble.nvim'
 
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
@@ -101,7 +103,7 @@ else
     " source $HOME/.config/nvim/modules/vimspector.vim
     source $HOME/.config/nvim/modules/leaderf.vim
     source $HOME/.config/nvim/modules/dap.vim
-    source $HOME/.config/nvim/modules/trouble.vim
+    " source $HOME/.config/nvim/modules/trouble.vim
     source $HOME/.config/nvim/modules/sneak.vim
 
 endif

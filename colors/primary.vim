@@ -40,8 +40,8 @@ if has('gui_running') || (has('termguicolors') && &termguicolors)  "Graphical Vi
   let s:DGREY  = '#5F6368'
   let s:LGREY  = '#c0c0c0'
   let s:WHITE  = '#FFFFFF'
-  " let s:PURPLE = '#DF69BA'
-  let s:PURPLE = '#B16286'
+  let s:PURPLE = '#ba55d3'
+  " let s:PURPLE = '#B16286'
   " let s:PURPLE = '#ff33ff'
   let s:AQUA   = '#35A77C'
 
@@ -111,7 +111,7 @@ endif
 
 exe 'hi String         '.s:M.'fg='.s:GREEN   .' '.s:M.'='.s:I
 exe 'hi Character      '.s:M.'fg='.s:RED   .' '.s:M.'='.s:I
-exe 'hi Conditional    '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
+exe 'hi Conditional    '.s:M.'fg='.s:PURPLE   .' '.s:M.'=bold'
 exe 'hi Label          '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
 exe 'hi Repeat         '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
 exe 'hi Statement      '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
