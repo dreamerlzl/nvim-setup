@@ -31,6 +31,8 @@ else
 
     Plug 'nvim-lua/lsp-status.nvim'
 
+    " for guru
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'ray-x/guihua.lua'
     Plug 'ray-x/go.nvim'
 

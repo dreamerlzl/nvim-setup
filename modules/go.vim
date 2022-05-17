@@ -1,3 +1,11 @@
+let g:go_auto_type_info = 1
+let g:go_def_mapping_enabled=0
+let g:go_doc_keywordprg_enabled = 0
+
+autocmd FileType go nmap gh <Plug>(go-info)
+autocmd FileType go nmap gd <Plug>(go-def)
+autocmd FileType go nmap gc <Plug>(go-callers)
+autocmd FileType go nmap gi <Plug>(go-implements)
 
 " for ray-x
 autocmd BufWritePre *.go :silent! lua require("go.format").goimport()
