@@ -86,9 +86,7 @@ if has('termguicolors')
 endif
 
 set background=light
-colo primary
-highlight clear SignColumn
-highlight LineNr ctermfg=None guibg=None
+colo toast
 
 " reverse selected highlight
 highlight Visual cterm=reverse

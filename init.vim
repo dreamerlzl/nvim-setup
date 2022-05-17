@@ -33,8 +33,10 @@ else
 
     " for guru
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-    Plug 'ray-x/guihua.lua'
-    Plug 'ray-x/go.nvim'
+    Plug 'rcarriga/nvim-notify'
+    Plug 'crispgm/nvim-go', {'do': ':GoUpdateBinaries'}
+    " Plug 'ray-x/guihua.lua'
+    " Plug 'ray-x/go.nvim'
 
     Plug 'jiangmiao/auto-pairs'
 
@@ -63,10 +65,10 @@ else
     Plug 'hrsh7th/nvim-cmp'
 
     " LSP completion source for nvim-cmp
-    " Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
 
     " Snippet completion source for nvim-cmp
-    " Plug 'hrsh7th/cmp-vsnip'
+    Plug 'hrsh7th/cmp-vsnip'
 
     " Other usefull completion sources
     Plug 'hrsh7th/cmp-path'
@@ -79,7 +81,7 @@ else
     " Plug 'rust-lang/rust.vim'
 
     " Snippet engine
-    " Plug 'hrsh7th/vim-vsnip'
+    Plug 'hrsh7th/vim-vsnip'
 
     " for auto pair completion
     " Plug 'rstacruz/vim-closer'
