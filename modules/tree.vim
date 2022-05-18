@@ -1,5 +1,6 @@
 nnoremap <C-t> :call NERDTreeToggleAndRefresh()<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+" use leaderf instead
+" nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <C-n> :set invnumber<CR>
 
 function NERDTreeToggleAndRefresh()
