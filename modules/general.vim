@@ -6,7 +6,6 @@
 " left bar toggled by lsp
 set signcolumn=number
 set cursorline
-hi cursorline cterm=none
 set smartindent
 set softtabstop=0 expandtab 
 set shiftwidth=2 smarttab
@@ -87,8 +86,14 @@ endif
 
 set background=light
 colo primary
-highlight clear SignColumn
-highlight LineNr ctermfg=None guibg=None
+hi signcolumn guibg=None
+hi cursorline guibg=#b9cbda
+hi cursorlinenr guibg=#b9cbda
+hi LineNr guibg=None
+hi GitGutterAdd guibg=None
+hi GitGutterChange guibg=None
+hi GitGutterDelete guibg=None
+hi GitGutterChangeDelete guibg=None
 
 " reverse selected highlight
 highlight Visual cterm=reverse
