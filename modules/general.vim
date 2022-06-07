@@ -85,6 +85,8 @@ endif
 
 set background=light
 colo primary
+highlight clear SignColumn
+highlight clear LineNr
 
 " reverse selected highlight
 highlight Visual cterm=reverse
