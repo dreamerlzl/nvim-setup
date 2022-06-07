@@ -4,7 +4,9 @@
 " {{{ setting
 
 " left bar toggled by lsp
-set signcolumn=yes
+set signcolumn=number
+set cursorline
+hi cursorline cterm=none
 set smartindent
 set softtabstop=0 expandtab 
 set shiftwidth=2 smarttab
@@ -86,7 +88,7 @@ endif
 set background=light
 colo primary
 highlight clear SignColumn
-highlight clear LineNr
+highlight LineNr ctermfg=None guibg=None
 
 " reverse selected highlight
 highlight Visual cterm=reverse
