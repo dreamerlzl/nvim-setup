@@ -102,5 +102,6 @@ else
     source $HOME/.config/nvim/modules/dap.vim
     " source $HOME/.config/nvim/modules/trouble.vim
     source $HOME/.config/nvim/modules/sneak.vim
+    source $HOME/.config/nvim/modules/rooter.vim
 
 endif
