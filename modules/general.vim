@@ -11,6 +11,7 @@ set softtabstop=0 expandtab
 set shiftwidth=2 smarttab
 set splitbelow
 set splitright
+set guifont=MesloLGL\ Nerd\ Font\ Mono:h16
 
 set autochdir
 
