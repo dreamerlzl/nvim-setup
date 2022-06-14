@@ -56,7 +56,7 @@ else
     Plug 'nvim-lua/plenary.nvim'
 
     " rename, better UI
-    Plug 'glepnir/lspsaga.nvim'
+    Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 
     " Collection of common configurations for the Nvim LSP client
     Plug 'neovim/nvim-lspconfig'
