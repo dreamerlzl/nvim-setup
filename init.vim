@@ -30,11 +30,6 @@ else
 
     Plug 'justinmk/vim-sneak'
 
-    Plug 'nvim-lua/lsp-status.nvim'
-
-    Plug 'ray-x/guihua.lua'
-    Plug 'ray-x/go.nvim'
-
     Plug 'jiangmiao/auto-pairs'
 
     " for status line
@@ -93,7 +88,6 @@ else
     source $HOME/.config/nvim/modules/lsp.vim
     source $HOME/.config/nvim/modules/rust.vim
     " note that go.vim depends on treesitter
-    source $HOME/.config/nvim/modules/go.vim
     source $HOME/.config/nvim/modules/python.vim
     " source $HOME/.config/nvim/modules/vimspector.vim
     source $HOME/.config/nvim/modules/leaderf.vim
