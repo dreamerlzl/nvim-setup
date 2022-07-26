@@ -24,3 +24,5 @@
 - [why `vim-sneak` instead of `easymotion`?](https://www.reddit.com/r/vim/comments/2ydw6t/large_plugins_vs_small_easymotion_vs_sneak/)
 - why nvim-dap instead of vim-inspector?
   - more convenient to debug unit tests
+- about neovim's [folding](https://neovim.io/doc/user/fold.html)
+  - here expr fold is used
