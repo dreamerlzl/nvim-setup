@@ -24,6 +24,7 @@ nvim_lsp.gopls.setup {
   cmd = {"gopls", "serve"},
   settings = {
     gopls = {
+      buildFlags = {"-tags=linux"},
       experimentalPostfixCompletions = true,
       analyses = {
         unusedparams = true,
