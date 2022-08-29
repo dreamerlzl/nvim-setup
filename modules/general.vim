@@ -5,6 +5,7 @@
 
 " left bar toggled by lsp
 set signcolumn=number
+set clipboard+=unnamedplus
 set cursorline
 set smartindent
 set softtabstop=0 expandtab 
