@@ -46,6 +46,9 @@ else
     " git support
     Plug 'airblade/vim-gitgutter'
 
+    " git blame <Leader>gm
+    Plug 'rhysd/git-messenger.vim'
+
     " syntax tree parser 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
