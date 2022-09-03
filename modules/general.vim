@@ -70,6 +70,7 @@ nnoremap <SPACE> <Nop>
 let mapleader = " "
 let g:netrw_winsize = 25
 let g:loaded_matchparen = 1
+let g:colorscheme_primary_disable_italic = 1
 
 " }}}
 
