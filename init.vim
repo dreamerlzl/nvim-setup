@@ -15,6 +15,7 @@ else
 
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'folke/trouble.nvim'
+    Plug 'https://gitlab.com/yorickpeterse/nvim-dd.git'
 
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
