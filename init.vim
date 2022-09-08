@@ -74,7 +74,7 @@ else
     Plug 'rust-lang/rust.vim'
 
     " Snippet engine
-    " Plug 'hrsh7th/vim-vsnip'
+    Plug 'hrsh7th/vim-vsnip'
 
     " for auto pair completion
     " Plug 'rstacruz/vim-closer'
