@@ -6,6 +6,6 @@ require("trouble").setup {
 }
 
 require('dd').setup({
-  timeout = 0
+  timeout = 500
 })
 EOF

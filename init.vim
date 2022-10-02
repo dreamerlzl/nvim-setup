@@ -31,8 +31,6 @@ else
 
     Plug 'justinmk/vim-sneak'
 
-    Plug 'jiangmiao/auto-pairs'
-
     " for status line
     Plug 'nvim-lualine/lualine.nvim'
 

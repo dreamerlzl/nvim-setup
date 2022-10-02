@@ -5,7 +5,6 @@ nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gc    <cmd>lua vim.lsp.buf.references()<CR>
-" nnoremap <silent> gr <cmd>lua require('lspsaga.rename').lsp_rename()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
@@ -63,9 +62,13 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 EOF
 
-lua << EOF
+lua<<EOF
+local saga = require('lspsaga')
+saga.init_lsp_saga({
+  symbol_in_winbar = {
+    enable = false,
+  },
+})
 local keymap = vim.keymap.set
-local saga = require('lspsaga') 
-saga.init_lsp_saga()
 keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
 EOF
