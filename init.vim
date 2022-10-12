@@ -18,6 +18,8 @@ else
     " Plug 'folke/trouble.nvim'
 
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
 
     Plug 'mfussenegger/nvim-dap'
     Plug 'rcarriga/nvim-dap-ui'
@@ -38,7 +40,7 @@ else
     " Plug 'ray-x/guihua.lua'
     " Plug 'ray-x/go.nvim'
 
-    Plug 'jiangmiao/auto-pairs'
+    " Plug 'jiangmiao/auto-pairs'
 
     " for status line
     Plug 'nvim-lualine/lualine.nvim'
