@@ -79,6 +79,7 @@ let g:colorscheme_primary_disable_italic = 1
 " no spell check for markdown
 autocmd FileType markdown setlocal nospell
 autocmd FileType python colorscheme toast
+autocmd FileType go colorscheme toast
 
 " for prog lang syntax highlight
 syntax enable

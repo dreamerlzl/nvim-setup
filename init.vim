@@ -80,6 +80,12 @@ else
     " for file tree explorer
     Plug 'preservim/nerdtree'
 
+    " for golang
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    Plug 'crispgm/nvim-go', {'do': ':GoUpdateBinaries'}
+
+    Plug 'rcarriga/nvim-notify'
+
     call plug#end()
 
     source $HOME/.config/nvim/modules/tree.vim
@@ -87,6 +93,7 @@ else
     source $HOME/.config/nvim/modules/lsp.vim
     source $HOME/.config/nvim/modules/rust.vim
     " note that go.vim depends on treesitter
+    source $HOME/.config/nvim/modules/go.vim
     source $HOME/.config/nvim/modules/python.vim
     " source $HOME/.config/nvim/modules/vimspector.vim
     source $HOME/.config/nvim/modules/leaderf.vim
