@@ -9,6 +9,10 @@ else
     " inoremap <silent><expr> <c-space> coc#refresh()
 
     call plug#begin('~/.vim/plugged')
+    " for clang
+    Plug 'p00f/clangd_extensions.nvim'
+    Plug 'sbdchd/neoformat'
+    Plug 'sainnhe/everforest'
 
     Plug 'dstein64/vim-startuptime'
 
@@ -108,5 +112,6 @@ else
     " source $HOME/.config/nvim/modules/trouble.vim
     source $HOME/.config/nvim/modules/sneak.vim
     source $HOME/.config/nvim/modules/rooter.vim
+    source $HOME/.config/nvim/modules/clang.vim
 
 endif

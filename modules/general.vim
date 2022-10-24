@@ -76,6 +76,7 @@ let g:loaded_matchparen = 1
 
 " no spell check for markdown
 autocmd FileType markdown setlocal nospell
+autocmd FileType c colorscheme everforest
 
 " for prog lang syntax highlight
 syntax enable
