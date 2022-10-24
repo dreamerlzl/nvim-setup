@@ -9,6 +9,10 @@ else
     " inoremap <silent><expr> <c-space> coc#refresh()
 
     call plug#begin('~/.vim/plugged')
+    " for clang
+    Plug 'p00f/clangd_extensions.nvim'
+    Plug 'sbdchd/neoformat'
+    Plug 'sainnhe/gruvbox-material'
 
     "auto-set cwd; for leaderf
     Plug 'airblade/vim-rooter'
@@ -101,5 +105,6 @@ else
     source $HOME/.config/nvim/modules/trouble.vim
     source $HOME/.config/nvim/modules/sneak.vim
     source $HOME/.config/nvim/modules/rooter.vim
+    source $HOME/.config/nvim/modules/clang.vim
 
 endif
