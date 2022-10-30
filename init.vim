@@ -3,7 +3,11 @@ if exists('g:vscode')
     " vscode settings
     source $HOME/.config/nvim/vscode.vim
 else
-    source $HOME/.config/nvim/modules/general.vim
+    " no spell check for markdown
+    autocmd FileType markdown setlocal nospell
+    autocmd FileType python colorscheme toast
+    autocmd FileType go colorscheme toast
+    autocmd FileType c colorscheme PaperColor
 
     " empty tab completion
     " inoremap <silent><expr> <c-space> coc#refresh()
@@ -12,7 +16,6 @@ else
     " for clang
     Plug 'p00f/clangd_extensions.nvim'
     Plug 'sbdchd/neoformat'
-    Plug 'sainnhe/gruvbox-material'
 
     "auto-set cwd; for leaderf
     Plug 'airblade/vim-rooter'
@@ -31,6 +34,8 @@ else
 
     Plug 'nvim-lua/lsp-status.nvim'
 
+    " use this instead; see https://www.reddit.com/r/neovim/comments/scm1ob/fidgetnvim_a_standalone_ui_for_for_nvimlsp/
+    Plug 'j-hui/fidget.nvim'
     " Plug 'arkav/lualine-lsp-progress'
 
     Plug 'justinmk/vim-sneak'
@@ -92,8 +97,9 @@ else
 
     call plug#end()
 
-    source $HOME/.config/nvim/modules/tree.vim
     source $HOME/.config/nvim/modules/lualine.vim
+    source $HOME/.config/nvim/modules/general.vim
+    source $HOME/.config/nvim/modules/tree.vim
     source $HOME/.config/nvim/modules/lsp.vim
     source $HOME/.config/nvim/modules/rust.vim
     " note that go.vim depends on treesitter
