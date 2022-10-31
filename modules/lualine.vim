@@ -20,8 +20,7 @@ require('lualine').setup {
         path = 2,
         shorting_target = 20
       },
-      {'lsp_progress', }
-      },
+    },
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
@@ -37,5 +36,12 @@ require('lualine').setup {
   tabline = {},
   extensions = {}
 }
+
+-- for lsp progress
+require('fidget').setup({
+  text = {
+    spinner = "moon",
+  },
+})
 
 END

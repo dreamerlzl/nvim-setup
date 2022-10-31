@@ -31,8 +31,6 @@ else
     " debug
     " Plug 'puremourning/vimspector'
 
-    " Plug 'arkav/lualine-lsp-progress'
-
     Plug 'justinmk/vim-sneak'
 
     Plug 'nvim-lua/lsp-status.nvim'
@@ -48,6 +46,7 @@ else
 
     " for status line
     Plug 'nvim-lualine/lualine.nvim'
+    Plug 'j-hui/fidget.nvim'
 
     " git support
     Plug 'airblade/vim-gitgutter'
