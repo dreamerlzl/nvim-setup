@@ -6,7 +6,7 @@ else
     " no spell check for markdown
     autocmd FileType markdown setlocal nospell
     autocmd FileType python colorscheme toast
-    autocmd FileType go colorscheme toast
+    autocmd FileType go colorscheme PaperColor
     autocmd FileType c colorscheme PaperColor
 
     " empty tab completion
