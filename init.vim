@@ -13,6 +13,7 @@ else
     " inoremap <silent><expr> <c-space> coc#refresh()
 
     call plug#begin('~/.vim/plugged')
+    Plug 'petertriho/nvim-scrollbar'
     " for clang
     Plug 'p00f/clangd_extensions.nvim'
     Plug 'sbdchd/neoformat'
@@ -32,11 +33,10 @@ else
     " debug
     " Plug 'puremourning/vimspector'
 
-    Plug 'nvim-lua/lsp-status.nvim'
+    " Plug 'nvim-lua/lsp-status.nvim'
 
     " use this instead; see https://www.reddit.com/r/neovim/comments/scm1ob/fidgetnvim_a_standalone_ui_for_for_nvimlsp/
     Plug 'j-hui/fidget.nvim'
-    " Plug 'arkav/lualine-lsp-progress'
 
     Plug 'justinmk/vim-sneak'
 

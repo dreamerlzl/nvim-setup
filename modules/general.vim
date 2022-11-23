@@ -111,4 +111,10 @@ function! ToggleSignColumn()
     endif
 endfunction
 
+lua << END
+
+require("scrollbar").setup()
+
+END
+
 " }}}
