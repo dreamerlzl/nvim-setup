@@ -112,6 +112,10 @@ else
     source $HOME/.config/nvim/modules/sneak.vim
     source $HOME/.config/nvim/modules/rooter.vim
     source $HOME/.config/nvim/modules/clang.vim
-    " source $HOME/.config/nvim/modules/notify.vim
+    source $HOME/.config/nvim/modules/notify.vim
+    
+    if exists("g:neovide")
+      source $HOME/.config/nvim/modules/neovide.vim
+    endif
 
 endif
