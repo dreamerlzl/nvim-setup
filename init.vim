@@ -13,7 +13,10 @@ else
     " inoremap <silent><expr> <c-space> coc#refresh()
 
     call plug#begin('~/.vim/plugged')
+    " for fzf selection
+    Plug 'stevearc/dressing.nvim'
     Plug 'petertriho/nvim-scrollbar'
+
     " for clang
     Plug 'p00f/clangd_extensions.nvim'
     Plug 'sbdchd/neoformat'
@@ -22,7 +25,8 @@ else
     Plug 'airblade/vim-rooter'
 
     Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'folke/trouble.nvim'
+    " Plug 'folke/trouble.nvim'
+    " for delaying lsp diag
     Plug 'https://gitlab.com/yorickpeterse/nvim-dd.git'
 
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
@@ -30,14 +34,10 @@ else
     Plug 'mfussenegger/nvim-dap'
     Plug 'rcarriga/nvim-dap-ui'
 
-    " debug
-    " Plug 'puremourning/vimspector'
-
-    " Plug 'nvim-lua/lsp-status.nvim'
-
     " use this instead; see https://www.reddit.com/r/neovim/comments/scm1ob/fidgetnvim_a_standalone_ui_for_for_nvimlsp/
     Plug 'j-hui/fidget.nvim'
 
+    " meta-jump
     Plug 'justinmk/vim-sneak'
 
     " for status line
@@ -112,5 +112,6 @@ else
     source $HOME/.config/nvim/modules/sneak.vim
     source $HOME/.config/nvim/modules/rooter.vim
     source $HOME/.config/nvim/modules/clang.vim
+    " source $HOME/.config/nvim/modules/notify.vim
 
 endif
