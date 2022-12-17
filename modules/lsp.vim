@@ -71,4 +71,6 @@ saga.init_lsp_saga({
 })
 local keymap = vim.keymap.set
 keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
+keymap("n", "<A-d>", "<cmd>Lspsaga open_floaterm gitui<CR>", { silent = true })
+keymap("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
 EOF
