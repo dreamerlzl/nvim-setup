@@ -30,20 +30,21 @@ let s:enable_transparent_bg = get(g:,'colorscheme_primary_enable_transparent_bg'
 if has('gui_running') || (has('termguicolors') && &termguicolors)  "Graphical Vim
   "Set color palette with RGB colors
   " RED is for Conditionals like if/while/return
-  " let s:RED    = '#EA4335'
-  let s:RED    = '#689d6a'
+  " let s:RED    = '#689d6a'
   " let s:GREEN  = '#34A853'
-  let s:GREEN  = '#8DA101'
+  " let s:RED    = '#9d0006'
+  " let s:AQUA   = '#35A77C'
+  let s:BLUE   = '#4285F4' " contrast 300+
   let s:YELLOW = '#DFA000'
-  let s:BLUE   = '#4285F4'
+  let s:RED    = '#CC241D'
+  let s:GREEN  = '#79740E'
+  " let s:YELLOW = '#b57614'
   let s:BLACK  = '#202124'
   let s:DGREY  = '#5F6368'
   let s:LGREY  = '#c0c0c0'
   let s:WHITE  = '#FFFFFF'
-  " let s:PURPLE = '#DF69BA'
   let s:PURPLE = '#B16286'
-  " let s:PURPLE = '#ff33ff'
-  let s:AQUA   = '#35A77C'
+  let s:AQUA   = '#427B58'
 
   "Set gui mode and italics
   let s:M = 'gui'

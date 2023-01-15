@@ -25,6 +25,13 @@ rt.setup({
     end,
     settings = {
       ["rust-analyzer"] = {
+        checkOnSave = {
+            -- allFeatures = true,
+            overrideCommand = {
+                'cargo', 'clippy', '--workspace', '--message-format=json', '--all-targets',
+            }
+        },
+        inlayHints = { locationLinks = false },
         cargo = {
           features = "all",
         },

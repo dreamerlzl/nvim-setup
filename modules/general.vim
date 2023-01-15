@@ -39,6 +39,7 @@ autocmd CursorHold * lua vim.diagnostic.get(0)
 
 " {{{ add mapping
 
+:tnoremap <Esc> <C-\><C-n>
 :inoremap jj <Esc>
 " for switching tabs
 nnoremap J gT
@@ -87,9 +88,15 @@ endif
 
 set background=light
 colo primary
+hi DiagnosticWarn ctermfg=3 guifg=#9D5214
+hi DiagnosticHint ctermfg=7 guifg=#000000
+
+"set background=dark
+"colo onedark
+
 hi signcolumn guibg=None
-hi cursorline guibg=#b9cbda
-hi cursorlinenr guibg=#b9cbda
+" hi cursorline guibg=#b9cbda
+" hi cursorlinenr guibg=#b9cbda
 hi LineNr guibg=None
 hi GitGutterAdd guibg=None
 hi GitGutterChange guibg=None
@@ -114,6 +121,7 @@ endfunction
 lua << END
 
 require("scrollbar").setup()
+require("symbols-outline").setup()
 
 END
 

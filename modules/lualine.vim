@@ -1,6 +1,7 @@
 lua << END
 -- config for lualine
 
+-- ref: https://github.com/nvim-lualine/lualine.nvim/issues/402
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -12,7 +13,19 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_b = {
+      'branch',
+      'diff',
+      {
+        'diagnostics',
+        diagnostics_color = {
+            error = "DiagnosticError",
+            warn  = "DiagnosticWarn",
+            info  = "DiagnosticInfo",
+            hint  = "DiagnosticHint",
+        }
+      }
+    },
     lualine_c = {
       {
         'filename',

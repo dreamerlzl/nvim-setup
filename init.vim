@@ -6,16 +6,19 @@ else
     " no spell check for markdown
     autocmd FileType markdown setlocal nospell
     autocmd FileType python colorscheme toast
-    autocmd FileType go colorscheme PaperColor
+    autocmd FileType go colorscheme toast
     autocmd FileType c colorscheme PaperColor
 
     " empty tab completion
     " inoremap <silent><expr> <c-space> coc#refresh()
 
     call plug#begin('~/.vim/plugged')
+
     " for fzf selection
     Plug 'stevearc/dressing.nvim'
     Plug 'petertriho/nvim-scrollbar'
+    " symbols outline
+    Plug 'simrat39/symbols-outline.nvim'
 
     " for clang
     Plug 'p00f/clangd_extensions.nvim'
@@ -45,6 +48,7 @@ else
 
     " git support
     Plug 'airblade/vim-gitgutter'
+    Plug 'rhysd/git-messenger.vim'
 
     " syntax tree parser 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
