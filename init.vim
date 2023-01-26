@@ -16,6 +16,9 @@ else
 
     " for fzf selection
     Plug 'stevearc/dressing.nvim'
+
+    " general
+    Plug 'RRethy/vim-illuminate'
     Plug 'petertriho/nvim-scrollbar'
     " symbols outline
     Plug 'simrat39/symbols-outline.nvim'
