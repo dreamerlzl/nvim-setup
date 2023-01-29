@@ -35,6 +35,7 @@ else
     " for delaying lsp diag
     Plug 'https://gitlab.com/yorickpeterse/nvim-dd.git'
 
+    " Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
     Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 
     Plug 'mfussenegger/nvim-dap'
@@ -115,6 +116,7 @@ else
     " source $HOME/.config/nvim/modules/vimspector.vim
     source $HOME/.config/nvim/modules/leaderf.vim
     source $HOME/.config/nvim/modules/dap.vim
+    " source $HOME/.config/nvim/modules/telescope.vim
     source $HOME/.config/nvim/modules/trouble.vim
     source $HOME/.config/nvim/modules/sneak.vim
     source $HOME/.config/nvim/modules/rooter.vim

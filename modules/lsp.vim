@@ -63,12 +63,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 EOF
 
 lua<<EOF
-local saga = require('lspsaga')
-saga.init_lsp_saga({
-  symbol_in_winbar = {
-    enable = false,
-  },
-})
+
+require("lspsaga").setup({})
+
 local keymap = vim.keymap.set
 keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
 keymap("n", "<A-d>", "<cmd>Lspsaga open_floaterm gitui<CR>", { silent = true })
