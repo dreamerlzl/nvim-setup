@@ -13,10 +13,9 @@ nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
 
-
 " Setup Completion
 " See https://github.com/hrsh7th/nvim-cmp#basic-configuration
-lua <<EOF
+lua << EOF
 vim.lsp.set_log_level("WARN")
 local cmp = require'cmp'
 cmp.setup({
@@ -50,9 +49,7 @@ cmp.setup({
     { name = 'buffer' },
   },
 })
-EOF
 
-lua <<EOF
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = false,
@@ -60,14 +57,19 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     update_in_insert = true,
   }
 )
-EOF
 
-lua<<EOF
-
-require("lspsaga").setup({})
+require("lspsaga").setup({
+  symbol_in_winbar = {
+    color_mode = false,
+  },
+})
 
 local keymap = vim.keymap.set
 keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
 keymap("n", "<A-d>", "<cmd>Lspsaga open_floaterm gitui<CR>", { silent = true })
 keymap("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
+
 EOF
+
+hi LspSagaWinbarFile  guifg=#202124
+hi LspSagaWinbarWord  guifg=#202124
