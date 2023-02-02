@@ -7,7 +7,7 @@ else
     autocmd FileType markdown setlocal nospell
     autocmd FileType python colorscheme toast
     autocmd FileType go colorscheme toast
-    autocmd FileType c colorscheme PaperColor
+    autocmd FileType c colorscheme toast
 
     " empty tab completion
     " inoremap <silent><expr> <c-space> coc#refresh()

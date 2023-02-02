@@ -8,6 +8,13 @@ let g:neoformat_enabled_c = ['clangformat']
 
 lua << END
 
-require("clangd_extensions").setup()
+require("clangd_extensions").setup({
+  server = {
+    cmd = {
+      "clangd",
+      "--resource-dir=/usr/lib64/clang/14",
+    },
+  },
+})
 
 END
