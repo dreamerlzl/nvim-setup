@@ -125,6 +125,6 @@ require("symbols-outline").setup()
 
 END
 
-nnoremap <C-m> :SymbolsOutline <CR>
+nnoremap <C-l> :SymbolsOutline<CR>
 
 " }}}
