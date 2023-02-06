@@ -73,3 +73,4 @@ EOF
 
 hi LspSagaWinbarFile  guifg=#202124
 hi LspSagaWinbarWord  guifg=#202124
+hi LspSagaWinbarFolderName guifg=#202124
