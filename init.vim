@@ -12,6 +12,8 @@ else
     " inoremap <silent><expr> <c-space> coc#refresh()
 
     call plug#begin('~/.vim/plugged')
+    " rainbow parenthesis
+    Plug 'luochen1990/rainbow'
 
     " for fzf selection
     Plug 'stevearc/dressing.nvim'
