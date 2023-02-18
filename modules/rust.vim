@@ -38,6 +38,9 @@ rt.setup({
         cargo = {
           features = "all",
         },
+        procMacro = {
+          enable = true
+        },
       }
     }
   },
