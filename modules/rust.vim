@@ -1,6 +1,6 @@
 " rust.vim
 " enable folding
-" let g:rust_fold = 1
+let g:rust_fold = 1
 
 " packadd! termdebug
 " let g:termdebugger="rust-gdb"
