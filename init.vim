@@ -12,6 +12,8 @@ else
     " inoremap <silent><expr> <c-space> coc#refresh()
 
     call plug#begin('~/.vim/plugged')
+    " for align multiple assignments
+    Plug 'godlygeek/tabular'
     " rainbow parenthesis
     Plug 'luochen1990/rainbow'
 
