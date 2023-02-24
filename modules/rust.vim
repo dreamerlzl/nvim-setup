@@ -41,6 +41,12 @@ rt.setup({
         procMacro = {
           enable = true
         },
+        imports = {
+          granularity = {
+            group = "crate",
+          },
+          prefix = "self",
+        },
       }
     }
   },
