@@ -5,8 +5,6 @@ if exists('g:vscode')
 else
     " no spell check for markdown
     autocmd FileType markdown setlocal nospell
-    autocmd FileType python colorscheme toast
-    autocmd FileType c colorscheme toast
 
     " empty tab completion
     " inoremap <silent><expr> <c-space> coc#refresh()
