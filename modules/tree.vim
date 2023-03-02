@@ -1,3 +1,6 @@
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
 nnoremap <C-t> :call NERDTreeToggleAndRefresh()<CR>
 " use leaderf instead
 " nnoremap <C-f> :NERDTreeFind<CR>
@@ -30,9 +33,7 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
- 
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
+
 
 " enable tree-sitter's highlight module
 lua <<EOF
