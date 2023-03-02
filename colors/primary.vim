@@ -155,9 +155,9 @@ exe 'hi Structure      '.s:M.'fg='.s:YELLOW.' '.s:M.'=bold'
 exe 'hi Todo           '.s:M.'bg='.s:YELLOW.' '.s:M.'fg='.s:BG    .' '.s:M.'=none'
 exe 'hi WildMenu       '.s:M.'bg='.s:YELLOW.' '.s:M.'fg='.s:BG    .' '.s:M.'=none'
 
-exe 'hi DiffAdd        '.s:M.'bg='.s:BLUE  .' '.s:M.'fg='.s:GREY0 .' '.s:M.'=none'
-exe 'hi DiffChange     '.s:M.'bg='.s:GREEN .' '.s:M.'fg='.s:GREY0 .' '.s:M.'=none'
-exe 'hi DiffDelete     '.s:M.'bg='.s:RED   .' '.s:M.'fg='.s:GREY0 .' '.s:M.'=none'
+exe 'hi DiffAdd        '.s:M.'bg='.'NONE'  .' '.s:M.'fg='.s:AQUA .' '.s:M.'=none'
+exe 'hi DiffChange     '.s:M.'bg='.'NONE'  .' '.s:M.'fg='.s:PURPLE .' '.s:M.'=none'
+exe 'hi DiffDelete     '.s:M.'bg='.'NONE'  .' '.s:M.'fg='.s:RED .' '.s:M.'=none'
 exe 'hi DiffText       '.s:M.'bg='.s:GREY1 .' '.s:M.'fg='.'NONE'  .' '.s:M.'=none'
 
 

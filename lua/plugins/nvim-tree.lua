@@ -10,6 +10,16 @@ if not status_ok then
     return
 end
 
+local on_attch = function(client, buffer)
+    local bufopts = {
+        noremap = true,
+        silent = true,
+        buffer = bufnr
+    }
+    vim.keymap.set('n', '<C-t>', ':NvimTreeToggle<CR>')
+end
+
+
 -- Call setup.
 -- See: `:help nvim-tree` 4. SETUP
 -- Each of these are documented in `:help nvim-tree.OPTION_NAME`
@@ -26,7 +36,7 @@ nvim_tree.setup {
     sync_root_with_cwd = false,
     reload_on_bufenter = false,
     respect_buf_cwd = false,
-    on_attach = "disable",
+    on_attach = on_attch,
     remove_keymaps = false,
     select_prompts = false,
     view = {
@@ -195,7 +205,8 @@ nvim_tree.setup {
             }
         },
         open_file = {
-            quit_on_open = false,
+            -- if false, then nvim-tree is on when you open a file under a dir
+            quit_on_open = true,
             resize_window = true,
             window_picker = {
                 enable = true,

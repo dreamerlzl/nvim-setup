@@ -14,7 +14,7 @@ set splitbelow
 set splitright
 set guifont=MesloLGL\ Nerd\ Font\ Mono:h16
 
-set autochdir
+" set autochdir
 
 " for buffering unsaved files
 set hidden
@@ -95,9 +95,9 @@ hi DiagnosticHint ctermfg=7 guifg=#000000
 "set background=dark
 "colo onedark
 
-hi signcolumn guibg=None
 " hi cursorline guibg=#b9cbda
 " hi cursorlinenr guibg=#b9cbda
+hi signcolumn guibg=None
 hi LineNr guibg=None
 hi GitGutterAdd guibg=None
 hi GitGutterChange guibg=None
@@ -105,7 +105,7 @@ hi GitGutterDelete guibg=None
 hi GitGutterChangeDelete guibg=None
 
 " reverse selected highlight
-highlight Visual cterm=reverse
+hi Visual cterm=reverse
 
 nnoremap <C-s> :call ToggleSignColumn()<CR>
 " Toggle signcolumn. Works on vim>=8.1 or NeoVim

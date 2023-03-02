@@ -27,7 +27,7 @@ lazy.setup({
     -- The colorscheme should be available when starting Neovim.
     -- rust related
     {'simrat39/rust-tools.nvim'}, -- statusline
-    {'j-hui/fidget.nvim'}, {
+    {'luochen1990/rainbow'}, {'j-hui/fidget.nvim'}, {
         'nvim-lualine/lualine.nvim',
         dependencies = {'nvim-tree/nvim-web-devicons'}
     }, -- Icons
@@ -38,17 +38,16 @@ lazy.setup({
     {
         'goolord/alpha-nvim',
         dependencies = {'nvim-tree/nvim-web-devicons'}
-    }, -- Git labels
-    {
+    }, -- Git
+    {'rhysd/git-messenger.vim'}, {
         'lewis6991/gitsigns.nvim',
         lazy = true,
-        dependencies = {'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons'},
-        config = function()
-            require('gitsigns').setup {}
-        end
-
-
-    }, -- File explorer
+        dependencies = {'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons'}
+    }, -- meta jump
+    {'justinmk/vim-sneak'}, {'RRethy/vim-illuminate'}, {
+        'Yggdroot/LeaderF',
+        build = ':LeaderfInstallCExtension'
+    }, {'airblade/vim-rooter'}, {'simrat39/symbols-outline.nvim'}, -- File explorer
     {
         'nvim-tree/nvim-tree.lua',
         dependencies = {'nvim-tree/nvim-web-devicons'}
@@ -59,7 +58,7 @@ lazy.setup({
     }, -- Indent line
     {'lukas-reineke/indent-blankline.nvim'}, -- Tag viewer
     -- { 'preservim/tagbar' },
-    -- Autopair
+    {'rcarriga/nvim-notify'}, -- Autopair
     {
         'windwp/nvim-autopairs',
         event = 'InsertEnter',

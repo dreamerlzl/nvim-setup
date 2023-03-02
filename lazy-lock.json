@@ -1,10 +1,13 @@
 {
+  "LeaderF": { "branch": "master", "commit": "44badee0f1aa5ec72b570634d18985fd70c68983" },
   "LuaSnip": { "branch": "master", "commit": "f7c845749aba6096f041a73a26ba64f3817bab99" },
   "alpha-nvim": { "branch": "main", "commit": "b6c7b5d9d6d2633722255abf2be3ecb8733e8d2d" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "0e6b2ed705ddcff9738ec4ea838141654f12eeef" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
+  "fidget.nvim": { "branch": "main", "commit": "688b4fec4517650e29c3e63cfbb6e498b3112ba1" },
+  "git-messenger.vim": { "branch": "master", "commit": "8a61bdfa351d4df9a9118ee1d3f45edbed617072" },
   "gitsigns.nvim": { "branch": "main", "commit": "f388995990aba04cfdc7c3ab870c33e280601109" },
   "indent-blankline.nvim": { "branch": "master", "commit": "018bd04d80c9a73d399c1061fa0c3b14a7614399" },
   "lazy.nvim": { "branch": "main", "commit": "8077428e63feb0f3bf795d53b23ba1695b28ab0e" },
@@ -13,8 +16,15 @@
   "nvim-autopairs": { "branch": "master", "commit": "d80d93f182262a91674f472e90488f67a7230fe7" },
   "nvim-cmp": { "branch": "main", "commit": "7a3b1e76f74934b12fda82158237c6ad8bfd3d40" },
   "nvim-lspconfig": { "branch": "master", "commit": "69e2fe3d638566a812c39bc4ea1980f7b833e2fc" },
+  "nvim-notify": { "branch": "master", "commit": "9c987081390753b625e2d94e749e80e9b4a3e082" },
+  "nvim-tree.lua": { "branch": "master", "commit": "9c97e6449b0b0269bd44e1fd4857184dfa57bb4c" },
   "nvim-treesitter": { "branch": "master", "commit": "f8595b13bff62d5c64d54840e16678b9ad843620" },
   "nvim-web-devicons": { "branch": "master", "commit": "4709a504d2cd2680fb511675e64ef2790d491d36" },
   "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
-  "rust-tools.nvim": { "branch": "master", "commit": "71d2cf67b5ed120a0e31b2c8adb210dd2834242f" }
+  "rainbow": { "branch": "master", "commit": "61f719aebe0dc5c3048330c50db72cfee1afdd34" },
+  "rust-tools.nvim": { "branch": "master", "commit": "71d2cf67b5ed120a0e31b2c8adb210dd2834242f" },
+  "symbols-outline.nvim": { "branch": "master", "commit": "512791925d57a61c545bc303356e8a8f7869763c" },
+  "vim-illuminate": { "branch": "master", "commit": "49062ab1dd8fec91833a69f0a1344223dd59d643" },
+  "vim-rooter": { "branch": "master", "commit": "4f52ca556a0b9e257bf920658714470ea0320b7a" },
+  "vim-sneak": { "branch": "master", "commit": "93395f5b56eb203e4c8346766f258ac94ea81702" }
 }
