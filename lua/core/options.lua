@@ -73,4 +73,7 @@ end
 
 -- misc
 g.colorscheme_primary_disable_italic = 1
-g.rainbow_active = 1
+
+vim.cmd [[
+let g:sneak#label = 1
+]]
