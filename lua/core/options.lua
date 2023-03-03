@@ -62,7 +62,7 @@ opt.updatetime = 250 -- ms to wait for trigger an event
 opt.shortmess:append "sI"
 
 -- -- Disable builtin plugins
-local disabled_built_ins = {"2html_plugin", "getscript", "getscriptPlugin", "gzip", "logipat", "netrw", "netrwPlugin",
+local disabled_built_ins = {"2html_plugin", "getscript", "getscriptPlugin", "gzip", "logipat", "netrwPlugin",
                             "netrwSettings", "netrwFileHandlers", "matchit", "tar", "tarPlugin", "rrhelper",
                             "spellfile_plugin", "vimball", "vimballPlugin", "zip", "zipPlugin", "tutor", "rplugin",
                             "synmenu", "optwin", "compiler", "bugreport", "ftplugin"}

@@ -51,14 +51,14 @@ else
     Plug 'nvim-lualine/lualine.nvim'
 
     " git support
-    Plug 'airblade/vim-gitgutter'
     Plug 'rhysd/git-messenger.vim'
 
     " syntax tree parser 
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
     " symbol def under cursor
-    Plug 'nvim-treesitter/nvim-treesitter-refactor'
+    " TODO
+    " Plug 'nvim-treesitter/nvim-treesitter-refactor'
 
    " " async
     Plug 'nvim-lua/plenary.nvim'
@@ -98,8 +98,8 @@ else
     Plug 'preservim/nerdtree'
 
     " for golang
-    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-    Plug 'crispgm/nvim-go', {'do': ':GoUpdateBinaries'}
+    " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    " Plug 'crispgm/nvim-go', {'do': ':GoUpdateBinaries'}
 
     Plug 'rcarriga/nvim-notify'
 

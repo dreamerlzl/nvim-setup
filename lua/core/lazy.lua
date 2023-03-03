@@ -23,10 +23,9 @@ end
 
 -- Start setup
 lazy.setup({
-    spec = { -- Colorscheme:
-    -- The colorscheme should be available when starting Neovim.
-    -- rust related
-    {'simrat39/rust-tools.nvim'}, -- statusline
+    spec = { -- common stuff
+    {'stevearc/dressing.nvim'}, {'godlygeek/tabular'}, {'petertriho/nvim-scrollbar'}, -- rust related
+    {'rust-lang/rust.vim'}, {'simrat39/rust-tools.nvim'}, -- statusline
     {'luochen1990/rainbow'}, {'j-hui/fidget.nvim'}, {
         'nvim-lualine/lualine.nvim',
         dependencies = {'nvim-tree/nvim-web-devicons'}

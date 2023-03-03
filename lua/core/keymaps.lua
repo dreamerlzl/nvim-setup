@@ -26,7 +26,7 @@ endfunction
 ]]
 
 -- Toggle LineNumberColumn
-map('n', '<C-n>', ':set invnumber<CR>')
+map('n', '<C-n>', ':set invnumber | ScrollbarToggle <CR>')
 -- buffers
 -- for switching tabs
 map('n', 'J', 'gT')
