@@ -43,7 +43,7 @@ lazy.setup({
     }, -- rust
     {'rust-lang/rust.vim'}, {'simrat39/rust-tools.nvim'}, -- common stuff
     {'stevearc/dressing.nvim'}, {'godlygeek/tabular'}, {'petertriho/nvim-scrollbar'}, -- statusline
-    {'luochen1990/rainbow'}, {'j-hui/fidget.nvim'}, {
+    {'mrjones2014/nvim-ts-rainbow'}, {'j-hui/fidget.nvim'}, {
         'nvim-lualine/lualine.nvim',
         dependencies = {'nvim-tree/nvim-web-devicons'}
     }, -- Icons
@@ -104,6 +104,6 @@ lazy.setup({
     }}
 }, {
     install = {
-        colorscheme = {"primary"}
+        colorscheme = {"shine"}
     }
 })
