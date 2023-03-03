@@ -7,6 +7,7 @@ require('core/options')
 require('core/colors')
 
 require('lsp/lspconfig')
+require('lsp/go')
 
 require('plugins/nvim-tree')
 require('plugins/indent-blankline')

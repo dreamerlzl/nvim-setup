@@ -23,9 +23,26 @@ end
 
 -- Start setup
 lazy.setup({
-    spec = { -- common stuff
-    {'stevearc/dressing.nvim'}, {'godlygeek/tabular'}, {'petertriho/nvim-scrollbar'}, -- rust related
-    {'rust-lang/rust.vim'}, {'simrat39/rust-tools.nvim'}, -- statusline
+    spec = { -- go
+    {
+        "ray-x/go.nvim",
+        requires = { -- optional packages
+        "ray-x/guihua.lua", "neovim/nvim-lspconfig", "nvim-treesitter/nvim-treesitter"},
+        config = function()
+            require("go").setup({
+                lsp_inlay_hints = {
+                    enable = true,
+                    only_current_line = true
+                }
+                -- verbose = true
+            })
+        end
+,
+        event = {"CmdlineEnter"},
+        ft = {"go", 'gomod'}
+    }, -- rust
+    {'rust-lang/rust.vim'}, {'simrat39/rust-tools.nvim'}, -- common stuff
+    {'stevearc/dressing.nvim'}, {'godlygeek/tabular'}, {'petertriho/nvim-scrollbar'}, -- statusline
     {'luochen1990/rainbow'}, {'j-hui/fidget.nvim'}, {
         'nvim-lualine/lualine.nvim',
         dependencies = {'nvim-tree/nvim-web-devicons'}
@@ -85,4 +102,8 @@ lazy.setup({
         dependencies = {'L3MON4D3/LuaSnip', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path', 'hrsh7th/cmp-buffer',
                         'saadparwaiz1/cmp_luasnip'}
     }}
+}, {
+    install = {
+        colorscheme = {"primary"}
+    }
 })
