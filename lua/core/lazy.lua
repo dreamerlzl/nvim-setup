@@ -28,16 +28,6 @@ lazy.setup({
         "ray-x/go.nvim",
         requires = { -- optional packages
         "ray-x/guihua.lua", "neovim/nvim-lspconfig", "nvim-treesitter/nvim-treesitter"},
-        config = function()
-            require("go").setup({
-                lsp_inlay_hints = {
-                    enable = true,
-                    only_current_line = true
-                }
-                -- verbose = true
-            })
-        end
-,
         event = {"CmdlineEnter"},
         ft = {"go", 'gomod'}
     }, -- rust
