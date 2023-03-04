@@ -1,7 +1,6 @@
 # ov
-- my neovim setup
-  - configs for plugin can be found under `modules`
-  - use vim-plug
+- my neovim setup with lua + lazy.nvim
+- configs for plugin can be found under `lua/plugins`
 - for python, golang and rust dev
 
 # prerequisite(separate installation)
@@ -17,11 +16,11 @@
     - install, unzip and modify the execution path in `modules/rust.vim`
     - note: rust-tools has problems with codelldb > 1.6.10
 
-# lsp
-- check lsp status `:LspInfo`
-
 # faq
-- [why `vim-sneak` instead of `easymotion`?](https://www.reddit.com/r/vim/comments/2ydw6t/large_plugins_vs_small_easymotion_vs_sneak/)
+- why `leap.nvim` instead of `easymotion`, `vim-sneak`, `hop.nvim`?
+    - when I switch to lua config and lazy.nvim, `vim-sneak` stop working.
+    - `hop.nvim` is buggy
+    - `leap.nvim` is more actively maintained, and the design is better
 - why nvim-dap instead of vim-inspector?
   - more convenient to debug unit tests
 - about neovim's [folding](https://neovim.io/doc/user/fold.html)

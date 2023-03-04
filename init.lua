@@ -16,5 +16,6 @@ require('plugins/nvim-treesitter')
 require('plugins/git')
 require('plugins/alpha-nvim')
 require('plugins/rust')
+require('plugins/leaderf')
 require('plugins/misc')
 

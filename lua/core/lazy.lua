@@ -60,7 +60,10 @@ lazy.setup({
         lazy = true,
         dependencies = {'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons'}
     }, -- meta jump
-    {'justinmk/vim-sneak'}, {'RRethy/vim-illuminate'}, {
+    {
+        'ggandor/leap.nvim',
+        dependencies = {'tpope/vim-repeat'}
+    }, {'RRethy/vim-illuminate'}, {
         'Yggdroot/LeaderF',
         build = ':LeaderfInstallCExtension'
     }, {'airblade/vim-rooter'}, {'simrat39/symbols-outline.nvim'}, -- File explorer

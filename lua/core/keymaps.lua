@@ -11,7 +11,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 
-vim.cmd [[ 
+vim.cmd [[
 nnoremap <C-s> :call ToggleSignColumn()<CR>
 " Toggle signcolumn. Works on vim>=8.1 or NeoVim
 function! ToggleSignColumn()
@@ -47,3 +47,4 @@ map('n', '<C-l>', ':SymbolsOutline<CR>')
 -- leaderf
 map('', '<C-J>', ':<C-U><C-R>=printf("Leaderf! rg -e ")<CR>')
 map('', '<C-F>', ':LeaderfFile<CR>')
+map('n', '<leader>gm', '<Plug>(git-messenger)')
