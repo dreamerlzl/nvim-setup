@@ -1,3 +1,4 @@
+let g:NERDTreeMapJumpNextSibling = ''
 nnoremap <C-t> :call NERDTreeToggleAndRefresh()<CR>
 " use leaderf instead
 " nnoremap <C-f> :NERDTreeFind<CR>
