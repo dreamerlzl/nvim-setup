@@ -10,6 +10,7 @@ else
     " inoremap <silent><expr> <c-space> coc#refresh()
 
     call plug#begin('~/.vim/plugged')
+    Plug 'ryanoasis/vim-devicons'
     " for align multiple assignments
     Plug 'godlygeek/tabular'
     " rainbow parenthesis

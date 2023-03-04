@@ -3,6 +3,7 @@
 
 " {{{ setting
 
+set encoding=UTF-8
 " left bar toggled by lsp
 set number
 set signcolumn=number
