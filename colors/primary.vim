@@ -125,7 +125,7 @@ exe 'hi Function       '.s:M.'fg='.s:BLUE  .' '.s:M.'=bold'
 exe 'hi Comment        '.s:M.'fg='.s:GREEN .' '.s:M.'=none'
 exe 'hi Typedef        '.s:M.'fg='.s:GREEN .' '.s:M.'='.s:I
 exe 'hi PreProc        '.s:M.'fg='.s:GREEN .' '.s:M.'=bold'
-exe 'hi Include        '.s:M.'fg='.s:BLACK .' '.s:M.'=none'
+exe 'hi Include        '.s:M.'fg='.s:PURPLE .' '.s:M.'=bold'
 exe 'hi Define         '.s:M.'fg='.s:GREEN .' '.s:M.'=bold'
 exe 'hi Macro          '.s:M.'fg='.s:AQUA .' '.s:M.'=bold'
 exe 'hi Precondit      '.s:M.'fg='.s:GREEN .' '.s:M.'=bold'

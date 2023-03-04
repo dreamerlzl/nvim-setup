@@ -154,6 +154,9 @@ local rt = require("rust-tools")
 
 rt.setup({
     tools = {
+      on_initialized = function(_)
+        vim.cmd[[ colo primary ]]
+      end,
         inlay_hints = {
             only_current_line = true
         }
@@ -284,13 +287,3 @@ require("lspsaga").setup({
         color_mode = false
     }
 })
-
--- local keymap = vim.keymap.set
--- keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
--- keymap("n", "<A-d>", "<cmd>Lspsaga open_floaterm gitui<CR>", { silent = true })
--- keymap("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
-
--- TODO: set lsp highlight group
--- hi LspSagaWinbarFile  guifg=#202124
--- hi LspSagaWinbarWord  guifg=#202124
--- hi LspSagaWinbarFolderName guifg=#202124
