@@ -1,7 +1,12 @@
 nnoremap <C-t> :call NERDTreeToggleAndRefresh()<CR>
 " use leaderf instead
 " nnoremap <C-f> :NERDTreeFind<CR>
-nnoremap <C-n> :set invnumber<CR>
+nnoremap <C-n> :call NumBarToggle()<CR>
+
+function NumBarToggle()
+  set invnumber
+  :ScrollbarToggle
+endfunction
 
 function NERDTreeToggleAndRefresh()
   :NERDTreeToggle

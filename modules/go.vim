@@ -18,6 +18,15 @@ nvim_lsp.gopls.setup {
   cmd = {"gopls", "serve"},
   settings = {
     gopls = {
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true
+      },
       buildFlags = {"-tags=linux,ebpf"},
       experimentalPostfixCompletions = true,
       analyses = {
@@ -31,6 +40,10 @@ nvim_lsp.gopls.setup {
 
 require('go').setup({
     notify = true,
+    lsp_inlay_hints = {
+      enable = true,
+      only_current_line = true
+    }
 })
 --require('go').setup({
 --  run_in_floaterm = true,

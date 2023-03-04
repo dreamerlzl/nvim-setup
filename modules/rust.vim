@@ -16,6 +16,11 @@ local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 local rt = require("rust-tools")
 
 rt.setup({
+  tools = {
+    inlay_hints = {
+      only_current_line = true
+    }
+  },
   dap = {
     adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
   },

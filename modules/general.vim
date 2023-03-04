@@ -4,6 +4,7 @@
 " {{{ setting
 
 " left bar toggled by lsp
+set number
 set signcolumn=number
 set clipboard+=unnamedplus
 set cursorline
