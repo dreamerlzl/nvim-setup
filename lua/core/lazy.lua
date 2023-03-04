@@ -31,6 +31,7 @@ lazy.setup({
         event = {"CmdlineEnter"},
         ft = {"go", 'gomod'}
     }, -- rust
+    {'https://gitlab.com/yorickpeterse/nvim-dd.git'},
     {'rust-lang/rust.vim'}, {'simrat39/rust-tools.nvim'}, -- common stuff
     {'stevearc/dressing.nvim'}, {'godlygeek/tabular'}, {'petertriho/nvim-scrollbar'}, -- statusline
     {'mrjones2014/nvim-ts-rainbow'}, {'j-hui/fidget.nvim'}, {

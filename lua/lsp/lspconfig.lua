@@ -81,7 +81,7 @@ end
 -- see: `:help vim.diagnostic.config`
 -- Customizing how diagnostics are displayed
 vim.diagnostic.config({
-    update_in_insert = true,
+    update_in_insert = false,
     float = {
         focusable = false,
         style = "minimal",
@@ -94,7 +94,7 @@ vim.diagnostic.config({
 
 -- Show line diagnostics automatically in hover window
 vim.cmd([[
-  autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })
+  autocmd CursorHold * lua vim.diagnostic.get(0)
 ]])
 
 -- Mappings.
@@ -265,7 +265,7 @@ cmp.setup({
     },
 
     -- Installed sources
-    sources = {{
+    sources = cmp.config.sources({{
         name = 'nvim_lsp'
     }, {
         name = 'vsnip'
@@ -273,13 +273,13 @@ cmp.setup({
         name = 'path'
     }, {
         name = 'buffer'
-    }}
+    }})
 })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = false,
     signs = true,
-    update_in_insert = true
+    update_in_insert = false
 })
 
 require("lspsaga").setup({
