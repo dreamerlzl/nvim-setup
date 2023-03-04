@@ -86,6 +86,8 @@ lazy.setup({
 ,
         dependencies = {{"nvim-tree/nvim-web-devicons"}, {"nvim-treesitter/nvim-treesitter"}}
     }, -- Autocomplete
+    {'hrsh7th/cmp-vsnip'},
+    {'hrsh7th/vim-vsnip'},
     {
         'hrsh7th/nvim-cmp',
         -- load cmp on InsertEnter
