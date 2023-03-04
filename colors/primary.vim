@@ -166,7 +166,7 @@ exe 'hi Cursor         '.s:M.'bg='.s:GREY1 .' '.s:M.'fg='.s:BG    .' '.s:M.'=bol
 exe 'hi Search         '.s:M.'bg='.s:YELLOW.' '.s:M.'fg='.s:BG    .' '.s:M.'=none'
 exe 'hi IncSearch      '.s:M.'bg='.s:YELLOW.' '.s:M.'fg='.s:BG    .' '.s:M.'=none'
 exe 'hi ColorColumn    '.s:M.'bg='.s:GREY2 .' '.s:M.'fg='.'NONE'  .' '.s:M.'=none'
-exe 'hi SignColumn     '.s:M.'bg='.s:GREY2 .' '.s:M.'fg='.s:YELLOW.' '.s:M.'=none'
+exe 'hi SignColumn     '.s:M.'bg='.'NONE' .' '.s:M.'fg='.s:YELLOW.' '.s:M.'=none'
 
 exe 'hi WarningMsg     '.s:M.'bg='.s:BG    .' '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
 exe 'hi ErrorMsg       '.s:M.'bg='.s:BG    .' '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
@@ -185,7 +185,7 @@ exe 'hi PmenuThumb     '.s:M.'bg='.s:GREY0 .' '.s:M.'fg='.s:BG    .' '.s:M.'=non
 if (has('gui_running') || &t_Co == 256)
   exe 'hi Visual       '.s:M.'bg='.s:GREY2 .' '.s:M.'fg='.'NONE'  .' '.s:M.'=none'
   exe 'hi Pmenu        '.s:M.'bg='.s:GREY2 .' '.s:M.'fg='.s:GREY0 .' '.s:M.'=none'
-  exe 'hi Linenr       '.s:M.'bg='.s:GREY2 .' '.s:M.'fg='.s:GREY1 .' '.s:M.'=none'
+  exe 'hi Linenr       '.s:M.'bg='.'NONE' .' '.s:M.'fg='.s:GREY1 .' '.s:M.'=none'
   exe 'hi VertSplit    '.s:M.'bg='.s:GREY1 .' '.s:M.'fg='.s:GREY2 .' '.s:M.'=none'
   exe 'hi StatusLine   '.s:M.'bg='.s:GREY1 .' '.s:M.'fg='.s:GREY2 .' '.s:M.'=bold'
   exe 'hi StatusLineNC '.s:M.'bg='.s:GREY2 .' '.s:M.'fg='.s:GREY1 .' '.s:M.'=none'
