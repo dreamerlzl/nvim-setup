@@ -59,8 +59,9 @@ lazy.setup({
         build = ':LeaderfInstallCExtension'
     }, {'airblade/vim-rooter'}, {'simrat39/symbols-outline.nvim'}, -- File explorer
     {
-        'nvim-tree/nvim-tree.lua',
-        dependencies = {'nvim-tree/nvim-web-devicons'}
+      'ms-jpq/chadtree',
+      branch = 'chad',
+      build = 'python3 -m chadtree deps'
     }, -- Treesitter
     {
         'nvim-treesitter/nvim-treesitter',
