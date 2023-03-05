@@ -123,11 +123,10 @@ JavaScript/TypeScript -> tsserver
 -- map buffer local keybindings when the language server attaches.
 -- Add your language server below:
 local servers = {'bashls', 'pyright', 'clangd', 'html', 'cssls', 'tsserver'}
-local coq = require "coq"
 
 -- Call setup
 for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup(coq.lsp_ensure_capabilities({
+    lspconfig[lsp].setup({
         on_attach = on_attach,
         root_dir = root_dir,
         capabilities = capabilities
@@ -135,7 +134,7 @@ for _, lsp in ipairs(servers) do
         --     -- default in neovim 0.7+
         --     debounce_text_changes = 150
         -- }
-    }))
+    })
 end
 
 vim.g.rustfmt_autosave = 1
@@ -146,7 +145,7 @@ local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 
 local rt = require("rust-tools")
-local setup = coq.lsp_ensure_capabilities({
+local setup = {
     on_attach = function(client, bufnr)
         vim.keymap.set("n", "<Leader>h", rt.hover_actions.hover_actions, {
             buffer = bufnr
@@ -185,7 +184,7 @@ local setup = coq.lsp_ensure_capabilities({
             }
         }
     }
-})
+}
 
 local opts = {
     tools = {

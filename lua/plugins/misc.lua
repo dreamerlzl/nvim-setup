@@ -1,3 +1,4 @@
+require("mini.completion").setup()
 require("symbols-outline").setup()
 require("scrollbar").setup({
   excluded_buftypes = {

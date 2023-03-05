@@ -87,42 +87,8 @@ lazy.setup({
 ,
         dependencies = {{"nvim-tree/nvim-web-devicons"}, {"nvim-treesitter/nvim-treesitter"}}
     }, -- Autocomplete
-    {
-        "ms-jpq/coq_nvim",
-        branch = "coq",
-        init = function()
-            vim.g.coq_settings = {
-                auto_start = 'shut-up',
-                keymap = {
-                  manual_complete = "<c-m>"
-                },
-                clients = {
-                  lsp = {
-                    enabled = true,
-                    weight_adjust = 1.50
-                  },
-                  tree_sitter = {
-                    enabled = false,
-                    weight_adjust = -2.00
-                  },
-                  snippets = {
-                    enabled = false,
-                    weight_adjust = -2.00
-                  },
-                  tags = {
-                    enabled = false,
-                    weight_adjust = -2.00
-                  },
-                },
-                limits = {
-                    completion_auto_timeout = 1
-                }
-            }
-        end
-,
-        dependencies = {"neovim/nvim-lspconfig"},
-        lazy = false
-    }}
+    { 'echasnovski/mini.nvim', version = false },
+    }
 }, {
     install = {
         colorscheme = {"shine"}
