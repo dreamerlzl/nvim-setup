@@ -87,8 +87,15 @@ lazy.setup({
 ,
         dependencies = {{"nvim-tree/nvim-web-devicons"}, {"nvim-treesitter/nvim-treesitter"}}
     }, -- Autocomplete
-    { 'echasnovski/mini.nvim', version = false },
-    }
+    {
+        'hrsh7th/nvim-cmp',
+        -- load cmp on InsertEnter
+        event = 'InsertEnter',
+        -- these dependencies will only be loaded when cmp loads
+        -- dependencies are always lazy-loaded unless specified otherwise
+        dependencies = {'L3MON4D3/LuaSnip', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path', 'hrsh7th/cmp-buffer',
+                        'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-vsnip', 'hrsh7th/vim-vsnip'}
+    }}
 }, {
     install = {
         colorscheme = {"shine"}

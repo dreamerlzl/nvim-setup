@@ -1,10 +1,6 @@
-require("mini.completion").setup()
 require("symbols-outline").setup()
 require("scrollbar").setup({
-  excluded_buftypes = {
-    "terminal",
-    "nofile"
-  }
+    excluded_buftypes = {"terminal", "nofile"}
 })
 require('leap').add_default_mappings()
 -- remove leap's forward till mapping
