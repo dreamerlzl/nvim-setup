@@ -31,8 +31,7 @@ lazy.setup({
         event = {"CmdlineEnter"},
         ft = {"go", 'gomod'}
     }, -- rust
-    {'https://gitlab.com/yorickpeterse/nvim-dd.git'},
-    {'rust-lang/rust.vim'}, {'simrat39/rust-tools.nvim'}, -- common stuff
+    {'https://gitlab.com/yorickpeterse/nvim-dd.git'}, {'rust-lang/rust.vim'}, {'simrat39/rust-tools.nvim'}, -- common stuff
     {'stevearc/dressing.nvim'}, {'godlygeek/tabular'}, {'petertriho/nvim-scrollbar'}, -- statusline
     {'mrjones2014/nvim-ts-rainbow'}, {'j-hui/fidget.nvim'}, {
         'nvim-lualine/lualine.nvim',
@@ -59,9 +58,9 @@ lazy.setup({
         build = ':LeaderfInstallCExtension'
     }, {'airblade/vim-rooter'}, {'simrat39/symbols-outline.nvim'}, -- File explorer
     {
-      'ms-jpq/chadtree',
-      branch = 'chad',
-      build = 'python3 -m chadtree deps'
+        'ms-jpq/chadtree',
+        branch = 'chad',
+        build = 'python3 -m chadtree deps'
     }, -- Treesitter
     {
         'nvim-treesitter/nvim-treesitter',
@@ -88,16 +87,41 @@ lazy.setup({
 ,
         dependencies = {{"nvim-tree/nvim-web-devicons"}, {"nvim-treesitter/nvim-treesitter"}}
     }, -- Autocomplete
-    {'hrsh7th/cmp-vsnip'},
-    {'hrsh7th/vim-vsnip'},
     {
-        'hrsh7th/nvim-cmp',
-        -- load cmp on InsertEnter
-        event = 'InsertEnter',
-        -- these dependencies will only be loaded when cmp loads
-        -- dependencies are always lazy-loaded unless specified otherwise
-        dependencies = {'L3MON4D3/LuaSnip', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path', 'hrsh7th/cmp-buffer',
-                        'saadparwaiz1/cmp_luasnip'}
+        "ms-jpq/coq_nvim",
+        branch = "coq",
+        init = function()
+            vim.g.coq_settings = {
+                auto_start = 'shut-up',
+                keymap = {
+                  manual_complete = "<c-m>"
+                },
+                clients = {
+                  lsp = {
+                    enabled = true,
+                    weight_adjust = 1.50
+                  },
+                  tree_sitter = {
+                    enabled = false,
+                    weight_adjust = -2.00
+                  },
+                  snippets = {
+                    enabled = false,
+                    weight_adjust = -2.00
+                  },
+                  tags = {
+                    enabled = false,
+                    weight_adjust = -2.00
+                  },
+                },
+                limits = {
+                    completion_auto_timeout = 1
+                }
+            }
+        end
+,
+        dependencies = {"neovim/nvim-lspconfig"},
+        lazy = false
     }}
 }, {
     install = {

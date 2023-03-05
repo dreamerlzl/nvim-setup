@@ -5,15 +5,9 @@ if not lsp_status_ok then
     return
 end
 
-local cmp_status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
-if not cmp_status_ok then
-    return
-end
-
 -- Add additional capabilities supported by nvim-cmp
 -- See: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -129,18 +123,19 @@ JavaScript/TypeScript -> tsserver
 -- map buffer local keybindings when the language server attaches.
 -- Add your language server below:
 local servers = {'bashls', 'pyright', 'clangd', 'html', 'cssls', 'tsserver'}
+local coq = require "coq"
 
 -- Call setup
 for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
+    lspconfig[lsp].setup(coq.lsp_ensure_capabilities({
         on_attach = on_attach,
         root_dir = root_dir,
-        capabilities = capabilities,
-        flags = {
-            -- default in neovim 0.7+
-            debounce_text_changes = 150
-        }
-    }
+        capabilities = capabilities
+        -- flags = {
+        --     -- default in neovim 0.7+
+        --     debounce_text_changes = 150
+        -- }
+    }))
 end
 
 vim.g.rustfmt_autosave = 1
@@ -151,12 +146,53 @@ local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 
 local rt = require("rust-tools")
+local setup = coq.lsp_ensure_capabilities({
+    on_attach = function(client, bufnr)
+        vim.keymap.set("n", "<Leader>h", rt.hover_actions.hover_actions, {
+            buffer = bufnr
+        })
+        vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, {
+            buffer = bufnr
+        })
+        on_attach(client, bufnr)
+    end
+,
+    capabilities = capabilities,
+    flags = {
+        -- default in neovim 0.7+
+        debounce_text_changes = 150
+    },
+    settings = {
+        ["rust-analyzer"] = {
+            checkOnSave = {
+                -- allFeatures = true,
+                overrideCommand = {'cargo', 'clippy', '--workspace', '--message-format=json', '--all-targets'}
+            },
+            inlayHints = {
+                locationLinks = false
+            },
+            cargo = {
+                features = "all"
+            },
+            procMacro = {
+                enable = true
+            },
+            imports = {
+                granularity = {
+                    group = "crate"
+                },
+                prefix = "self"
+            }
+        }
+    }
+})
 
-rt.setup({
+local opts = {
     tools = {
-      on_initialized = function(_)
-        vim.cmd[[ colo primary ]]
-      end,
+        on_initialized = function(_)
+            vim.cmd [[ colo primary ]]
+        end
+,
         inlay_hints = {
             only_current_line = true
         }
@@ -164,47 +200,10 @@ rt.setup({
     dap = {
         adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
     },
-    server = {
-        on_attach = function(client, bufnr)
-            vim.keymap.set("n", "<Leader>h", rt.hover_actions.hover_actions, {
-                buffer = bufnr
-            })
-            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, {
-                buffer = bufnr
-            })
-            on_attach(client, bufnr)
-        end
-,
-        capabilities = capabilities,
-        flags = {
-            -- default in neovim 0.7+
-            debounce_text_changes = 150
-        },
-        settings = {
-            ["rust-analyzer"] = {
-                checkOnSave = {
-                    -- allFeatures = true,
-                    overrideCommand = {'cargo', 'clippy', '--workspace', '--message-format=json', '--all-targets'}
-                },
-                inlayHints = {
-                    locationLinks = false
-                },
-                cargo = {
-                    features = "all"
-                },
-                procMacro = {
-                    enable = true
-                },
-                imports = {
-                    granularity = {
-                        group = "crate"
-                    },
-                    prefix = "self"
-                }
-            }
-        }
-    }
-})
+    server = setup
+}
+
+rt.setup(opts)
 
 lspconfig.gopls.setup({
     on_attach = on_attach,
@@ -234,46 +233,6 @@ require('go').setup({
         enable = true,
         only_current_line = true
     }
-})
-
--- Setup Completion
--- See https://github.com/hrsh7th/nvim-cmp#basic-configuration
-local cmp = require 'cmp'
-cmp.setup({
-    -- Enable LSP snippets
-    snippet = {
-        expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-        end
-
-
-    },
-    mapping = {
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        -- Add tab support
-        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-        ['<Tab>'] = cmp.mapping.select_next_item(),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-s>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true
-        })
-    },
-
-    -- Installed sources
-    sources = cmp.config.sources({{
-        name = 'nvim_lsp'
-    }, {
-        name = 'vsnip'
-    }, {
-        name = 'path'
-    }, {
-        name = 'buffer'
-    }})
 })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
