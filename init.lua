@@ -10,7 +10,6 @@ require('core/cmp')
 require('lsp/lspconfig')
 require('lsp/go')
 
-require('plugins/nvim-tree')
 require('plugins/indent-blankline')
 require('plugins/nvim-cmp')
 require('plugins/nvim-treesitter')

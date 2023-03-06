@@ -18,10 +18,17 @@
 - lua: [lua_ls](https://github.com/LuaLS/lua-language-server)
 
 # faq
-- why `leap.nvim` instead of `easymotion`, `vim-sneak`, `hop.nvim`?
+- why neo-tree instead of chadtree, nvim-tree and nerdtree for file management?
+    - [chadtree doesn't support open a dir](https://github.com/ms-jpq/chadtree/issues/274)
+    - nvim-tree doesn't support <enter> to enter a dir in the tree
+    - nerdtree is no longer maintained (actually I like it)
+- why `leap.nvim` instead of `easymotion`, `vim-sneak`, `hop.nvim` for metajump?
     - when I switch to lua config and lazy.nvim, `vim-sneak` stop working.
     - `hop.nvim` is buggy
     - `leap.nvim` is more actively maintained, and the design is better
+- why nvim-cmp instead of coq.nvim, mini.completion for autocompletion?
+    - coq.nvim makes my neovim crash from time to time; nvim-cmp never.
+    - mini.completion is neat, but it's not as feature-rich as nvim-cmp.
 - why nvim-dap instead of vim-inspector?
   - more convenient to debug unit tests
 - about neovim's [folding](https://neovim.io/doc/user/fold.html)

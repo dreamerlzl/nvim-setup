@@ -57,11 +57,7 @@ lazy.setup({
         'Yggdroot/LeaderF',
         build = ':LeaderfInstallCExtension'
     }, {'airblade/vim-rooter'}, {'simrat39/symbols-outline.nvim'}, -- File explorer
-    {
-        'ms-jpq/chadtree',
-        branch = 'chad',
-        build = 'python3 -m chadtree deps'
-    }, -- Treesitter
+     -- Treesitter
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate'
@@ -86,7 +82,35 @@ lazy.setup({
         end
 ,
         dependencies = {{"nvim-tree/nvim-web-devicons"}, {"nvim-treesitter/nvim-treesitter"}}
-    }, -- Autocomplete
+    }, -- tree
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v2.x",
+      dependencies = {
+        "nvim-tree/nvim-web-devicons",
+        "MunifTanjim/nui.nvim",
+        "nvim-lua/plenary.nvim",
+      },
+      keys = {
+        { "<C-t>", ":Neotree toggle reveal=true<CR>" },
+      },
+      init = function()
+        vim.g.neo_tree_remove_legacy_commands = 1
+        if vim.fn.argc() == 1 then
+          local stat = vim.loop.fs_stat(vim.fn.argv(0))
+          if stat and stat.type == "directory" then
+            require("neo-tree")
+          end
+        end
+      end,
+      opts = { -- make lazy manage your config
+        follow_current_file = true,
+        filesystem = {
+          hijack_netrw_behavior = "open_current",
+        }
+      }
+    },
+    -- Autocomplete
     {
         'hrsh7th/nvim-cmp',
         -- load cmp on InsertEnter
