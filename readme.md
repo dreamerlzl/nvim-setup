@@ -7,15 +7,17 @@
 - command-line utilities (for leaderF)
   - [ripgrep](https://github.com/BurntSushi/ripgrep)
   - [fzf](https://github.com/junegunn/fzf)
-- python
-  - [pynvim](https://github.com/neovim/pynvim)
-  - pyright: `npm i -g pyright`
-- rust
-  - [rust-analyzer](https://rust-analyzer.github.io/manual.html#installation)
-  - [codelldb](https://github.com/vadimcn/vscode-lldb/releases)
-    - install, unzip and modify the execution path in `modules/rust.vim`
-    - note: rust-tools has problems with codelldb > 1.6.10
-- lua: [lua_ls](https://github.com/LuaLS/lua-language-server)
+- lsps
+    - python
+      - [pynvim](https://github.com/neovim/pynvim)
+      - pyright: `npm i -g pyright`
+    - rust
+      - [rust-analyzer](https://rust-analyzer.github.io/manual.html#installation)
+      - [codelldb](https://github.com/vadimcn/vscode-lldb/releases)
+        - install, unzip and modify the execution path in `modules/rust.vim`
+        - note: rust-tools has problems with codelldb > 1.6.10
+    - lua: [lua_ls](https://github.com/LuaLS/lua-language-server)
+    - frontend: `sudo npm i -g vscode-langservers-extracted`
 
 # faq
 - why neo-tree instead of chadtree, nvim-tree and nerdtree for file management?
