@@ -8,6 +8,7 @@ end
 -- Add additional capabilities supported by nvim-cmp
 -- See: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -211,6 +212,9 @@ lspconfig.gopls.setup({
     flags = {
         -- default in neovim 0.7+
         debounce_text_changes = 150
+    },
+    init_options = {
+      usePlaceholders = true
     },
     settings = {
         gopls = {
