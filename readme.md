@@ -1,7 +1,7 @@
 # ov
 - my neovim setup with lua + lazy.nvim
 - configs for plugin can be found under `lua/plugins`
-- for python, golang and rust dev
+- for rust, python, golang, lua and typescript dev
 
 # prerequisite(separate installation)
 - command-line utilities (for leaderF)
@@ -15,6 +15,7 @@
   - [codelldb](https://github.com/vadimcn/vscode-lldb/releases)
     - install, unzip and modify the execution path in `modules/rust.vim`
     - note: rust-tools has problems with codelldb > 1.6.10
+- lua: [lua_ls](https://github.com/LuaLS/lua-language-server)
 
 # faq
 - why `leap.nvim` instead of `easymotion`, `vim-sneak`, `hop.nvim`?

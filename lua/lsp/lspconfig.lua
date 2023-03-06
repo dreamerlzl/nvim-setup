@@ -129,7 +129,7 @@ local servers = {'bashls', 'pyright', 'clangd', 'html', 'cssls', 'tsserver'}
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         on_attach = on_attach,
-        root_dir = root_dir,
+        -- root_dir = root_dir,
         capabilities = capabilities
         -- flags = {
         --     -- default in neovim 0.7+
@@ -137,6 +137,19 @@ for _, lsp in ipairs(servers) do
         -- }
     })
 end
+
+lspconfig['lua_ls'].setup({
+  on_attach = on_attach,
+  -- root_dir = root_dir,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = {"vim"}
+      }
+    }
+  }
+})
 
 vim.g.rustfmt_autosave = 1
 vim.g.rust_fold = 1
@@ -187,7 +200,7 @@ local setup = {
     }
 }
 
-local opts = {
+local rustopts = {
     tools = {
         on_initialized = function(_)
             vim.cmd [[ colo primary ]]
@@ -203,11 +216,11 @@ local opts = {
     server = setup
 }
 
-rt.setup(opts)
+rt.setup(rustopts)
 
 lspconfig.gopls.setup({
     on_attach = on_attach,
-    root_dir = root_dir,
+    -- root_dir = root_dir,
     capabilities = capabilities,
     flags = {
         -- default in neovim 0.7+
