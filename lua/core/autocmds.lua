@@ -68,7 +68,7 @@ autocmd('Filetype', {
 })
 
 autocmd('Filetype', {
-  pattern = {'go', 'lua'},
+  pattern = {'go', 'lua', 'rust'},
   command = 'setlocal foldmethod=expr'
 })
 
