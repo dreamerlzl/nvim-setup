@@ -24,6 +24,13 @@ end
 -- Start setup
 lazy.setup({
     spec = {
+    {
+      'folke/todo-comments.nvim',
+      dependencies = {'nvim-lua/plenary.nvim'},
+      config = function()
+          require('todo-comments').setup {}
+      end
+    },
     -- folding
     {
       'kevinhwang91/nvim-ufo',
