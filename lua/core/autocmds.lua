@@ -67,6 +67,11 @@ autocmd('Filetype', {
     command = 'setlocal shiftwidth=2 tabstop=2'
 })
 
+autocmd('Filetype', {
+  pattern = {'go', 'lua'},
+  command = 'setlocal foldmethod=expr'
+})
+
 -- Terminal settings:
 ---------------------
 

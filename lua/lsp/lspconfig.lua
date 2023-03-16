@@ -152,6 +152,7 @@ lspconfig['lua_ls'].setup({
 })
 
 vim.g.rustfmt_autosave = 1
+-- rust.vim will set foldmethod=syntax for rust
 vim.g.rust_fold = 1
 
 local extension_path = '/home/wright/vscode-lldb/'
