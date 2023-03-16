@@ -11,7 +11,7 @@ end
 -- See: https://github.com/nvim-treesitter/nvim-treesitter#quickstart
 nvim_treesitter.setup {
     -- A list of parser names, or "all"
-    ensure_installed = {'bash', 'c', 'css', 'html', 'javascript', 'json', 'lua', 'python', 'rust', 'typescript', 'vim',
+    ensure_installed = {'bash', 'c', 'css', 'html', 'javascript', 'json', 'lua', 'python', 'rust', 'typescript', 'vim', 'go',
                         'yaml'},
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
