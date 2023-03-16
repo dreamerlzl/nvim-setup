@@ -17,4 +17,5 @@ require('plugins/git')
 require('plugins/alpha-nvim')
 require('plugins/leaderf')
 require('plugins/misc')
+require('plugins/notify')
 

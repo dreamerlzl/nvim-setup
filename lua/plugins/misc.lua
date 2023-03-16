@@ -3,6 +3,7 @@ require("scrollbar").setup({
     excluded_buftypes = {"terminal", "nofile"}
 })
 require('leap').add_default_mappings()
+require 'colorizer'.setup()
 -- remove leap's forward till mapping
 vim.keymap.del({'o', 'x'}, 'x')
 

@@ -32,8 +32,10 @@ lazy.setup({
         ft = {"go", 'gomod'}
     }, -- rust
     {'https://gitlab.com/yorickpeterse/nvim-dd.git'}, {'rust-lang/rust.vim'}, {'simrat39/rust-tools.nvim'}, -- common stuff
-    {'stevearc/dressing.nvim'}, {'godlygeek/tabular'}, {'petertriho/nvim-scrollbar'}, -- statusline
-    {'mrjones2014/nvim-ts-rainbow'}, {'j-hui/fidget.nvim'}, {
+    {'stevearc/dressing.nvim'}, {'godlygeek/tabular'}, {'petertriho/nvim-scrollbar'}, -- colorize
+    {'NvChad/nvim-colorizer.lua'},
+    {'mrjones2014/nvim-ts-rainbow'}, -- statusline
+    {'j-hui/fidget.nvim'}, {
         'nvim-lualine/lualine.nvim',
         dependencies = {'nvim-tree/nvim-web-devicons'}
     }, -- Icons
