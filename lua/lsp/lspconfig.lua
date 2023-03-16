@@ -8,6 +8,10 @@ end
 -- Add additional capabilities supported by nvim-cmp
 -- See: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Use an on_attach function to only map the following keys

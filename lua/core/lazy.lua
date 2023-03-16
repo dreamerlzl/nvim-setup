@@ -23,10 +23,16 @@ end
 
 -- Start setup
 lazy.setup({
-    spec = { -- go
+    spec = {
+    -- folding
+    {
+      'kevinhwang91/nvim-ufo',
+      dependencies = {'kevinhwang91/promise-async'},
+    },
+    -- go
     {
         "ray-x/go.nvim",
-        requires = { -- optional packages
+        dependencies = { -- optional packages
         "ray-x/guihua.lua", "neovim/nvim-lspconfig", "nvim-treesitter/nvim-treesitter"},
         event = {"CmdlineEnter"},
         ft = {"go", 'gomod'}
