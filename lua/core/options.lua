@@ -10,7 +10,6 @@ local opt = vim.opt -- Set options (global/buffer/windows-scoped)
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
--- opt.mouse = 'a' -- Enable mouse support
 
 vim.cmd [[
 set tabline=%!MyTabLine()
@@ -45,6 +44,7 @@ function MyTabLine()
 endfunction
 ]]
 
+-- opt.mouse = 'a' -- Enable mouse support
 opt.clipboard = 'unnamedplus' -- Copy/paste to system clipboard
 opt.swapfile = false -- Don't use swapfile
 opt.completeopt = 'menuone,noinsert,noselect' -- Autocomplete options

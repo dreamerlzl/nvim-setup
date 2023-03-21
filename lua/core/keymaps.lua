@@ -26,7 +26,16 @@ endfunction
 ]]
 
 -- Toggle LineNumberColumn
-map('n', '<C-n>', ':set invnumber | ScrollbarToggle <CR>')
+map('n', '<C-n>', ':set invnumber | exec ToggleAll() <CR>')
+
+vim.cmd [[
+
+function ToggleAll()
+  :ScrollbarToggle
+  :IndentBlanklineToggle
+endfunction
+
+]]
 
 -- buffers
 -- for switching tabs
