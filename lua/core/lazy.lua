@@ -25,6 +25,17 @@ end
 lazy.setup({
     spec = {
     {
+      "jackMort/ChatGPT.nvim",
+      dependencies = {"MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim", 'nvim-telescope/telescope.nvim'},
+      config = function ()
+        require("chatgpt").setup({
+          openai_params = {
+            model = "gpt-3.5-turbo",
+          },
+        })
+      end
+    },
+    {
       'folke/todo-comments.nvim',
       dependencies = {'nvim-lua/plenary.nvim'},
       config = function()
