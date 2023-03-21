@@ -32,7 +32,6 @@ vim.cmd [[
 
 function ToggleAll()
   :ScrollbarToggle
-  :IndentBlanklineToggle
 endfunction
 
 ]]
