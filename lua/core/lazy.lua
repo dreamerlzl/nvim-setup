@@ -24,6 +24,7 @@ end
 -- Start setup
 lazy.setup({
     spec = {
+    {'akinsho/toggleterm.nvim', version = "*", config = true},
     {
       "jackMort/ChatGPT.nvim",
       dependencies = {"MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim", 'nvim-telescope/telescope.nvim'},

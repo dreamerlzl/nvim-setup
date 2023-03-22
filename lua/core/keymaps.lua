@@ -44,6 +44,7 @@ map('n', 'K', 'gt')
 map('v', 'd', '"_d')
 map('v', 'p', '"+p')
 map('v', 'y', '"+y')
+map('t', '<Esc>', '<C-\\><C-n>')
 
 vim.keymap.set("n", "<Space>", "<Nop>", {
     silent = true

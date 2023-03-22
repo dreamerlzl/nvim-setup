@@ -18,4 +18,5 @@ require('plugins/alpha-nvim')
 require('plugins/leaderf')
 require('plugins/misc')
 require('plugins/notify')
+require('plugins/toggleterm')
 
