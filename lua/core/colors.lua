@@ -1,7 +1,7 @@
 vim.opt.termguicolors = true
 
 -- if we don't do augroup, the highlight command doesn't work
-vim.cmd [[
+vim.cmd([[
 
 colo primary
 
@@ -15,4 +15,4 @@ autocmd ColorScheme * highlight Pmenu guibg=#fddde6
 autocmd ColorScheme * highlight VertSplit ctermbg=NONE guibg=NONE
 
 augroup end
-]]
+]])

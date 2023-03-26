@@ -11,7 +11,7 @@ local opt = vim.opt -- Set options (global/buffer/windows-scoped)
 -- General
 -----------------------------------------------------------
 
-vim.cmd [[
+vim.cmd([[
 set tabline=%!MyTabLine()
 
 function! MyTabLabel(n)
@@ -42,12 +42,12 @@ function MyTabLine()
 
   return s
 endfunction
-]]
+]])
 
 -- opt.mouse = 'a' -- Enable mouse support
-opt.clipboard = 'unnamedplus' -- Copy/paste to system clipboard
+opt.clipboard = "unnamedplus" -- Copy/paste to system clipboard
 opt.swapfile = false -- Don't use swapfile
-opt.completeopt = 'menuone,noinsert,noselect' -- Autocomplete options
+opt.completeopt = "menuone,noinsert,noselect" -- Autocomplete options
 opt.updatetime = 300
 
 -----------------------------------------------------------
@@ -57,7 +57,7 @@ opt.number = true -- Show line number
 opt.cursorline = true
 opt.showmatch = true -- Highlight matching parenthesis
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-opt.foldcolumn = 'auto'
+opt.foldcolumn = "auto"
 opt.foldenable = true
 opt.foldlevel = 99
 opt.foldlevelstart = 99
@@ -72,13 +72,13 @@ opt.linebreak = true -- Wrap on word boundary
 opt.termguicolors = true -- Enable 24-bit RGB colors
 opt.laststatus = 3 -- Set global statusline
 
-vim.cmd [[
+vim.cmd([[
 
 " for prog lang syntax highlight
 syntax enable
 filetype plugin indent on
 
-]]
+]])
 -----------------------------------------------------------
 -- Tabs, indent
 -----------------------------------------------------------
@@ -100,21 +100,43 @@ opt.updatetime = 250 -- ms to wait for trigger an event
 -- Startup
 -----------------------------------------------------------
 -- Disable nvim intro
-opt.shortmess:append "sI"
+opt.shortmess:append("sI")
 
 -- -- Disable builtin plugins
-local disabled_built_ins = {"2html_plugin", "getscript", "getscriptPlugin", "gzip", "logipat", "netrwPlugin",
-                            "netrwSettings", "netrwFileHandlers", "matchit", "tar", "tarPlugin", "rrhelper",
-                            "spellfile_plugin", "vimball", "vimballPlugin", "zip", "zipPlugin", "tutor", "rplugin",
-                            "synmenu", "optwin", "compiler", "bugreport", "ftplugin"}
+local disabled_built_ins = {
+	"2html_plugin",
+	"getscript",
+	"getscriptPlugin",
+	"gzip",
+	"logipat",
+	"netrwPlugin",
+	"netrwSettings",
+	"netrwFileHandlers",
+	"matchit",
+	"tar",
+	"tarPlugin",
+	"rrhelper",
+	"spellfile_plugin",
+	"vimball",
+	"vimballPlugin",
+	"zip",
+	"zipPlugin",
+	"tutor",
+	"rplugin",
+	"synmenu",
+	"optwin",
+	"compiler",
+	"bugreport",
+	"ftplugin",
+}
 
 for _, plugin in pairs(disabled_built_ins) do
-    g["loaded_" .. plugin] = 1
+	g["loaded_" .. plugin] = 1
 end
 
 -- misc
 g.colorscheme_primary_disable_italic = 1
 
-vim.cmd [[
+vim.cmd([[
 let g:sneak#label = 1
-]]
+]])
