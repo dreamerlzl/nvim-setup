@@ -18,5 +18,9 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.deno_fmt, -- will use the source for all supported file types
+		null_ls.builtins.formatting.deno_fmt.with({
+			filetypes = { "markdown" }, -- only runs `deno fmt` for markdown
+		}),
 	},
 })
