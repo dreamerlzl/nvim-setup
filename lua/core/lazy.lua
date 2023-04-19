@@ -29,6 +29,10 @@ end
 -- Start setup
 lazy.setup({
 	spec = {
+		{
+			"williamboman/mason-lspconfig.nvim",
+			dependencies = { "neovim/nvim-lspconfig", "williamboman/mason.nvim" },
+		},
 		-- formatting
 		{
 			"jose-elias-alvarez/null-ls.nvim",
@@ -154,7 +158,8 @@ lazy.setup({
 					end
 				end
 			end,
-			opts = { -- make lazy manage your config
+			opts = {
+				-- make lazy manage your config
 				follow_current_file = true,
 				filesystem = {
 					hijack_netrw_behavior = "open_current",

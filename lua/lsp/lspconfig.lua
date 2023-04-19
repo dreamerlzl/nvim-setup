@@ -124,6 +124,10 @@ JavaScript/TypeScript -> tsserver
 -- map buffer local keybindings when the language server attaches.
 -- Add your language server below:
 local servers = { "bashls", "pyright", "clangd", "html", "cssls", "tsserver" }
+require("mason").setup()
+require("mason-lspconfig").setup({
+	ensure_installed = { "rust_analyzer", "lua_ls", "pyright", "gopls", "tsserver", "bashls" },
+})
 
 -- Call setup
 for _, lsp in ipairs(servers) do
