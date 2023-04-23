@@ -206,9 +206,6 @@ local setup = {
 
 local rustopts = {
 	tools = {
-		on_initialized = function(_)
-			vim.cmd([[ colo primary ]])
-		end,
 		inlay_hints = {
 			only_current_line = true,
 		},
