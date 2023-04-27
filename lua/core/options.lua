@@ -101,6 +101,8 @@ opt.updatetime = 250 -- ms to wait for trigger an event
 -----------------------------------------------------------
 -- Disable nvim intro
 opt.shortmess:append("sI")
+opt.timeout = true
+opt.timeoutlen = 300
 
 -- -- Disable builtin plugins
 local disabled_built_ins = {

@@ -30,6 +30,13 @@ end
 lazy.setup({
 	spec = {
 		{
+			"folke/which-key.nvim",
+		},
+		--{
+		--	"ThePrimeagen/harpoon",
+		--	dependencies = { "nvim-lua/plenary.nvim" },
+		--},
+		{
 			"williamboman/mason-lspconfig.nvim",
 			dependencies = { "neovim/nvim-lspconfig", "williamboman/mason.nvim" },
 		},
