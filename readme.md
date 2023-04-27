@@ -1,6 +1,12 @@
 # ov
 
-- my neovim setup with lua + lazy.nvim + null-ls + mason lsp
+- my neovim setup with
+  - lazy.nvim
+  - null-ls for formatting
+  - mason for managing lsp
+  - harpoon for file navigation
+  - noice for floating cmdline
+  - lualine for status line
 - configs for plugin can be found under `lua/plugins`
 - for rust, python, golang, lua and typescript dev
 
