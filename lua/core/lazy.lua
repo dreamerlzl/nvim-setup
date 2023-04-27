@@ -128,6 +128,10 @@ lazy.setup({
 		}, -- Indent line
 		{ "lukas-reineke/indent-blankline.nvim" }, -- Tag viewer
 		-- { 'preservim/tagbar' },
+		{
+			"folke/noice.nvim",
+			dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+		},
 		{ "rcarriga/nvim-notify" }, -- Autopair
 		{
 			"windwp/nvim-autopairs",
