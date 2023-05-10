@@ -33,7 +33,7 @@ require("lualine").setup({
 		lualine_c = {
 			{
 				"filename",
-				file_status = ture,
+				file_status = true,
 				path = 2,
 				shorting_target = 20,
 			},
