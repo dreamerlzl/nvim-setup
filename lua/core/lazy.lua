@@ -29,16 +29,22 @@ end
 -- Start setup
 lazy.setup({
 	spec = {
+		-- debug
+		{
+			"mfussenegger/nvim-dap",
+		},
+		{
+			"rcarriga/nvim-dap-ui",
+			dependencies = { "mfussenegger/nvim-dap" },
+		},
+
 		{
 			"folke/which-key.nvim",
 		},
+		-- project file navigation
 		{
 			"ThePrimeagen/harpoon",
 			dependencies = { "nvim-lua/plenary.nvim" },
-		},
-		{
-			"williamboman/mason-lspconfig.nvim",
-			dependencies = { "neovim/nvim-lspconfig", "williamboman/mason.nvim" },
 		},
 		-- formatting
 		{
@@ -82,34 +88,55 @@ lazy.setup({
 			},
 			event = { "CmdlineEnter" },
 			ft = { "go", "gomod" },
-		}, -- rust
+		},
+
+		-- rust
 		{ "https://gitlab.com/yorickpeterse/nvim-dd.git" },
 		{ "rust-lang/rust.vim" },
-		{ "simrat39/rust-tools.nvim" }, -- common stuff
+		{ "simrat39/rust-tools.nvim" },
+
+		-- common stuff
 		{ "stevearc/dressing.nvim" },
 		{ "godlygeek/tabular" },
-		{ "petertriho/nvim-scrollbar" }, -- colorize
+		{ "petertriho/nvim-scrollbar" },
+		{
+			"folke/noice.nvim",
+			dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+		},
+		{ "rcarriga/nvim-notify" },
+
+		-- colorize
 		{ "NvChad/nvim-colorizer.lua" },
-		{ "mrjones2014/nvim-ts-rainbow" }, -- statusline
+		{ "mrjones2014/nvim-ts-rainbow" },
+
+		-- statusline
 		{ "j-hui/fidget.nvim" },
 		{
 			"nvim-lualine/lualine.nvim",
 			dependencies = { "nvim-tree/nvim-web-devicons" },
-		}, -- Icons
+		},
+
+		-- Icons
 		{
 			"nvim-tree/nvim-web-devicons",
 			lazy = true,
-		}, -- Dashboard (start screen)
+		},
+
+		-- Dashboard (start screen)
 		{
 			"goolord/alpha-nvim",
 			dependencies = { "nvim-tree/nvim-web-devicons" },
-		}, -- Git
+		},
+
+		-- Git
 		{ "rhysd/git-messenger.vim" },
 		{
 			"lewis6991/gitsigns.nvim",
 			lazy = true,
 			dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
-		}, -- meta jump
+		},
+
+		-- meta jump
 		{
 			"ggandor/leap.nvim",
 			dependencies = { "tpope/vim-repeat" },
@@ -121,25 +148,30 @@ lazy.setup({
 		},
 		{ "airblade/vim-rooter" },
 		{ "simrat39/symbols-outline.nvim" }, -- File explorer
+
 		-- Treesitter
 		{
 			"nvim-treesitter/nvim-treesitter",
 			build = ":TSUpdate",
-		}, -- Indent line
-		{ "lukas-reineke/indent-blankline.nvim" }, -- Tag viewer
-		-- { 'preservim/tagbar' },
-		{
-			"folke/noice.nvim",
-			dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
 		},
-		{ "rcarriga/nvim-notify" }, -- Autopair
+
+		-- Indent line
+		{ "lukas-reineke/indent-blankline.nvim" }, -- Tag viewer
+
+		-- Autopair
 		{
 			"windwp/nvim-autopairs",
 			event = "InsertEnter",
 			config = function()
 				require("nvim-autopairs").setup({})
 			end,
-		}, -- LSP
+		},
+
+		-- LSP
+		{
+			"williamboman/mason-lspconfig.nvim",
+			dependencies = { "neovim/nvim-lspconfig", "williamboman/mason.nvim" },
+		},
 		{ "neovim/nvim-lspconfig" },
 		{
 			"glepnir/lspsaga.nvim",
@@ -148,7 +180,9 @@ lazy.setup({
 				require("lspsaga").setup({})
 			end,
 			dependencies = { { "nvim-tree/nvim-web-devicons" }, { "nvim-treesitter/nvim-treesitter" } },
-		}, -- tree
+		},
+
+		-- tree
 		{
 			"nvim-neo-tree/neo-tree.nvim",
 			branch = "v2.x",

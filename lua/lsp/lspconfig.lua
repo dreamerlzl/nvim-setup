@@ -159,9 +159,9 @@ vim.g.rustfmt_autosave = 1
 -- rust.vim will set foldmethod=syntax for rust
 vim.g.rust_fold = 1
 
-local extension_path = "/home/wright/vscode-lldb/"
-local codelldb_path = extension_path .. "adapter/codelldb"
-local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
+local extension_path = os.getenv("HOME") .. "/.vscode/extensions/vadimcn.vscode-lldb-1.9.1"
+local codelldb_path = extension_path .. "/adapter/codelldb"
+local liblldb_path = extension_path .. "/lldb/lib/liblldb.so"
 
 local rt = require("rust-tools")
 local setup = {
