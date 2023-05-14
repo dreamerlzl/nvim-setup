@@ -26,7 +26,7 @@ require("dapui").setup({
 			elements = {
 				"scopes",
 				"breakpoints",
-				"stacks",
+				-- "stacks",
 				-- "watches",
 			},
 			size = 40,
