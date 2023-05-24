@@ -13,6 +13,7 @@ local opt = vim.opt -- Set options (global/buffer/windows-scoped)
 
 vim.cmd([[
 set tabline=%!MyTabLine()
+set fileencoding=utf-8
 
 function! MyTabLabel(n)
   let buflist = tabpagebuflist(a:n)
