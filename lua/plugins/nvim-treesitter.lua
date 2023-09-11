@@ -12,6 +12,7 @@ end
 nvim_treesitter.setup({
 	-- A list of parser names, or "all"
 	ensure_installed = {
+		"markdown",
 		"bash",
 		"c",
 		"css",
