@@ -1,6 +1,6 @@
 vim.cmd([[
 
-let g:Lf_PreviewInPopup = 1
+let g:Lf_PreviewInPopup = 0
 " open the preview window automatically
 let g:Lf_PreviewResult = {'Rg': 1 }
 let g:Lf_UseCache = 0
