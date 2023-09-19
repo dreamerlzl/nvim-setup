@@ -33,3 +33,5 @@
   - more convenient to debug unit tests
 - about neovim's [folding](https://neovim.io/doc/user/fold.html)
   - here expr fold is used
+- my leaderF doesn't work
+  - execute `:checkhealth` and see pynvim is ok or not
