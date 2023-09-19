@@ -38,6 +38,9 @@ require("lualine").setup({
 				shorting_target = 20,
 			},
 		},
+		lualine_d = {
+			"require('lsp-progress').progress()",
+		},
 		lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_y = { "progress" },
 		lualine_z = { "location" },
@@ -54,9 +57,8 @@ require("lualine").setup({
 	extensions = {},
 })
 
--- for lsp progress
-require("fidget").setup({
-	text = {
-		spinner = "moon",
-	},
+vim.api.nvim_create_augroup("lualine_augroup", { clear = true })
+vim.api.nvim_create_autocmd("User LspProgressStatusUpdated", {
+	group = "lualine_augroup",
+	callback = require("lualine").refresh,
 })

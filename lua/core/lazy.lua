@@ -110,10 +110,16 @@ lazy.setup({
 		{ "mrjones2014/nvim-ts-rainbow" },
 
 		-- statusline
-		{ "j-hui/fidget.nvim" },
 		{
 			"nvim-lualine/lualine.nvim",
+			dependencies = { "nvim-tree/nvim-web-devicons", "linrongbin16/lsp-progress.nvim" },
+		},
+		{
+			"linrongbin16/lsp-progress.nvim",
 			dependencies = { "nvim-tree/nvim-web-devicons" },
+			config = function()
+				require("lsp-progress").setup()
+			end,
 		},
 
 		-- Icons
