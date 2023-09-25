@@ -26,6 +26,7 @@ nvim_treesitter.setup({
 		"vim",
 		"go",
 		"yaml",
+		"sql",
 	},
 	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = false,
