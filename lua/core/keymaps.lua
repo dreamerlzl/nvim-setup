@@ -40,7 +40,7 @@ map("n", "<C-n>", ":set invnumber | lua ToggleAll() <CR>")
 
 function ToggleAll()
 	vim.cmd("ScrollbarToggle")
-	vim.cmd("IndentBlanklineToggle")
+	vim.cmd("IBLToggle")
 	ToggleFoldColumn()
 	ToggleSignColumn()
 end

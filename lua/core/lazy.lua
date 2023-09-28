@@ -162,7 +162,7 @@ lazy.setup({
 		},
 
 		-- Indent line
-		{ "lukas-reineke/indent-blankline.nvim" }, -- Tag viewer
+		{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- Tag viewer
 
 		-- Autopair
 		{
