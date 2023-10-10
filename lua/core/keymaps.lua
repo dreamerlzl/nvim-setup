@@ -67,6 +67,7 @@ vim.keymap.set("n", "<Space>", "<Nop>", {
 	silent = true,
 })
 vim.g.mapleader = " "
+vim.g.codeium_no_map_tab = 1
 
 -- Symbols Outline
 map("n", "<C-l>", ":SymbolsOutline<CR>")
