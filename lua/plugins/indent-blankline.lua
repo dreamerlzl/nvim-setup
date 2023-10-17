@@ -22,6 +22,5 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
 end)
 
 require("ibl").setup({
-	indent = { highlight = highlight },
-	-- for example, context is off by default, use this to turn it on
+	indent = { highlight = highlight, char = "▏" },
 })
