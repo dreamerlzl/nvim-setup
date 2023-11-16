@@ -30,6 +30,33 @@ end
 lazy.setup({
 	spec = {
 		{
+			"mfussenegger/nvim-jdtls",
+		},
+		{
+			"barrett-ruth/live-server.nvim",
+			build = "yarn global add live-server",
+			config = true,
+		},
+
+		{
+			"Exafunction/codeium.vim",
+			event = "BufEnter",
+			config = function()
+				vim.keymap.set("i", "<C-g>", function()
+					return vim.fn["codeium#Accept"]()
+				end, { expr = true })
+			end,
+		},
+		-- debug
+		{
+			"mfussenegger/nvim-dap",
+		},
+		{
+			"rcarriga/nvim-dap-ui",
+			dependencies = { "mfussenegger/nvim-dap" },
+		},
+
+		{
 			"Exafunction/codeium.vim",
 			event = "BufEnter",
 			config = function()
@@ -116,7 +143,7 @@ lazy.setup({
 
 		-- colorize
 		{ "NvChad/nvim-colorizer.lua" },
-		{ "mrjones2014/nvim-ts-rainbow" },
+		{ "HiPhish/rainbow-delimiters.nvim" },
 
 		-- statusline
 		{
