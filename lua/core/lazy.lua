@@ -250,6 +250,7 @@ lazy.setup({
 				follow_current_file = true,
 				filesystem = {
 					hijack_netrw_behavior = "open_current",
+					group_empty_dirs = true,
 				},
 			},
 		},
