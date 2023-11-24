@@ -16,6 +16,7 @@
   - [ripgrep](https://github.com/BurntSushi/ripgrep)
   - [fzf](https://github.com/junegunn/fzf)
 - [golangci-lint-langserver](https://github.com/nametake/golangci-lint-langserver)
+- for tsserver: `npm install -g typescript`
 
 # faq
 
