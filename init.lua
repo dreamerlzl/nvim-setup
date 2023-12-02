@@ -13,7 +13,6 @@ require("lsp/go")
 
 require("plugins/nvim-dap")
 require("plugins/indent-blankline")
-require("plugins/nvim-cmp")
 require("plugins/nvim-treesitter")
 require("plugins/git")
 require("plugins/alpha-nvim")
