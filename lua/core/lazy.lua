@@ -30,6 +30,9 @@ end
 lazy.setup({
 	spec = {
 		{
+			"onsails/lspkind.nvim",
+		},
+		{
 			"mfussenegger/nvim-jdtls",
 		},
 		{
