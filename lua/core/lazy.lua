@@ -60,24 +60,6 @@ lazy.setup({
 		},
 
 		{
-			"Exafunction/codeium.vim",
-			event = "BufEnter",
-			config = function()
-				vim.keymap.set("i", "<C-g>", function()
-					return vim.fn["codeium#Accept"]()
-				end, { expr = true })
-			end,
-		},
-		-- debug
-		{
-			"mfussenegger/nvim-dap",
-		},
-		{
-			"rcarriga/nvim-dap-ui",
-			dependencies = { "mfussenegger/nvim-dap" },
-		},
-
-		{
 			"folke/which-key.nvim",
 		},
 		-- project file navigation
