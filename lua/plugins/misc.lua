@@ -6,7 +6,12 @@ require("scrollbar").setup({
 })
 require("leap").add_default_mappings()
 require("colorizer").setup()
-require("ufo").setup()
+require("ufo").setup({
+	close_fold_kinds = { "imports" },
+	provider_selector = function(bufnr, filetype, buftype)
+		return { "lsp", "indent" }
+	end,
+})
 
 -- remove leap's forward till mapping
 vim.keymap.del({ "o", "x" }, "x")
