@@ -34,17 +34,18 @@ if has('gui_running') || (has('termguicolors') && &termguicolors)  "Graphical Vi
   " let s:GREEN  = '#34A853'
   " let s:RED    = '#9d0006'
   " let s:AQUA   = '#35A77C'
-  let s:BLUE   = '#4285F4' " contrast 300+
-  let s:YELLOW = '#DFA000'
-  let s:RED    = '#CC241D'
-  let s:GREEN  = '#79740E'
+
+  let s:RED    = '#CC241D' " keyword: if, for, while
   " let s:YELLOW = '#b57614'
-  let s:BLACK  = '#202124'
-  let s:DGREY  = '#5F6368'
+  let s:YELLOW = '#DFA000' " type
+  let s:GREEN  = '#79740E' " comment
+  let s:AQUA   = '#427B58' " macro
+  let s:BLUE   = '#4285F4' " function call; contrast 300+
+  let s:PURPLE = '#B16286' " keyword: module system
+  let s:DGREY  = '#5F6368' " identifier
   let s:LGREY  = '#c0c0c0'
   let s:WHITE  = '#FFFFFF'
-  let s:PURPLE = '#B16286'
-  let s:AQUA   = '#427B58'
+  let s:BLACK  = '#202124'
 
   "Set gui mode and italics
   let s:M = 'gui'
@@ -119,7 +120,7 @@ exe 'hi Statement      '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
 exe 'hi Keyword        '.s:M.'fg='.s:PURPLE   .' '.s:M.'=bold'
 exe 'hi Exception      '.s:M.'fg='.s:RED   .' '.s:M.'=bold'
 
-exe 'hi Identifier     '.s:M.'fg='.s:BLUE  .' '.s:M.'=bold'
+exe 'hi Identifier     '.s:M.'fg='.s:DGREY  .' '.s:M.'=bold'
 exe 'hi Function       '.s:M.'fg='.s:BLUE  .' '.s:M.'=bold'
 
 exe 'hi Comment        '.s:M.'fg='.s:GREEN .' '.s:M.'=none'
