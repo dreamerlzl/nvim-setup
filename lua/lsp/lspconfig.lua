@@ -123,10 +123,30 @@ JavaScript/TypeScript -> tsserver
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches.
 -- Add your language server below:
-local servers = { "bashls", "pyright", "clangd", "html", "cssls", "tsserver", "yamlls" }
+local servers = {
+	"bashls",
+	"pyright",
+	"clangd",
+	"html",
+	"cssls",
+	"tsserver",
+	"yamlls",
+	"dockerls",
+	"docker_compose_language_service",
+}
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "rust_analyzer", "lua_ls", "pyright", "gopls", "tsserver", "bashls", "jdtls" },
+	ensure_installed = {
+		"rust_analyzer",
+		"lua_ls",
+		"pyright",
+		"gopls",
+		"tsserver",
+		"bashls",
+		"jdtls",
+		"dockerls",
+		"docker_compose_language_service",
+	},
 })
 
 -- Call setup
