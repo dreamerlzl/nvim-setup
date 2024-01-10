@@ -12,10 +12,13 @@
 
 # prerequisite(separate installation)
 
-- command-line utilities (for leaderF)
-  - [ripgrep](https://github.com/BurntSushi/ripgrep)
-  - [fzf](https://github.com/junegunn/fzf)
-- [golangci-lint-langserver](https://github.com/nametake/golangci-lint-langserver)
+- pip & pynvim: `python3 -m pip install --user --upgrade pynvim`
+- npm (used by mason)
+- build-essential(gcc, git, etc.)
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [fzf](https://github.com/junegunn/fzf)
+- [golangci-lint](https://golangci-lint.run/usage/install/#local-installation) &
+  [golangci-lint-langserver](https://github.com/nametake/golangci-lint-langserver)
 - for tsserver: `npm install -g typescript`
 
 # faq
