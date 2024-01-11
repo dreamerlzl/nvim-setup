@@ -133,6 +133,7 @@ local servers = {
 	"yamlls",
 	"dockerls",
 	"docker_compose_language_service",
+	"sqls",
 }
 require("mason").setup()
 require("mason-lspconfig").setup({
@@ -146,6 +147,7 @@ require("mason-lspconfig").setup({
 		"jdtls",
 		"dockerls",
 		"docker_compose_language_service",
+		"sqls",
 	},
 })
 
