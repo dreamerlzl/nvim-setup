@@ -8,7 +8,7 @@ end
 -- Add additional capabilities supported by nvim-cmp
 -- See: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 -- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
 	lineFoldingOnly = true,
@@ -181,18 +181,19 @@ vim.g.rustfmt_autosave = 1
 -- rust.vim will set foldmethod=syntax for rust
 vim.g.rust_fold = 1
 
-local extension_path = os.getenv("HOME") .. "/.vscode/extensions/vadimcn.vscode-lldb-1.9.1"
-local codelldb_path = extension_path .. "/adapter/codelldb"
-local liblldb_path = extension_path .. "/lldb/lib/liblldb.so"
-
-local rt = require("rust-tools")
 local setup = {
 	on_attach = function(client, bufnr)
-		vim.keymap.set("n", "<Leader>h", rt.hover_actions.hover_actions, {
+		vim.keymap.set("n", "<Leader>h", function()
+			vim.cmd.RustLsp({ "hover", "actions" })
+		end, {
 			buffer = bufnr,
+			silent = true,
 		})
-		vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, {
+		vim.keymap.set("n", "<Leader>a", function()
+			vim.cmd.RustLsp("codeAction")
+		end, {
 			buffer = bufnr,
+			silent = true,
 		})
 		on_attach(client, bufnr)
 	end,
@@ -226,19 +227,14 @@ local setup = {
 	},
 }
 
-local rustopts = {
+vim.g.rustaceanvim = {
 	tools = {
 		inlay_hints = {
 			only_current_line = true,
 		},
 	},
-	dap = {
-		adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
-	},
 	server = setup,
 }
-
-rt.setup(rustopts)
 
 lspconfig.gopls.setup({
 	on_attach = on_attach,

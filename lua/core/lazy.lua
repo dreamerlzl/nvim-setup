@@ -105,7 +105,11 @@ lazy.setup({
 		-- rust
 		{ "https://gitlab.com/yorickpeterse/nvim-dd.git" },
 		{ "rust-lang/rust.vim" },
-		{ "simrat39/rust-tools.nvim" },
+		{
+			"mrcjkb/rustaceanvim",
+			version = "^3",
+			ft = { "rust" },
+		},
 
 		-- common stuff
 		{ "stevearc/dressing.nvim" },

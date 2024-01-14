@@ -21,6 +21,13 @@
   [golangci-lint-langserver](https://github.com/nametake/golangci-lint-langserver)
 - for tsserver: `npm install -g typescript`
 
+# manual installation
+
+- to 01/14/2023, mason.nvim doesn't officially support `ensure_installed` (see
+  [this issue](https://github.com/williamboman/mason.nvim/issues/1338))
+  - need to manually install codelldb via `MasonInstall codelldb` and ensure
+    `$PATH` includes `~/.local/share/nvim/mason/bin`
+
 # faq
 
 - why neo-tree instead of chadtree, nvim-tree and nerdtree for file management?
