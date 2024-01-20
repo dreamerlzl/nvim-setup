@@ -32,9 +32,8 @@ require("noice").setup({
 	routes = {
 		{
 			filter = {
-				any = {
-					{ kind = "echo" },
-				},
+				kind = "echo",
+				["not"] = { find = "Exception" },
 			},
 			opts = { skip = true },
 		},
