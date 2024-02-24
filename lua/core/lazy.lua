@@ -30,6 +30,12 @@ end
 lazy.setup({
 	spec = {
 		{
+			"linrongbin16/gitlinker.nvim",
+			config = function()
+				require("gitlinker").setup()
+			end,
+		},
+		{
 			"onsails/lspkind.nvim",
 		},
 		{
