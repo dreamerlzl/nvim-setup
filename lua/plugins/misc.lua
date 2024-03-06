@@ -16,4 +16,4 @@ require("ufo").setup({
 -- remove leap's forward till mapping
 vim.keymap.del({ "o", "x" }, "x")
 
-vim.g.rooter_patterns = { ".git", "Cargo.toml", "go.mod", "Pipfile" }
+vim.g.rooter_patterns = { ".git", "Cargo.toml", "go.mod", "Pipfile", "package.json" }
