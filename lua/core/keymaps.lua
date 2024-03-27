@@ -76,3 +76,10 @@ map("n", "<C-l>", ":SymbolsOutline<CR>")
 map("", "<C-J>", ':<C-U><C-R>=printf("Leaderf! rg -e ")<CR>')
 map("", "<C-F>", ":LeaderfFile<CR>")
 map("n", "<leader>gm", "<Plug>(git-messenger)")
+
+local spdx_license = [[
+// SPDX-License-Identifier: MIT
+]]
+
+-- Define the keybinding
+map("n", "<leader>l", ":normal! i" .. spdx_license .. "<CR>")

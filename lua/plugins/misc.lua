@@ -7,7 +7,7 @@ require("scrollbar").setup({
 require("leap").add_default_mappings()
 require("colorizer").setup()
 require("ufo").setup({
-	close_fold_kinds = { "imports" },
+	close_fold_kinds_ft = { "imports" },
 	provider_selector = function(bufnr, filetype, buftype)
 		return { "lsp", "indent" }
 	end,
