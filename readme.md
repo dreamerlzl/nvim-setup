@@ -21,6 +21,9 @@
 - [golangci-lint](https://golangci-lint.run/usage/install/#local-installation) &
   [golangci-lint-langserver](https://github.com/nametake/golangci-lint-langserver)
 - for tsserver: `npm install -g typescript`
+- for solidity: `npm install -g @nomicfoundation/solidity-language-server`
+  - see
+    [this](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#solc)
 
 # manual installation
 

@@ -164,6 +164,11 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
+lspconfig["solidity_ls_nomicfoundation"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 lspconfig["lua_ls"].setup({
 	on_attach = on_attach,
 	-- root_dir = root_dir,
