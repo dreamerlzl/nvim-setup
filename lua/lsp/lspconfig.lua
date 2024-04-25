@@ -130,6 +130,7 @@ local servers = {
 	"html",
 	"cssls",
 	"tsserver",
+	"eslint",
 	"yamlls",
 	"dockerls",
 	"docker_compose_language_service",
@@ -138,6 +139,7 @@ local servers = {
 require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = {
+		"eslint",
 		"rust_analyzer",
 		"lua_ls",
 		"pyright",
