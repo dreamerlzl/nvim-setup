@@ -31,6 +31,13 @@ require("noice").setup({
 	-- for LeaderfFile + noice
 	routes = {
 		{
+			view = "notify",
+			filter = {
+				event = "msg_showmode",
+				find = "recording",
+			},
+		},
+		{
 			filter = {
 				kind = "echo",
 				["not"] = { find = "Exception" },
