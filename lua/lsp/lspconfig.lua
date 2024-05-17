@@ -202,6 +202,7 @@ local setup = {
 			buffer = bufnr,
 			silent = true,
 		})
+		vim.lsp.inlay_hint.enable(true, {bufnr = bufnr})
 		on_attach(client, bufnr)
 	end,
 	capabilities = capabilities,
@@ -235,11 +236,11 @@ local setup = {
 }
 
 vim.g.rustaceanvim = {
-	tools = {
-		inlay_hints = {
-			only_current_line = true,
-		},
-	},
+	-- tools = {
+	-- 	inlay_hints = {
+	-- 		only_current_line = true,
+	-- 	},
+	-- },
 	server = setup,
 }
 
