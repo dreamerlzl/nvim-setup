@@ -73,7 +73,7 @@ vim.g.codeium_no_map_tab = 1
 map("n", "<C-l>", ":SymbolsOutline<CR>")
 
 -- leaderf
-map("", "<C-J>", ':<C-U><C-R>=printf("Leaderf! rg -e ")<CR>')
+map("", "<C-J>", ':<C-U><C-R>=printf("Leaderf! rg --no-messages -e ")<CR>')
 map("", "<C-F>", ":LeaderfFile<CR>")
 map("n", "<leader>gm", "<Plug>(git-messenger)")
 
