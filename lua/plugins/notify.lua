@@ -31,6 +31,12 @@ require("noice").setup({
 	-- for LeaderfFile + noice
 	routes = {
 		{
+			filter = {
+				find = "getting file for InlayHint",
+			},
+			opts = { skip = true },
+		},
+		{
 			view = "notify",
 			filter = {
 				event = "msg_showmode",
