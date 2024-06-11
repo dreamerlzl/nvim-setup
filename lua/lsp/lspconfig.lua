@@ -202,7 +202,7 @@ local setup = {
 			buffer = bufnr,
 			silent = true,
 		})
-		vim.lsp.inlay_hint.enable(true, {bufnr = bufnr})
+		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 		on_attach(client, bufnr)
 	end,
 	capabilities = capabilities,
@@ -296,12 +296,12 @@ lspconfig.golangci_lint_ls.setup({
 	filetypes = { "go", "gomod" },
 })
 
-require("go").setup({
-	lsp_inlay_hints = {
-		enable = true,
-		only_current_line = true,
-	},
-})
+-- require("go").setup({
+-- 	lsp_inlay_hints = {
+-- 		enable = true,
+-- 		only_current_line = true,
+-- 	},
+-- })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	virtual_text = false,

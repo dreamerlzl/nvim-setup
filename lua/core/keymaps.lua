@@ -83,3 +83,4 @@ local spdx_license = [[
 
 -- Define the keybinding
 map("n", "<leader>l", ":normal! i" .. spdx_license .. "<CR>")
+map("n", "<leader>i", ":InlayHintsToggle<CR>")
