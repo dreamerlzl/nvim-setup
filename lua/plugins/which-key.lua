@@ -3,16 +3,13 @@ local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
 wk.setup()
-wk.register({
-	["<leader>"] = {
-		h = {
-			name = "harpoon",
-			a = { mark.add_file, "Add file to harpoon" },
-			l = { ui.toggle_quick_menu, "Toggle quick menu" },
-			r = { mark.rm_file, "Remove file from harpoon" },
-		},
-	},
+wk.add({
+	{ "<leader>h", group = "harpoon" },
+	{ "<leader>ha", mark.add_file, desc = "Add file to harpoon" },
+	{ "<leader>hl", ui.toggle_quick_menu, desc = "Toggle quick menu" },
+	{ "<leader>hr", mark.rm_file, desc = "Remove file from harpoon" },
 })
+
 vim.cmd([[
   nnoremap <silent><A-1> :lua require("harpoon.ui").nav_file(1)<CR>
   nnoremap <silent><A-2> :lua require("harpoon.ui").nav_file(2)<CR>
