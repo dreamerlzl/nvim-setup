@@ -116,7 +116,7 @@ Bash          -> bashls
 Python        -> pyright
 C-C++         -> clangd
 HTML/CSS/JSON -> vscode-html-languageserver
-JavaScript/TypeScript -> tsserver
+JavaScript/TypeScript -> ts_ls
 --]]
 -- TODO: root dir setup
 
@@ -129,7 +129,7 @@ local servers = {
 	"clangd",
 	"html",
 	"cssls",
-	"tsserver",
+	"ts_ls",
 	"eslint",
 	"yamlls",
 	"dockerls",
@@ -296,12 +296,12 @@ lspconfig.golangci_lint_ls.setup({
 	filetypes = { "go", "gomod" },
 })
 
-require("go").setup({
+-- require("go").setup({
 	-- lsp_inlay_hints = {
 	-- 	enable = true,
 	-- 	only_current_line = true,
 	-- },
-})
+-- })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	virtual_text = false,
