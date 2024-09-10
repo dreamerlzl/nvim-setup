@@ -105,16 +105,16 @@ lazy.setup({
 			dependencies = { "kevinhwang91/promise-async" },
 		},
 		-- go
-		-- {
-		-- 	"ray-x/go.nvim",
-		-- 	dependencies = { -- optional packages
-		-- 		"ray-x/guihua.lua",
-		-- 		"neovim/nvim-lspconfig",
-		-- 		"nvim-treesitter/nvim-treesitter",
-		-- 	},
-		-- 	event = { "CmdlineEnter" },
-		-- 	ft = { "go", "gomod" },
-		-- },
+		{
+			"ray-x/go.nvim",
+			dependencies = { -- optional packages
+				"ray-x/guihua.lua",
+				"neovim/nvim-lspconfig",
+				"nvim-treesitter/nvim-treesitter",
+			},
+			event = { "CmdlineEnter" },
+			ft = { "go", "gomod" },
+		},
 
 		-- rust
 		{ "https://gitlab.com/yorickpeterse/nvim-dd.git" },

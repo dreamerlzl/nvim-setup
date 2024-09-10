@@ -296,12 +296,14 @@ lspconfig.golangci_lint_ls.setup({
 	filetypes = { "go", "gomod" },
 })
 
--- require("go").setup({
+require("go").setup(
+	-- {
 	-- lsp_inlay_hints = {
 	-- 	enable = true,
 	-- 	only_current_line = true,
 	-- },
--- })
+	-- }
+)
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	virtual_text = false,
