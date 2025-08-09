@@ -137,21 +137,20 @@ local servers = {
 	"sqls",
 }
 require("mason").setup()
-require("mason-lspconfig").setup({
-	ensure_installed = {
-		"eslint",
-		"rust_analyzer",
-		"lua_ls",
-		"pyright",
-		"gopls",
-		"tsserver",
-		"bashls",
-		"jdtls",
-		"dockerls",
-		"docker_compose_language_service",
-		"sqls",
-	},
-})
+-- require("mason-lspconfig").setup({
+-- 	ensure_installed = {
+-- 		"eslint",
+-- 		"rust_analyzer",
+-- 		"lua_ls",
+-- 		"pyright",
+-- 		"gopls",
+-- 		"bashls",
+-- 		"jdtls",
+-- 		"dockerls",
+-- 		"docker_compose_language_service",
+-- 		"sqls",
+-- 	},
+-- })
 
 -- Call setup
 for _, lsp in ipairs(servers) do

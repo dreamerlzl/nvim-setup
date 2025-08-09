@@ -82,10 +82,6 @@ lazy.setup({
 			dependencies = { "nvim-lua/plenary.nvim" },
 		},
 		-- formatting
-		{
-			"jose-elias-alvarez/null-ls.nvim",
-			dependencies = { "nvim-lua/plenary.nvim" },
-		},
 		{ "akinsho/toggleterm.nvim", version = "*", config = true },
 		{
 			"folke/todo-comments.nvim",
@@ -129,11 +125,21 @@ lazy.setup({
 		{ "stevearc/dressing.nvim" },
 		{ "godlygeek/tabular" },
 		{ "petertriho/nvim-scrollbar" },
-		{
-			"folke/noice.nvim",
-			dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
-			commit = "d9328ef903168b6f52385a751eb384ae7e906c6f",
-		},
+	{
+  "folke/noice.nvim",
+  event = "VeryLazy",
+  opts = {
+    -- add any options here
+  },
+  dependencies = {
+    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    "MunifTanjim/nui.nvim",
+    -- OPTIONAL:
+    --   `nvim-notify` is only needed, if you want to use the notification view.
+    --   If not available, we use `mini` as the fallback
+    "rcarriga/nvim-notify",
+    }
+},
 		{ "rcarriga/nvim-notify" },
 
 		-- colorize
@@ -184,7 +190,15 @@ lazy.setup({
 			build = ":LeaderfInstallCExtension",
 		},
 		{ "airblade/vim-rooter" },
-		{ "simrat39/symbols-outline.nvim" }, -- File explorer
+    {
+      'stevearc/aerial.nvim',
+      opts = {},
+      -- Optional dependencies
+      dependencies = {
+         "nvim-treesitter/nvim-treesitter",
+         "nvim-tree/nvim-web-devicons"
+      },
+    },
 
 		-- Treesitter
 		{
@@ -205,10 +219,14 @@ lazy.setup({
 		},
 
 		-- LSP
-		{
-			"williamboman/mason-lspconfig.nvim",
-			dependencies = { "neovim/nvim-lspconfig", "williamboman/mason.nvim" },
-		},
+    {
+      "mason-org/mason-lspconfig.nvim",
+      opts = {},
+      dependencies = {
+          { "mason-org/mason.nvim", opts = {} },
+          "neovim/nvim-lspconfig",
+      },
+    },
 		{ "neovim/nvim-lspconfig" },
 		{
 			"glepnir/lspsaga.nvim",

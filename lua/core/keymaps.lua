@@ -69,9 +69,6 @@ vim.keymap.set("n", "<Space>", "<Nop>", {
 vim.g.mapleader = " "
 vim.g.codeium_no_map_tab = 1
 
--- Symbols Outline
-map("n", "<C-l>", ":SymbolsOutline<CR>")
-
 -- leaderf
 map("", "<C-J>", ':<C-U><C-R>=printf("Leaderf! rg --no-messages -e ")<CR>')
 map("", "<C-F>", ":LeaderfFile<CR>")

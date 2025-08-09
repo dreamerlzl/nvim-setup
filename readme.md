@@ -2,7 +2,6 @@
 
 - my neovim setup with
   - lazy.nvim
-  - null-ls for formatting
   - mason for managing lsp
   - harpoon for file navigation
   - noice for floating cmdline

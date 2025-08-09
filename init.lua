@@ -8,7 +8,6 @@ require("core/colors")
 require("core/cmp")
 
 require("lsp/lspconfig")
-require("lsp/null")
 require("lsp/go")
 
 require("plugins/nvim-dap")
