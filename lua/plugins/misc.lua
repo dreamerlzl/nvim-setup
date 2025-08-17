@@ -7,7 +7,7 @@ require("aerial").setup({
   end,
 })
 -- You probably also want to set a keymap to toggle aerial
-vim.keymap.set("n", "<C-l>", "<cmd>AerialToggle!<CR>")
+vim.keymap.set("n", "<C-l>", "<cmd>AerialToggle<CR>")
 
 require("scrollbar").setup({
 	excluded_buftypes = { "terminal", "nofile" },

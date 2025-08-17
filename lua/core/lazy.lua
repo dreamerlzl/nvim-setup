@@ -226,6 +226,13 @@ lazy.setup({
           { "mason-org/mason.nvim", opts = {} },
           "neovim/nvim-lspconfig",
       },
+      config = function()
+        require("mason-lspconfig").setup({
+          automatic_setup = false,
+          automatic_enable = false,
+          handlers = nil
+        })
+      end
     },
 		{ "neovim/nvim-lspconfig" },
 		{

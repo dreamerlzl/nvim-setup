@@ -136,21 +136,6 @@ local servers = {
 	"docker_compose_language_service",
 	"sqls",
 }
-require("mason").setup()
--- require("mason-lspconfig").setup({
--- 	ensure_installed = {
--- 		"eslint",
--- 		"rust_analyzer",
--- 		"lua_ls",
--- 		"pyright",
--- 		"gopls",
--- 		"bashls",
--- 		"jdtls",
--- 		"dockerls",
--- 		"docker_compose_language_service",
--- 		"sqls",
--- 	},
--- })
 
 -- Call setup
 for _, lsp in ipairs(servers) do
@@ -295,14 +280,14 @@ lspconfig.golangci_lint_ls.setup({
 	filetypes = { "go", "gomod" },
 })
 
-require("go").setup(
+-- require("go").setup(
 	-- {
 	-- lsp_inlay_hints = {
 	-- 	enable = true,
 	-- 	only_current_line = true,
 	-- },
 	-- }
-)
+-- )
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	virtual_text = false,
