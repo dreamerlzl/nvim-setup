@@ -12,7 +12,9 @@
 # prerequisite(separate installation)
 
 - pip & pynvim: `python3 -m pip install --user --upgrade pynvim`
-- black: for python formatting
+- formatting
+  - ruff: for python formatting
+  - stylua: for lua
 - npm (used by mason)
 - build-essential(gcc, git, etc.)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)

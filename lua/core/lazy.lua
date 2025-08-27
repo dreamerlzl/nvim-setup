@@ -82,6 +82,38 @@ lazy.setup({
 			dependencies = { "nvim-lua/plenary.nvim" },
 		},
 		-- formatting
+		{
+			"stevearc/conform.nvim",
+			event = { "BufWritePre" },
+			cmd = { "ConformInfo" },
+			opts = {},
+			keys = {
+				{
+					"<leader>m",
+					function()
+						require("conform").format({ async = true })
+					end,
+					mode = "",
+					desc = "Format buffer",
+				},
+			},
+			-- This will provide type hinting with LuaLS
+			---@module "conform"
+			---@type conform.setupOpts
+			opts = {
+				-- Define your formatters
+				formatters_by_ft = {
+					lua = { "stylua" },
+					python = { "ruff_organize_imports", "ruff_format", "ruff_fix" },
+				},
+				-- Set default options
+				default_format_opts = {
+					lsp_format = "fallback",
+				},
+				-- Set up format-on-save
+				format_on_save = { timeout_ms = 500 },
+			},
+		},
 		{ "akinsho/toggleterm.nvim", version = "*", config = true },
 		{
 			"folke/todo-comments.nvim",
@@ -125,21 +157,21 @@ lazy.setup({
 		{ "stevearc/dressing.nvim" },
 		{ "godlygeek/tabular" },
 		{ "petertriho/nvim-scrollbar" },
-	{
-  "folke/noice.nvim",
-  event = "VeryLazy",
-  opts = {
-    -- add any options here
-  },
-  dependencies = {
-    -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-    "MunifTanjim/nui.nvim",
-    -- OPTIONAL:
-    --   `nvim-notify` is only needed, if you want to use the notification view.
-    --   If not available, we use `mini` as the fallback
-    "rcarriga/nvim-notify",
-    }
-},
+		{
+			"folke/noice.nvim",
+			event = "VeryLazy",
+			opts = {
+				-- add any options here
+			},
+			dependencies = {
+				-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+				"MunifTanjim/nui.nvim",
+				-- OPTIONAL:
+				--   `nvim-notify` is only needed, if you want to use the notification view.
+				--   If not available, we use `mini` as the fallback
+				"rcarriga/nvim-notify",
+			},
+		},
 		{ "rcarriga/nvim-notify" },
 
 		-- colorize
@@ -190,15 +222,15 @@ lazy.setup({
 			build = ":LeaderfInstallCExtension",
 		},
 		{ "airblade/vim-rooter" },
-    {
-      'stevearc/aerial.nvim',
-      opts = {},
-      -- Optional dependencies
-      dependencies = {
-         "nvim-treesitter/nvim-treesitter",
-         "nvim-tree/nvim-web-devicons"
-      },
-    },
+		{
+			"stevearc/aerial.nvim",
+			opts = {},
+			-- Optional dependencies
+			dependencies = {
+				"nvim-treesitter/nvim-treesitter",
+				"nvim-tree/nvim-web-devicons",
+			},
+		},
 
 		-- Treesitter
 		{
@@ -219,21 +251,21 @@ lazy.setup({
 		},
 
 		-- LSP
-    {
-      "mason-org/mason-lspconfig.nvim",
-      opts = {},
-      dependencies = {
-          { "mason-org/mason.nvim", opts = {} },
-          "neovim/nvim-lspconfig",
-      },
-      config = function()
-        require("mason-lspconfig").setup({
-          automatic_setup = false,
-          automatic_enable = false,
-          handlers = nil
-        })
-      end
-    },
+		{
+			"mason-org/mason-lspconfig.nvim",
+			opts = {},
+			dependencies = {
+				{ "mason-org/mason.nvim", opts = {} },
+				"neovim/nvim-lspconfig",
+			},
+			config = function()
+				require("mason-lspconfig").setup({
+					automatic_setup = false,
+					automatic_enable = false,
+					handlers = nil,
+				})
+			end,
+		},
 		{ "neovim/nvim-lspconfig" },
 		{
 			"glepnir/lspsaga.nvim",
