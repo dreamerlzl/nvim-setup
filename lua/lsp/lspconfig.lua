@@ -150,6 +150,14 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
+lspconfig["tinymist"].setup({
+	settings = {
+		formatterMode = "typstyle",
+		exportPdf = "onType",
+		semanticTokens = "disable",
+	},
+})
+
 lspconfig["solidity_ls_nomicfoundation"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -281,12 +289,12 @@ lspconfig.golangci_lint_ls.setup({
 })
 
 -- require("go").setup(
-	-- {
-	-- lsp_inlay_hints = {
-	-- 	enable = true,
-	-- 	only_current_line = true,
-	-- },
-	-- }
+-- {
+-- lsp_inlay_hints = {
+-- 	enable = true,
+-- 	only_current_line = true,
+-- },
+-- }
 -- )
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
