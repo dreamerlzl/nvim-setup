@@ -1,10 +1,5 @@
 vim.lsp.set_log_level("WARN")
 
-local lsp_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lsp_status_ok then
-	return
-end
-
 -- Add additional capabilities supported by nvim-cmp
 -- See: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 -- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -124,8 +119,8 @@ JavaScript/TypeScript -> ts_ls
 -- map buffer local keybindings when the language server attaches.
 -- Add your language server below:
 local servers = {
+  "pyright",
 	"bashls",
-	"pyright",
 	"clangd",
 	"html",
 	"cssls",
@@ -139,7 +134,7 @@ local servers = {
 
 -- Call setup
 for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
+	vim.lsp.config(lsp, {
 		on_attach = on_attach,
 		-- root_dir = root_dir,
 		capabilities = capabilities,
@@ -148,9 +143,11 @@ for _, lsp in ipairs(servers) do
 		--     debounce_text_changes = 150
 		-- }
 	})
+  vim.lsp.enable(lsp)
 end
 
-lspconfig["tinymist"].setup({
+vim.lsp.enable("tinymist")
+vim.lsp.config("tinymist", {
 	settings = {
 		formatterMode = "typstyle",
 		exportPdf = "onType",
@@ -158,12 +155,14 @@ lspconfig["tinymist"].setup({
 	},
 })
 
-lspconfig["solidity_ls_nomicfoundation"].setup({
+vim.lsp.enable("solidity_ls_nomicfoundation")
+vim.lsp.enable("solidity_ls_nomicfoundation", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
 
-lspconfig["lua_ls"].setup({
+vim.lsp.enable("lua_ls")
+vim.lsp.config("lua_ls", {
 	on_attach = on_attach,
 	-- root_dir = root_dir,
 	capabilities = capabilities,
@@ -236,7 +235,8 @@ vim.g.rustaceanvim = {
 	server = setup,
 }
 
-lspconfig.gopls.setup({
+vim.lsp.enable("gopls")
+vim.lsp.config("gopls", {
 	on_attach = on_attach,
 	-- root_dir = root_dir,
 	capabilities = capabilities,
@@ -268,7 +268,9 @@ if not configs.golangcilsp then
 	configs.golangcilsp = {
 		default_config = {
 			cmd = { "golangci-lint-langserver" },
-			root_dir = lspconfig.util.root_pattern(".git", "go.mod"),
+			root_dir = function(bufnr, on_dir)
+        if vim.fs.root(bufnr, 'go.mod') then on_dir(vim.fn.getcwd()) end
+      end,
 			init_options = {
 				command = {
 					"golangci-lint",
@@ -284,7 +286,9 @@ if not configs.golangcilsp then
 		},
 	}
 end
-lspconfig.golangci_lint_ls.setup({
+
+vim.lsp.enable("golangci_lint_ls")
+vim.lsp.config("golangci_lint_ls", {
 	filetypes = { "go", "gomod" },
 })
 
