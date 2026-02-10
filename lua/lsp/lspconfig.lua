@@ -108,7 +108,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 Language server installed:
 
 Bash          -> bashls
-Python        -> pyright
+Python        -> ty
 C-C++         -> clangd
 HTML/CSS/JSON -> vscode-html-languageserver
 JavaScript/TypeScript -> ts_ls
@@ -119,7 +119,7 @@ JavaScript/TypeScript -> ts_ls
 -- map buffer local keybindings when the language server attaches.
 -- Add your language server below:
 local servers = {
-  "pyright",
+	"ty",
 	"bashls",
 	"clangd",
 	"html",
@@ -143,7 +143,7 @@ for _, lsp in ipairs(servers) do
 		--     debounce_text_changes = 150
 		-- }
 	})
-  vim.lsp.enable(lsp)
+	vim.lsp.enable(lsp)
 end
 
 vim.lsp.enable("tinymist")
@@ -269,8 +269,10 @@ if not configs.golangcilsp then
 		default_config = {
 			cmd = { "golangci-lint-langserver" },
 			root_dir = function(bufnr, on_dir)
-        if vim.fs.root(bufnr, 'go.mod') then on_dir(vim.fn.getcwd()) end
-      end,
+				if vim.fs.root(bufnr, "go.mod") then
+					on_dir(vim.fn.getcwd())
+				end
+			end,
 			init_options = {
 				command = {
 					"golangci-lint",
