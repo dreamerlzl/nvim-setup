@@ -156,7 +156,7 @@ lazy.setup({
 		{ "rust-lang/rust.vim" },
 		{
 			"mrcjkb/rustaceanvim",
-			version = "^4",
+			version = "^5",
 			ft = { "rust" },
 		}, -- common stuff
 		{ "stevearc/dressing.nvim" },
