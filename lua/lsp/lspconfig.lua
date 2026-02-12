@@ -120,6 +120,7 @@ JavaScript/TypeScript -> ts_ls
 -- Add your language server below:
 local servers = {
 	"ty",
+	"fish_lsp",
 	"bashls",
 	"clangd",
 	"html",

@@ -1,4 +1,9 @@
 -- only for imports
+-- Set before lazy so live-server.nvim sees it (avoids require().setup() deprecation)
+vim.g.live_server = {
+    args = {}
+}
+
 require("core/lazy")
 require("core/autocmds")
 require("core/keymaps")

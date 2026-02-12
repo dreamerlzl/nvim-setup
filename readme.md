@@ -12,6 +12,7 @@
 # prerequisite(separate installation)
 
 - pip & pynvim: `python3 -m pip install --user --upgrade pynvim`
+- node: >= 20.19.0 (for fish-lsp)
 - formatting
   - ruff: for python formatting
   - stylua: for lua

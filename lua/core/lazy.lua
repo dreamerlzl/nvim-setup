@@ -43,45 +43,23 @@ lazy.setup({
 				require("gitlinker").setup()
 			end,
 		},
-		{
-			"onsails/lspkind.nvim",
-		},
-		{
-			"mfussenegger/nvim-jdtls",
-		},
+		{ "onsails/lspkind.nvim" },
+		{ "mfussenegger/nvim-jdtls" },
 		{
 			"barrett-ruth/live-server.nvim",
 			build = "yarn global add live-server",
 			config = true,
 		},
-
-		{
-			"Exafunction/windsurf.vim",
-			event = "BufEnter",
-			config = function()
-				vim.keymap.set("i", "<C-g>", function()
-					return vim.fn["codeium#Accept"]()
-				end, { expr = true })
-			end,
-		},
-		-- debug
-		{
-			"mfussenegger/nvim-dap",
-		},
+		{ "mfussenegger/nvim-dap" },
 		{
 			"rcarriga/nvim-dap-ui",
 			dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 		},
-
-		{
-			"folke/which-key.nvim",
-		},
-		-- project file navigation
+		{ "folke/which-key.nvim" }, -- project file navigation
 		{
 			"ThePrimeagen/harpoon",
 			dependencies = { "nvim-lua/plenary.nvim" },
-		},
-		-- formatting
+		}, -- formatting
 		{
 			"stevearc/conform.nvim",
 			event = { "BufWritePre" },
@@ -91,7 +69,9 @@ lazy.setup({
 				{
 					"<leader>m",
 					function()
-						require("conform").format({ async = true })
+						require("conform").format({
+							async = true,
+						})
 					end,
 					mode = "",
 					desc = "Format buffer",
@@ -111,10 +91,16 @@ lazy.setup({
 					lsp_format = "fallback",
 				},
 				-- Set up format-on-save
-				format_on_save = { timeout_ms = 500 },
+				format_on_save = {
+					timeout_ms = 500,
+				},
 			},
 		},
-		{ "akinsho/toggleterm.nvim", version = "*", config = true },
+		{
+			"akinsho/toggleterm.nvim",
+			version = "*",
+			config = true,
+		},
 		{
 			"folke/todo-comments.nvim",
 			dependencies = { "nvim-lua/plenary.nvim" },
@@ -125,14 +111,12 @@ lazy.setup({
 					},
 				})
 			end,
-		},
-		-- folding
+		}, -- folding
 		{
 			"kevinhwang91/nvim-ufo",
 			event = "BufRead",
 			dependencies = { "kevinhwang91/promise-async" },
-		},
-		-- go
+		}, -- go
 		{
 			"ray-x/go.nvim",
 			dependencies = { -- optional packages
@@ -142,18 +126,14 @@ lazy.setup({
 			},
 			event = { "CmdlineEnter" },
 			ft = { "go", "gomod" },
-		},
-
-		-- rust
+		}, -- rust
 		{ "https://gitlab.com/yorickpeterse/nvim-dd.git" },
 		{ "rust-lang/rust.vim" },
 		{
 			"mrcjkb/rustaceanvim",
 			version = "^4",
 			ft = { "rust" },
-		},
-
-		-- common stuff
+		}, -- common stuff
 		{ "stevearc/dressing.nvim" },
 		{ "godlygeek/tabular" },
 		{ "petertriho/nvim-scrollbar" },
@@ -163,49 +143,43 @@ lazy.setup({
 			opts = {
 				-- add any options here
 			},
-			dependencies = {
-				-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-				"MunifTanjim/nui.nvim",
-				-- OPTIONAL:
+			dependencies = { -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+				"MunifTanjim/nui.nvim", -- OPTIONAL:
 				--   `nvim-notify` is only needed, if you want to use the notification view.
 				--   If not available, we use `mini` as the fallback
 				"rcarriga/nvim-notify",
 			},
 		},
-		{ "rcarriga/nvim-notify" },
-
-		-- colorize
+		{ "rcarriga/nvim-notify" }, -- colorize
 		{ "NvChad/nvim-colorizer.lua" },
-    {
-    "hiphish/rainbow-delimiters.nvim", -- Powered by Tree-sitter
-    submodules = false,
-    opts = {
-      strategy = {
-        [""] = "rainbow-delimiters.strategy.global",
-        vim = "rainbow-delimiters.strategy.local",
-      },
-      query = {
-        [""] = "rainbow-delimiters",
-        lua = "rainbow-blocks",
-      },
-      priority = {
-        [""] = 110,
-        lua = 210,
-      },
-      highlight = {
-        "RainbowDelimiterRed",
-        "RainbowDelimiterYellow",
-        "RainbowDelimiterBlue",
-        "RainbowDelimiterOrange",
-        "RainbowDelimiterGreen",
-        "RainbowDelimiterViolet",
-        "RainbowDelimiterCyan",
-      },
-    },
-    main = "rainbow-delimiters.setup", -- Required. Defaults to the repository name if not set.
-  },
-
-		-- statusline
+		{
+			"hiphish/rainbow-delimiters.nvim", -- Powered by Tree-sitter
+			submodules = false,
+			opts = {
+				strategy = {
+					[""] = "rainbow-delimiters.strategy.global",
+					vim = "rainbow-delimiters.strategy.local",
+				},
+				query = {
+					[""] = "rainbow-delimiters",
+					lua = "rainbow-blocks",
+				},
+				priority = {
+					[""] = 110,
+					lua = 210,
+				},
+				highlight = {
+					"RainbowDelimiterRed",
+					"RainbowDelimiterYellow",
+					"RainbowDelimiterBlue",
+					"RainbowDelimiterOrange",
+					"RainbowDelimiterGreen",
+					"RainbowDelimiterViolet",
+					"RainbowDelimiterCyan",
+				},
+			},
+			main = "rainbow-delimiters.setup", -- Required. Defaults to the repository name if not set.
+		}, -- statusline
 		{
 			"nvim-lualine/lualine.nvim",
 			dependencies = { "nvim-tree/nvim-web-devicons", "linrongbin16/lsp-progress.nvim" },
@@ -216,31 +190,24 @@ lazy.setup({
 			config = function()
 				require("lsp-progress").setup()
 			end,
-		},
-
-		-- Icons
+		}, -- Icons
 		{
 			"nvim-tree/nvim-web-devicons",
 			lazy = true,
-		},
-
-		-- Dashboard (start screen)
+		}, -- Dashboard (start screen)
 		{
 			"goolord/alpha-nvim",
 			dependencies = { "nvim-tree/nvim-web-devicons" },
-		},
-
-		-- Git
+		}, -- Git
 		{ "rhysd/git-messenger.vim" },
 		{
 			"lewis6991/gitsigns.nvim",
 			lazy = true,
 			dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
-		},
-
-		-- meta jump
+		}, -- meta jump (moved to Codeberg: andyg/leap.nvim)
 		{
-			"ggandor/leap.nvim",
+			name = "leap.nvim",
+			url = "https://codeberg.org/andyg/leap.nvim",
 			dependencies = { "tpope/vim-repeat" },
 		},
 		{ "RRethy/vim-illuminate" },
@@ -253,21 +220,17 @@ lazy.setup({
 			"stevearc/aerial.nvim",
 			opts = {},
 			-- Optional dependencies
-			dependencies = {
-				"nvim-treesitter/nvim-treesitter",
-				"nvim-tree/nvim-web-devicons",
-			},
-		},
-
-		-- Treesitter
+			dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+		}, -- Treesitter
 		{
 			"nvim-treesitter/nvim-treesitter",
 			build = ":TSUpdate",
-		},
-
-		-- Indent line
-		{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- Tag viewer
-
+		}, -- Indent line
+		{
+			"lukas-reineke/indent-blankline.nvim",
+			main = "ibl",
+			opts = {},
+		}, -- Tag viewer
 		-- Autopair
 		{
 			"windwp/nvim-autopairs",
@@ -275,9 +238,7 @@ lazy.setup({
 			config = function()
 				require("nvim-autopairs").setup({})
 			end,
-		},
-
-		-- LSP
+		}, -- LSP
 		{
 			"mason-org/mason-lspconfig.nvim",
 			opts = {},
@@ -285,9 +246,7 @@ lazy.setup({
 				{
 					"mason-org/mason.nvim",
 					opts = {
-						ensure_installed = {
-							"tinymist",
-						},
+						ensure_installed = { "tinymist" },
 					},
 				},
 				"neovim/nvim-lspconfig",
@@ -308,20 +267,12 @@ lazy.setup({
 				require("lspsaga").setup({})
 			end,
 			dependencies = { { "nvim-tree/nvim-web-devicons" }, { "nvim-treesitter/nvim-treesitter" } },
-		},
-
-		-- tree
+		}, -- tree
 		{
 			"nvim-neo-tree/neo-tree.nvim",
 			branch = "v2.x",
-			dependencies = {
-				"nvim-tree/nvim-web-devicons",
-				"MunifTanjim/nui.nvim",
-				"nvim-lua/plenary.nvim",
-			},
-			keys = {
-				{ "<C-t>", ":Neotree toggle reveal=true<CR>" },
-			},
+			dependencies = { "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+			keys = { { "<C-t>", ":Neotree toggle reveal=true<CR>" } },
 			init = function()
 				vim.g.neo_tree_remove_legacy_commands = 1
 				if vim.fn.argc() == 1 then
@@ -339,8 +290,7 @@ lazy.setup({
 					group_empty_dirs = true,
 				},
 			},
-		},
-		-- Autocomplete
+		}, -- Autocomplete
 		{
 			"hrsh7th/nvim-cmp",
 			-- load cmp on InsertEnter
