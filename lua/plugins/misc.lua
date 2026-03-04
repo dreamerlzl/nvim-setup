@@ -18,7 +18,9 @@ vim.keymap.set("n", "<C-l>", "<cmd>AerialToggle<CR>")
 require("scrollbar").setup({
     excluded_buftypes = {"terminal", "nofile"}
 })
--- leap.nvim: default mappings are built-in; see :help leap-mappings to customize
+vim.keymap.set({'n', 'x', 'o'}, 's',  '<Plug>(leap-forward)')
+vim.keymap.set({'n', 'x', 'o'}, 'S',  '<Plug>(leap-backward)')
+vim.keymap.set({'n', 'x', 'o'}, 'gs', '<Plug>(leap-from-window)')
 require("colorizer").setup()
 require("ufo").setup({
     close_fold_kinds_ft = {"imports"},
