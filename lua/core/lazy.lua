@@ -46,6 +46,31 @@ lazy.setup({
 		{ "onsails/lspkind.nvim" },
 		{ "mfussenegger/nvim-jdtls" },
 		{
+			"nvim-neotest/neotest",
+			dependencies = {
+				"nvim-neotest/nvim-nio",
+				"nvim-lua/plenary.nvim",
+				"nvim-treesitter/nvim-treesitter",
+				"antoinemadec/FixCursorHold.nvim",
+				"rcasia/neotest-java",
+			},
+			config = function()
+				require("neotest").setup({
+					adapters = {
+						require("neotest-java"),
+					},
+				})
+			end,
+			ft = { "java" },
+			keys = {
+				{ "<leader>tn", function() require("neotest").run.run() end, desc = "Run nearest test" },
+				{ "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run test file" },
+				{ "<leader>ts", function() require("neotest").summary.toggle() end, desc = "Toggle test summary" },
+				{ "<leader>to", function() require("neotest").output.open({ enter = true }) end, desc = "Show test output" },
+				{ "<leader>tp", function() require("neotest").output_panel.toggle() end, desc = "Toggle output panel" },
+			},
+		},
+		{
 			"barrett-ruth/live-server.nvim",
 			build = "yarn global add live-server",
 			config = true,
@@ -303,8 +328,9 @@ lazy.setup({
 				"hrsh7th/cmp-path",
 				"hrsh7th/cmp-buffer",
 				"saadparwaiz1/cmp_luasnip",
-				"hrsh7th/cmp-vsnip",
-				"hrsh7th/vim-vsnip",
+			"hrsh7th/cmp-vsnip",
+			"hrsh7th/vim-vsnip",
+			"rafamadriz/friendly-snippets",
 			},
 		},
 	},

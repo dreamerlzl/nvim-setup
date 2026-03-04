@@ -1,5 +1,5 @@
 local config = {
-  cmd = { '/home/wright/.local/share/nvim/mason/bin/jdtls' },
+  cmd = { vim.fn.stdpath('data') .. '/mason/bin/jdtls' },
   root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
 }
 
@@ -98,6 +98,20 @@ config.on_attach = function(client, bufnr)
       async = true,
     })
   end, bufopts)
+
+  -- jdtls-specific refactoring keymaps
+  vim.keymap.set("n", "<space>ev", function() require("jdtls").extract_variable() end,
+    { noremap = true, silent = true, buffer = bufnr, desc = "Extract variable" })
+  vim.keymap.set("v", "<space>ev", function() require("jdtls").extract_variable(true) end,
+    { noremap = true, silent = true, buffer = bufnr, desc = "Extract variable" })
+  vim.keymap.set("n", "<space>ec", function() require("jdtls").extract_constant() end,
+    { noremap = true, silent = true, buffer = bufnr, desc = "Extract constant" })
+  vim.keymap.set("v", "<space>ec", function() require("jdtls").extract_constant(true) end,
+    { noremap = true, silent = true, buffer = bufnr, desc = "Extract constant" })
+  vim.keymap.set("v", "<space>em", function() require("jdtls").extract_method(true) end,
+    { noremap = true, silent = true, buffer = bufnr, desc = "Extract method" })
+  vim.keymap.set("n", "<space>oi", function() require("jdtls").organize_imports() end,
+    { noremap = true, silent = true, buffer = bufnr, desc = "Organize imports" })
 end
 
 require('jdtls').start_or_attach(config)
