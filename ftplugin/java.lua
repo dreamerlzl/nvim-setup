@@ -1,10 +1,20 @@
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+local workspace_dir = vim.fn.expand('~/.cache/jdtls/workspace/') .. project_name
+
 local config = {
-  cmd = { vim.fn.stdpath('data') .. '/mason/bin/jdtls' },
+  cmd = { vim.fn.stdpath('data') .. '/mason/bin/jdtls', '--data', workspace_dir },
   root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
 }
 
 config.settings = {
   java = {
+    import = {
+      gradle = {
+        java = {
+          home = vim.fn.expand('~/.sdkman/candidates/java/current'),
+        },
+      },
+    },
     signatureHelp = { enabled = true },
     contentProvider = { preferred = 'fernflower' },
     completion = {
