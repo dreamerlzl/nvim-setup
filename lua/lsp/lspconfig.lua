@@ -131,7 +131,6 @@ local servers = {
 	"dockerls",
 	"docker_compose_language_service",
 	"sqls",
-	"terraform_ls",
 }
 
 -- Call setup
@@ -147,6 +146,14 @@ for _, lsp in ipairs(servers) do
 	})
 	vim.lsp.enable(lsp)
 end
+
+vim.lsp.config("terraformls", {
+	on_attach = on_attach,
+	capabilities = capabilities,
+	-- Restrict to the canonical Terraform filetype so :LspInfo stays quiet.
+	filetypes = { "terraform" },
+})
+vim.lsp.enable("terraformls")
 
 vim.lsp.enable("tinymist")
 vim.lsp.config("tinymist", {

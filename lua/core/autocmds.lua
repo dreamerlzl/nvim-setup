@@ -70,6 +70,15 @@ autocmd("Filetype", {
 	command = "setlocal foldmethod=expr",
 })
 
+autocmd({ "BufNewFile", "BufRead" }, {
+	pattern = "*.tf",
+	callback = function(args)
+		if vim.bo[args.buf].filetype == "tf" then
+			vim.bo[args.buf].filetype = "terraform"
+		end
+	end,
+})
+
 -- Terminal settings:
 ---------------------
 
