@@ -110,6 +110,8 @@ lazy.setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
 					python = { "ruff_organize_imports", "ruff_format", "ruff_fix" },
+					terraform = { "terraform_fmt" },
+					hcl = { "terraform_fmt" },
 				},
 				-- Set default options
 				default_format_opts = {
@@ -271,7 +273,7 @@ lazy.setup({
 				{
 					"mason-org/mason.nvim",
 					opts = {
-						ensure_installed = { "tinymist" },
+						ensure_installed = { "tinymist", "terraform-ls" },
 					},
 				},
 				"neovim/nvim-lspconfig",

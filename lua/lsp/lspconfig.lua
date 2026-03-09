@@ -131,6 +131,7 @@ local servers = {
 	"dockerls",
 	"docker_compose_language_service",
 	"sqls",
+	"terraform_ls",
 }
 
 -- Call setup
@@ -261,14 +262,6 @@ vim.lsp.config("gopls", {
 			},
 		},
 	},
-})
-
-require'lspconfig'.terraformls.setup{}
-vim.api.nvim_create_autocmd({"BufWritePre"}, {
-  pattern = {"*.tf", "*.tfvars"},
-  callback = function()
-    vim.lsp.buf.format()
-  end,
 })
 
 local configs = require("lspconfig/configs")
