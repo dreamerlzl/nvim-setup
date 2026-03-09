@@ -7,7 +7,9 @@
   - noice for floating cmdline
   - lualine for status line
 - configs for plugin can be found under `lua/plugins`
-- for rust, python, golang, lua and typescript dev
+- for rust, python, golang, lua, hcl and typescript dev
+- for java, I recommend using idea + ideavim
+  - dependency resolving much faster and easier than jdtls
 
 # prerequisite(separate installation)
 
