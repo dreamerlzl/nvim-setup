@@ -3,7 +3,12 @@ vim.lsp.set_log_level("WARN")
 -- Add additional capabilities supported by nvim-cmp
 -- See: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 -- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- `cmp-nvim-lsp` may not be loaded yet if completion is fully lazy.
+local ok_cmp_nvim_lsp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if ok_cmp_nvim_lsp then
+	capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+end
 capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
 	lineFoldingOnly = true,
@@ -316,10 +321,4 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	virtual_text = false,
 	signs = true,
 	update_in_insert = false,
-})
-
-require("lspsaga").setup({
-	symbol_in_winbar = {
-		color_mode = false,
-	},
 })

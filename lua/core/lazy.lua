@@ -374,7 +374,14 @@ lazy.setup({
 			"glepnir/lspsaga.nvim",
 			event = "BufRead",
 			config = function()
-				require("lspsaga").setup({})
+				-- Defer the (heavier) LSP server configuration until we actually
+				-- open a buffer.
+				require("lsp/lspconfig")
+				require("lspsaga").setup({
+					symbol_in_winbar = {
+						color_mode = false,
+					},
+				})
 			end,
 			dependencies = { { "nvim-tree/nvim-web-devicons" }, { "nvim-treesitter/nvim-treesitter" } },
 		}, -- tree
@@ -417,6 +424,9 @@ lazy.setup({
 				"hrsh7th/vim-vsnip",
 				"rafamadriz/friendly-snippets",
 			},
+			config = function()
+				require("core/cmp")
+			end,
 		},
 	},
 }, {

@@ -10,9 +10,6 @@ require("core/keymaps")
 require("core/statusline")
 require("core/options")
 require("core/colors")
-require("core/cmp")
-
-require("lsp/lspconfig")
 require("lsp/go")
 
 require("plugins/nvim-dap")
