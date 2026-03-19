@@ -63,11 +63,41 @@ lazy.setup({
 			end,
 			ft = { "java" },
 			keys = {
-				{ "<leader>tn", function() require("neotest").run.run() end, desc = "Run nearest test" },
-				{ "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run test file" },
-				{ "<leader>ts", function() require("neotest").summary.toggle() end, desc = "Toggle test summary" },
-				{ "<leader>to", function() require("neotest").output.open({ enter = true }) end, desc = "Show test output" },
-				{ "<leader>tp", function() require("neotest").output_panel.toggle() end, desc = "Toggle output panel" },
+				{
+					"<leader>tn",
+					function()
+						require("neotest").run.run()
+					end,
+					desc = "Run nearest test",
+				},
+				{
+					"<leader>tf",
+					function()
+						require("neotest").run.run(vim.fn.expand("%"))
+					end,
+					desc = "Run test file",
+				},
+				{
+					"<leader>ts",
+					function()
+						require("neotest").summary.toggle()
+					end,
+					desc = "Toggle test summary",
+				},
+				{
+					"<leader>to",
+					function()
+						require("neotest").output.open({ enter = true })
+					end,
+					desc = "Show test output",
+				},
+				{
+					"<leader>tp",
+					function()
+						require("neotest").output_panel.toggle()
+					end,
+					desc = "Toggle output panel",
+				},
 			},
 		},
 		{
@@ -242,6 +272,59 @@ lazy.setup({
 			"Yggdroot/LeaderF",
 			build = ":LeaderfInstallCExtension",
 		},
+		-- {
+		-- 	"dmtrKovalenko/fff.nvim",
+		-- 	build = function()
+		-- 		-- this will download prebuild binary or try to use existing rustup toolchain to build from source
+		-- 		-- (if you are using lazy you can use gb for rebuilding a plugin if needed)
+		-- 		require("fff.download").download_or_build_binary()
+		-- 	end,
+		-- 	-- if you are using nixos
+		-- 	-- build = "nix run .#release",
+		-- 	opts = { -- (optional)
+		-- 		debug = {
+		-- 			enabled = true, -- we expect your collaboration at least during the beta
+		-- 			show_scores = true, -- to help us optimize the scoring system, feel free to share your scores!
+		-- 		},
+		-- 	},
+		-- 	-- No need to lazy-load with lazy.nvim.
+		-- 	-- This plugin initializes itself lazily.
+		-- 	lazy = false,
+		-- 	keys = {
+		-- 		{
+		-- 			"<leader>f", -- try it if you didn't it is a banger keybinding for a picker
+		-- 			function()
+		-- 				require("fff").find_files()
+		-- 			end,
+		-- 			desc = "FFFind files",
+		-- 		},
+		-- 		{
+		-- 			"<leader>j",
+		-- 			function()
+		-- 				require("fff").live_grep()
+		-- 			end,
+		-- 			desc = "LiFFFe grep",
+		-- 		},
+		-- 		{
+		-- 			"<leader>z",
+		-- 			function()
+		-- 				require("fff").live_grep({
+		-- 					grep = {
+		-- 						modes = { "fuzzy", "plain" },
+		-- 					},
+		-- 				})
+		-- 			end,
+		-- 			desc = "Live fffuzy grep",
+		-- 		},
+		-- 		{
+		-- 			"<leader>c",
+		-- 			function()
+		-- 				require("fff").live_grep({ query = vim.fn.expand("<cword>") })
+		-- 			end,
+		-- 			desc = "Search current word",
+		-- 		},
+		-- 	},
+		-- },
 		{ "airblade/vim-rooter" },
 		{
 			"stevearc/aerial.nvim",
@@ -330,9 +413,9 @@ lazy.setup({
 				"hrsh7th/cmp-path",
 				"hrsh7th/cmp-buffer",
 				"saadparwaiz1/cmp_luasnip",
-			"hrsh7th/cmp-vsnip",
-			"hrsh7th/vim-vsnip",
-			"rafamadriz/friendly-snippets",
+				"hrsh7th/cmp-vsnip",
+				"hrsh7th/vim-vsnip",
+				"rafamadriz/friendly-snippets",
 			},
 		},
 	},
