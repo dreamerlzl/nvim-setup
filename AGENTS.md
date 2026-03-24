@@ -38,8 +38,7 @@ nvim/
 # Open Neovim and run health check
 nvim +":checkhealth" +qa
 
-# Check for Lua syntax errors
-luac -p lua/**/*.lua
+# Use stylua to check for Lua syntax errors
 
 # Test with verbose startup
 nvim --startuptime /tmp/nvim.log
@@ -116,7 +115,7 @@ ruff check .
    if not status_ok then
        return
    end
-   
+
    -- Use pcall for protected require
    ```
 
@@ -134,7 +133,7 @@ ruff check .
    vim.keymap.set("n", "<leader>ff", function()
        -- code
    end, { silent = true, desc = "Find files" })
-   
+
    -- Legacy: vim.api.nvim_set_keymap
    map("n", "<C-s>", ":call ToggleSignColumn()<CR>")
    ```
@@ -145,10 +144,10 @@ ruff check .
    require("plugin_name").setup({
        option = value,
    })
-   
+
    -- Or with opts
    require("plugin_name").setup(opts)
-   
+
    -- Lazy loading
    {
        "author/plugin",
