@@ -8,7 +8,7 @@
 -- https://github.com/brainfucksec/neovim-lua#readme
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
 		"clone",
@@ -39,29 +39,136 @@ lazy.setup({
 		},
 		{
 			"linrongbin16/gitlinker.nvim",
+			event = "VeryLazy",
 			config = function()
 				require("gitlinker").setup()
 			end,
 		},
 		{ "onsails/lspkind.nvim" },
-		{ "mfussenegger/nvim-jdtls" },
+		{ "mfussenegger/nvim-jdtls", ft = { "java" } },
 		{
 			"barrett-ruth/live-server.nvim",
 			build = "yarn global add live-server",
+			cmd = { "LiveServerStart", "LiveServerStop", "LiveServerToggle" },
 			config = true,
 		},
-		{ "mfussenegger/nvim-dap" },
 		{
-			"rcarriga/nvim-dap-ui",
+			"mfussenegger/nvim-dap",
 			dependencies = {
-				"mfussenegger/nvim-dap",
-				"nvim-neotest/nvim-nio",
+				{
+					"rcarriga/nvim-dap-ui",
+					dependencies = { "nvim-neotest/nvim-nio" },
+				},
 			},
+			keys = {
+				{
+					"<leader>b",
+					function()
+						require("dap").toggle_breakpoint()
+					end,
+					desc = "DAP toggle breakpoint",
+				},
+				{
+					"<leader>c",
+					function()
+						require("dap").continue()
+					end,
+					desc = "DAP continue",
+				},
+				{
+					"<leader>o",
+					function()
+						require("dap").step_over()
+					end,
+					desc = "DAP step over",
+				},
+				{
+					"<leader>s",
+					function()
+						require("dap").step_into()
+					end,
+					desc = "DAP step into",
+				},
+				{
+					"<leader>r",
+					function()
+						require("dap").repl.open()
+					end,
+					desc = "DAP repl open",
+				},
+				{
+					"<leader>u",
+					function()
+						require("dapui").toggle()
+					end,
+					desc = "DAP UI toggle",
+				},
+			},
+			config = function()
+				require("plugins/nvim-dap")()
+			end,
 		},
-		{ "folke/which-key.nvim" }, -- project file navigation
+		{
+			"folke/which-key.nvim",
+			event = "VeryLazy",
+			config = function()
+				require("plugins/which-key")()
+			end,
+		}, -- project file navigation
 		{
 			"ThePrimeagen/harpoon",
 			dependencies = { "nvim-lua/plenary.nvim" },
+			keys = {
+				{
+					"<leader>ha",
+					function()
+						require("harpoon.mark").add_file()
+					end,
+					desc = "Add file to harpoon",
+				},
+				{
+					"<leader>hl",
+					function()
+						require("harpoon.ui").toggle_quick_menu()
+					end,
+					desc = "Toggle quick menu",
+				},
+				{
+					"<leader>hr",
+					function()
+						require("harpoon.mark").rm_file()
+					end,
+					desc = "Remove file from harpoon",
+				},
+				{
+					"<A-1>",
+					function()
+						require("harpoon.ui").nav_file(1)
+					end,
+					desc = "Harpoon file 1",
+				},
+				{
+					"<A-2>",
+					function()
+						require("harpoon.ui").nav_file(2)
+					end,
+					desc = "Harpoon file 2",
+				},
+				{
+					"<A-3>",
+					function()
+						require("harpoon.ui").nav_file(3)
+					end,
+					desc = "Harpoon file 3",
+				},
+				{
+					"<A-4>",
+					function()
+						require("harpoon.ui").nav_file(4)
+					end,
+					desc = "Harpoon file 4",
+				},
+			},
 		}, -- formatting
 		{
 			"stevearc/conform.nvim",
@@ -104,11 +211,17 @@ lazy.setup({
 		{
 			"akinsho/toggleterm.nvim",
 			version = "*",
-			config = true,
+			cmd = { "ToggleTerm", "TermExec" },
+			keys = { { "<c-\\>", desc = "Toggle terminal" } },
+			config = function()
+				require("plugins/toggleterm")()
+			end,
 		},
 		{
 			"folke/todo-comments.nvim",
 			dependencies = { "nvim-lua/plenary.nvim" },
+			event = { "BufReadPost", "BufNewFile" },
+			cmd = { "TodoQuickFix", "TodoLocList", "TodoTelescope", "TodoTrouble" },
 			config = function()
 				require("todo-comments").setup({
 					colors = {
@@ -121,6 +234,14 @@ lazy.setup({
 			"kevinhwang91/nvim-ufo",
 			event = "BufRead",
 			dependencies = { "kevinhwang91/promise-async" },
+			config = function()
+				require("ufo").setup({
+					close_fold_kinds_ft = { "imports" },
+					provider_selector = function(bufnr, filetype, buftype)
+						return { "lsp", "indent" }
+					end,
+				})
+			end,
 		}, -- go
 		{
 			"ray-x/go.nvim",
@@ -131,35 +252,115 @@ lazy.setup({
 			},
 			event = { "CmdlineEnter" },
 			ft = { "go", "gomod" },
+			config = function()
+				require("lsp/go")
+			end,
 		}, -- rust
 		{ "https://gitlab.com/yorickpeterse/nvim-dd.git" },
-		{ "rust-lang/rust.vim" },
+		{ "rust-lang/rust.vim", ft = { "rust" } },
 		{
 			"mrcjkb/rustaceanvim",
 			version = "^5",
 			ft = { "rust" },
 		}, -- common stuff
-		{ "stevearc/dressing.nvim" },
-		{ "godlygeek/tabular" },
-		{ "petertriho/nvim-scrollbar" },
+		{ "stevearc/dressing.nvim", event = "VeryLazy" },
+		{ "godlygeek/tabular", cmd = { "Tabularize", "GTabularize" } },
+		{
+			"petertriho/nvim-scrollbar",
+			event = { "BufReadPost", "BufNewFile" },
+			config = function()
+				require("scrollbar").setup({
+					excluded_buftypes = { "terminal", "nofile" },
+				})
+			end,
+		},
 		{
 			"folke/noice.nvim",
 			event = "VeryLazy",
-			opts = {
-				-- add any options here
-			},
-			dependencies = { -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-				"MunifTanjim/nui.nvim", -- OPTIONAL:
-				--   `nvim-notify` is only needed, if you want to use the notification view.
-				--   If not available, we use `mini` as the fallback
+			dependencies = {
+				"MunifTanjim/nui.nvim",
 				"rcarriga/nvim-notify",
 			},
+			init = function()
+				-- Register LSP window/showMessage handler early (before VeryLazy).
+				-- This covers LSP messages from startup; those early notifications
+				-- use the current vim.notify implementation until noice.setup()
+				-- replaces the handler/UI on VeryLazy.
+				-- Maps LSP MessageType (1=Error, 2=Warning, 3=Info, 4=Log) to vim.log.levels
+				local severity =
+					{ vim.log.levels.ERROR, vim.log.levels.WARN, vim.log.levels.INFO, vim.log.levels.DEBUG }
+				vim.lsp.handlers["window/showMessage"] = function(err, result, ctx, _config)
+					-- Handle errors explicitly
+					if err then
+						local err_msg = type(err) == "table" and err.message or tostring(err)
+						vim.notify("LSP window/showMessage error: " .. err_msg, vim.log.levels.ERROR)
+						return
+					end
+					-- Validate result has required fields before attempting to notify
+					if not result or type(result) ~= "table" then
+						vim.notify("LSP: Invalid window/showMessage payload (missing result)", vim.log.levels.WARN)
+						return
+					end
+					if not result.message then
+						vim.notify("LSP: Invalid window/showMessage payload (missing message)", vim.log.levels.WARN)
+						return
+					end
+					if not result.type or type(result.type) ~= "number" then
+						vim.notify(
+							"LSP: Invalid window/showMessage payload (missing or invalid type)",
+							vim.log.levels.WARN
+						)
+						return
+					end
+					-- Clamp type to valid range [1, 4] and floor to ensure integer
+					local msg_type = math.floor(math.max(1, math.min(4, result.type)))
+					vim.notify(result.message, severity[msg_type])
+				end
+			end,
+			config = function()
+				require("noice").setup({
+					lsp = {
+						override = {
+							["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+							["vim.lsp.util.stylize_markdown"] = true,
+							["cmp.entry.get_documentation"] = true,
+						},
+					},
+					presets = {
+						bottom_search = true,
+						command_palette = true,
+						long_message_to_split = true,
+						inc_rename = false,
+						lsp_doc_border = false,
+					},
+					routes = {
+						{
+							filter = { find = "getting file for InlayHint" },
+							opts = { skip = true },
+						},
+						{
+							view = "notify",
+							filter = { event = "msg_showmode", find = "recording" },
+						},
+						{
+							filter = { kind = "echo", ["not"] = { find = "Exception" } },
+							opts = { skip = true },
+						},
+					},
+				})
+			end,
+		}, -- colorize
+		{
+			"NvChad/nvim-colorizer.lua",
+			event = { "BufReadPost", "BufNewFile" },
+			config = function()
+				require("colorizer").setup()
+			end,
 		},
-		{ "rcarriga/nvim-notify" }, -- colorize
-		{ "NvChad/nvim-colorizer.lua" },
 		{
 			"hiphish/rainbow-delimiters.nvim", -- Powered by Tree-sitter
 			submodules = false,
+			event = { "BufReadPost", "BufNewFile" },
 			opts = {
 				strategy = {
 					[""] = "rainbow-delimiters.strategy.global",
@@ -187,7 +388,11 @@ lazy.setup({
 		}, -- statusline
 		{
 			"nvim-lualine/lualine.nvim",
+			event = "VeryLazy",
 			dependencies = { "nvim-tree/nvim-web-devicons", "linrongbin16/lsp-progress.nvim" },
+			config = function()
+				require("core/statusline")()
+			end,
 		},
 		{
 			"linrongbin16/lsp-progress.nvim",
@@ -202,23 +407,51 @@ lazy.setup({
 		}, -- Dashboard (start screen)
 		{
 			"goolord/alpha-nvim",
+			event = "VimEnter",
 			dependencies = { "nvim-tree/nvim-web-devicons" },
+			config = function()
+				require("plugins/alpha-nvim")()
+			end,
 		}, -- Git
-		{ "rhysd/git-messenger.vim" },
+		{
+			"rhysd/git-messenger.vim",
+			cmd = { "GitMessenger" },
+			keys = { { "<leader>gm", "<Plug>(git-messenger)", desc = "Git messenger" } },
+		},
 		{
 			"lewis6991/gitsigns.nvim",
-			lazy = true,
+			event = { "BufReadPre", "BufNewFile" },
 			dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
+			config = function()
+				require("plugins/git")()
+			end,
 		}, -- meta jump (moved to Codeberg: andyg/leap.nvim)
 		{
 			name = "leap.nvim",
 			url = "https://codeberg.org/andyg/leap.nvim",
 			dependencies = { "tpope/vim-repeat" },
+			keys = {
+				{ "s", "<Plug>(leap-forward)", mode = { "n", "x", "o" }, desc = "Leap forward" },
+				{ "S", "<Plug>(leap-backward)", mode = { "n", "x", "o" }, desc = "Leap backward" },
+				{ "gs", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from window" },
+			},
 		},
-		{ "RRethy/vim-illuminate" },
+		{ "RRethy/vim-illuminate", event = { "BufReadPost", "BufNewFile" } },
 		{
 			"Yggdroot/LeaderF",
 			build = ":LeaderfInstallCExtension",
+			-- Add further Leaderf* commands here if new mappings require them.
+			cmd = { "Leaderf", "LeaderfFile" },
+			init = function()
+				vim.cmd([[
+					let g:Lf_PreviewInPopup = 0
+					let g:Lf_PreviewResult = {'Rg': 1 }
+					let g:Lf_UseCache = 0
+					let g:Lf_UseMemoryCache = 0
+					let g:Lf_UseVersionControlTool = 0
+					let g:Lf_CommandMap = {'<C-K>': ['<C-P>'], '<C-J>': ['<C-N>']}
+				]])
+			end,
 		},
 		-- {
 		-- 	"dmtrKovalenko/fff.nvim",
@@ -273,21 +506,44 @@ lazy.setup({
 		-- 		},
 		-- 	},
 		-- },
-		{ "airblade/vim-rooter" },
+		-- Keep vim-rooter eager: its own VimEnter/BufEnter hooks need to exist
+		-- before the first real buffer if we want initial-buffer cwd detection.
+		{
+			"airblade/vim-rooter",
+			lazy = false,
+			init = function()
+				vim.g.rooter_patterns = { ".git", "Cargo.toml", "go.mod", "Pipfile", "package.json" }
+			end,
+		},
 		{
 			"stevearc/aerial.nvim",
-			opts = {},
-			-- Optional dependencies
+			event = { "BufReadPost", "BufNewFile" },
+			keys = { { "<C-l>", "<cmd>AerialToggle<CR>", desc = "Toggle aerial" } },
 			dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+			config = function()
+				require("aerial").setup({
+					on_attach = function(bufnr)
+						vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+						vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+					end,
+				})
+			end,
 		}, -- Treesitter
 		{
 			"nvim-treesitter/nvim-treesitter",
+			event = { "BufReadPost", "BufNewFile" },
 			build = ":TSUpdate",
+			config = function()
+				require("plugins/nvim-treesitter")()
+			end,
 		}, -- Indent line
 		{
 			"lukas-reineke/indent-blankline.nvim",
+			event = { "BufReadPost", "BufNewFile" },
 			main = "ibl",
-			opts = {},
+			config = function()
+				require("plugins/indent-blankline")()
+			end,
 		}, -- Tag viewer
 		-- Autopair
 		{
@@ -297,53 +553,112 @@ lazy.setup({
 				require("nvim-autopairs").setup({})
 			end,
 		}, -- LSP
+		-- mason.nvim: command-lazy only; ensure_installed lives in mason-lspconfig.
+		{
+			"mason-org/mason.nvim",
+			cmd = { "Mason", "MasonInstall", "MasonUpdate", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
+			opts = {},
+		},
+		-- mason-lspconfig: ensure_installed uses lspconfig server names.
+		-- Loaded alongside mason.nvim on demand, and also shortly after interactive
+		-- startup so ensure_installed still runs on fresh setups without blocking boot.
+		-- The delayed load is safe to race with :Mason command-triggered loading.
+		-- On a fresh install, opening :Mason manually is still the fastest path if
+		-- a file is opened before this deferred ensure_installed load fires.
 		{
 			"mason-org/mason-lspconfig.nvim",
-			opts = {},
-			dependencies = {
-				{
-					"mason-org/mason.nvim",
-					opts = {
-						ensure_installed = { "tinymist", "terraform-ls" },
-					},
-				},
-				"neovim/nvim-lspconfig",
-			},
+			cmd = { "Mason", "MasonInstall", "MasonUpdate", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
+			dependencies = { "mason-org/mason.nvim" },
+			init = function()
+				vim.api.nvim_create_autocmd("VimEnter", {
+					once = true,
+					callback = function()
+						local non_interactive_flags = {
+							"--headless",
+							"--embed",
+							"-e",
+							"-E",
+							"-es",
+							"-Es",
+						}
+						for _, flag in ipairs(non_interactive_flags) do
+							if vim.tbl_contains(vim.v.argv, flag) then
+								return
+							end
+						end
+
+						if #vim.api.nvim_list_uis() == 0 then
+							return
+						end
+
+						vim.defer_fn(function()
+							require("lazy").load({
+								plugins = { "mason-org/mason-lspconfig.nvim" },
+							})
+						end, 100)
+					end,
+				})
+			end,
 			config = function()
 				require("mason-lspconfig").setup({
+					ensure_installed = { "tinymist", "terraformls" },
 					automatic_setup = false,
 					automatic_enable = false,
-					handlers = nil,
 				})
 			end,
 		},
-		{ "neovim/nvim-lspconfig" },
+		-- nvim-lspconfig: explicitly buffer-lazy so lsp/lspconfig.lua loads on
+		-- the first real file open, not as a side effect of another plugin.
+		{
+			"neovim/nvim-lspconfig",
+			event = { "BufReadPre", "BufNewFile" },
+			config = function()
+				require("lsp/lspconfig")
+			end,
+		},
 		{
 			"glepnir/lspsaga.nvim",
 			event = "BufRead",
+			-- Explicit dependency ensures nvim-lspconfig (and lsp/lspconfig.lua)
+			-- is initialised before lspsaga sets up its UI.
+			dependencies = {
+				{ "nvim-tree/nvim-web-devicons" },
+				{ "nvim-treesitter/nvim-treesitter" },
+				{ "neovim/nvim-lspconfig" },
+			},
 			config = function()
-				-- Defer the (heavier) LSP server configuration until we actually
-				-- open a buffer.
-				require("lsp/lspconfig")
 				require("lspsaga").setup({
 					symbol_in_winbar = {
 						color_mode = false,
 					},
 				})
 			end,
-			dependencies = { { "nvim-tree/nvim-web-devicons" }, { "nvim-treesitter/nvim-treesitter" } },
 		}, -- tree
 		{
 			"nvim-neo-tree/neo-tree.nvim",
 			branch = "v2.x",
 			dependencies = { "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-			keys = { { "<C-t>", ":Neotree toggle reveal=true<CR>" } },
+			cmd = { "Neotree" },
+			keys = { { "<C-t>", ":Neotree toggle reveal=true<CR>", desc = "Toggle file tree" } },
 			init = function()
 				vim.g.neo_tree_remove_legacy_commands = 1
+				-- Defer directory launches until VimEnter so plain startup stays
+				-- cold. Loading the plugin is enough here: neo-tree.setup() will
+				-- hijack the current directory buffer exactly once.
 				if vim.fn.argc() == 1 then
-					local stat = vim.loop.fs_stat(vim.fn.argv(0))
+					local arg = vim.fn.argv(0)
+					local stat = vim.uv.fs_stat(arg)
 					if stat and stat.type == "directory" then
-						require("neo-tree")
+						vim.api.nvim_create_autocmd("VimEnter", {
+							once = true,
+							callback = function()
+								if #vim.api.nvim_list_uis() == 0 then
+									return
+								end
+
+								require("lazy").load({ plugins = { "neo-tree.nvim" } })
+							end,
+						})
 					end
 				end
 			end,

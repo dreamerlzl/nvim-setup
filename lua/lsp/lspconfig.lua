@@ -160,7 +160,6 @@ vim.lsp.config("terraformls", {
 })
 vim.lsp.enable("terraformls")
 
-vim.lsp.enable("tinymist")
 vim.lsp.config("tinymist", {
 	settings = {
 		formatterMode = "typstyle",
@@ -168,14 +167,14 @@ vim.lsp.config("tinymist", {
 		semanticTokens = "disable",
 	},
 })
+vim.lsp.enable("tinymist")
 
-vim.lsp.enable("solidity_ls_nomicfoundation")
-vim.lsp.enable("solidity_ls_nomicfoundation", {
+vim.lsp.config("solidity_ls_nomicfoundation", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+vim.lsp.enable("solidity_ls_nomicfoundation")
 
-vim.lsp.enable("lua_ls")
 vim.lsp.config("lua_ls", {
 	on_attach = on_attach,
 	-- root_dir = root_dir,
@@ -188,6 +187,7 @@ vim.lsp.config("lua_ls", {
 		},
 	},
 })
+vim.lsp.enable("lua_ls")
 
 vim.g.rustfmt_autosave = 1
 -- rust.vim will set foldmethod=syntax for rust
@@ -249,7 +249,6 @@ vim.g.rustaceanvim = {
 	server = setup,
 }
 
-vim.lsp.enable("gopls")
 vim.lsp.config("gopls", {
 	on_attach = on_attach,
 	-- root_dir = root_dir,
@@ -275,38 +274,26 @@ vim.lsp.config("gopls", {
 		},
 	},
 })
+vim.lsp.enable("gopls")
 
-local configs = require("lspconfig/configs")
-
-if not configs.golangcilsp then
-	configs.golangcilsp = {
-		default_config = {
-			cmd = { "golangci-lint-langserver" },
-			root_dir = function(bufnr, on_dir)
-				if vim.fs.root(bufnr, "go.mod") then
-					on_dir(vim.fn.getcwd())
-				end
-			end,
-			init_options = {
-				command = {
-					"golangci-lint",
-					"run",
-					"--enable-all",
-					"--disable",
-					"lll",
-					"--out-format",
-					"json",
-					"--issues-exit-code=1",
-				},
-			},
-		},
-	}
-end
-
-vim.lsp.enable("golangci_lint_ls")
 vim.lsp.config("golangci_lint_ls", {
+	on_attach = on_attach,
+	capabilities = capabilities,
 	filetypes = { "go", "gomod" },
+	init_options = {
+		command = {
+			"golangci-lint",
+			"run",
+			"--enable-all",
+			"--disable",
+			"lll",
+			"--out-format",
+			"json",
+			"--issues-exit-code=1",
+		},
+	},
 })
+vim.lsp.enable("golangci_lint_ls")
 
 -- require("go").setup(
 -- {

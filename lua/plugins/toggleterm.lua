@@ -1,7 +1,9 @@
-require("toggleterm").setup({
-	open_mapping = [[<c-\>]],
-	direction = "float",
-})
+return function()
+	require("toggleterm").setup({
+		open_mapping = [[<c-\>]],
+		direction = "float",
+	})
+end
 
 --local Terminal  = require('toggleterm.terminal').Terminal
 --local lazygit = Terminal:new({ cmd = "gitui", hidden = true })

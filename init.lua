@@ -1,26 +1,46 @@
--- only for imports
+-- Bootstrap globals: must execute before any plugin manager or plugin code
+
+vim.g.mapleader = " "
+
 -- Set before lazy so live-server.nvim sees it (avoids require().setup() deprecation)
-vim.g.live_server = {
-    args = {}
+vim.g.live_server = { args = {} }
+
+-- Disable builtin plugins before lazy so the runtime never sources them
+-- NOTE: do not disable `ftplugin` here. This config relies on filetype plugins
+-- such as `ftplugin/java.lua`, and keeping the runtime ftplugin dispatcher
+-- enabled is the safest conservative choice.
+local disabled_built_ins = {
+	"2html_plugin",
+	"getscript",
+	"getscriptPlugin",
+	"gzip",
+	"logipat",
+	"netrw",
+	"netrwPlugin",
+	"netrwSettings",
+	"netrwFileHandlers",
+	"matchit",
+	"tar",
+	"tarPlugin",
+	"rrhelper",
+	"spellfile_plugin",
+	"vimball",
+	"vimballPlugin",
+	"zip",
+	"zipPlugin",
+	"tutor",
+	"rplugin",
+	"synmenu",
+	"optwin",
+	"compiler",
+	"bugreport",
 }
+for _, plugin in pairs(disabled_built_ins) do
+	vim.g["loaded_" .. plugin] = 1
+end
 
 require("core/lazy")
 require("core/autocmds")
 require("core/keymaps")
-require("core/statusline")
 require("core/options")
 require("core/colors")
-require("lsp/go")
-
-require("plugins/nvim-dap")
-require("plugins/indent-blankline")
-require("plugins/nvim-treesitter")
-require("plugins/git")
-require("plugins/alpha-nvim")
-require("plugins/leaderf")
-require("plugins/misc")
-require("plugins/notify")
-require("plugins/toggleterm")
-require("plugins/which-key")
--- require("plugins/delimiters")
-require("plugins/live_server")

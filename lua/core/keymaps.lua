@@ -66,7 +66,7 @@ map("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "<Space>", "<Nop>", {
 	silent = true,
 })
-vim.g.mapleader = " "
+-- vim.g.mapleader is set in init.lua before plugin setup
 vim.g.codeium_no_map_tab = 1
 
 -- fff
@@ -74,7 +74,6 @@ vim.g.codeium_no_map_tab = 1
 -- leaderf
 map("", "<C-J>", ':<C-U><C-R>=printf("Leaderf! rg --no-messages -e ")<CR>')
 map("", "<C-F>", ":LeaderfFile<CR>")
-map("n", "<leader>gm", "<Plug>(git-messenger)")
 
 local spdx_license = [[
 // SPDX-License-Identifier: MIT
