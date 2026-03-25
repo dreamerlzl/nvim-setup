@@ -39,6 +39,7 @@ for _, plugin in pairs(disabled_built_ins) do
 	vim.g["loaded_" .. plugin] = 1
 end
 
+require("core/bigfile")
 require("core/lazy")
 require("core/autocmds")
 require("core/keymaps")
