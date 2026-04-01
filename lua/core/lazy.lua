@@ -349,6 +349,46 @@ lazy.setup({
 					},
 				})
 			end,
+		},
+		{
+			"MeanderingProgrammer/render-markdown.nvim",
+			ft = { "markdown" },
+			cmd = { "RenderMarkdown" },
+			keys = {
+				{ "<leader>mp", "<cmd>RenderMarkdown toggle<CR>", desc = "Toggle Markdown Preview" },
+				{ "<leader>mv", "<cmd>RenderMarkdown preview<CR>", desc = "Open Markdown Side Preview" },
+			},
+			dependencies = {
+				"nvim-treesitter/nvim-treesitter",
+				"nvim-tree/nvim-web-devicons",
+			},
+			opts = {
+				enabled = true,
+				file_types = { "markdown" },
+				render_modes = { "n", "c", "t" },
+				heading = {
+					sign = false,
+					width = "block",
+					left_pad = 1,
+				},
+				code = {
+					sign = false,
+					width = "block",
+				},
+			},
+		},
+		{
+			"iamcco/markdown-preview.nvim",
+			ft = { "markdown" },
+			cmd = { "MarkdownPreview", "MarkdownPreviewStop", "MarkdownPreviewToggle" },
+			build = "cd app && npx --yes yarn install",
+			init = function()
+				vim.g.mkdp_filetypes = { "markdown" }
+				vim.g.mkdp_theme = "dark"
+			end,
+			keys = {
+				{ "<leader>mb", "<cmd>MarkdownPreviewToggle<CR>", desc = "Toggle Browser Markdown Preview" },
+			},
 		}, -- colorize
 		{
 			"NvChad/nvim-colorizer.lua",
