@@ -136,6 +136,7 @@ local servers = {
 	"dockerls",
 	"docker_compose_language_service",
 	"sqls",
+	"marksman",
 }
 
 -- Call setup

@@ -621,7 +621,7 @@ lazy.setup({
 			end,
 			config = function()
 				require("mason-lspconfig").setup({
-					ensure_installed = { "lua_ls", "tinymist", "terraformls" },
+					ensure_installed = { "lua_ls", "tinymist", "terraformls", "marksman" },
 					automatic_setup = false,
 					automatic_enable = false,
 				})
