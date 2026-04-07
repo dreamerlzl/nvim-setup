@@ -548,20 +548,7 @@ lazy.setup({
 				vim.g.rooter_patterns = { ".git", "Cargo.toml", "go.mod", "Pipfile", "package.json" }
 			end,
 		},
-		{
-			"stevearc/aerial.nvim",
-			event = { "BufReadPost", "BufNewFile" },
-			keys = { { "<C-l>", "<cmd>AerialToggle<CR>", desc = "Toggle aerial" } },
-			dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-			config = function()
-				require("aerial").setup({
-					on_attach = function(bufnr)
-						vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
-						vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
-					end,
-				})
-			end,
-		}, -- Treesitter
+		-- Treesitter
 		{
 			"nvim-treesitter/nvim-treesitter",
 			event = { "BufReadPost", "BufNewFile" },
@@ -652,6 +639,7 @@ lazy.setup({
 		{
 			"glepnir/lspsaga.nvim",
 			event = "LspAttach",
+			keys = { { "<C-l>", "<cmd>Lspsaga outline<CR>", desc = "Toggle Lspsaga outline" } },
 			-- Explicit dependency ensures nvim-lspconfig (and lsp/lspconfig.lua)
 			-- is initialised before lspsaga sets up its UI.
 			dependencies = {
