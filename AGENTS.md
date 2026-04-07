@@ -228,6 +228,7 @@ vim.lsp.enable("rust_analyzer")
 1. Add to `lua/core/lazy.lua` in the spec table
 2. Configure in a new file under `lua/plugins/` if complex
 3. Add keymaps in `lua/core/keymaps.lua` if needed
+4. Pay attention to the performance. If there will be a substantial downgrade, ask  first
 
 ### Add a New LSP Server
 
