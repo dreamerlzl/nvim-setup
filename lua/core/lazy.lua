@@ -232,7 +232,7 @@ lazy.setup({
 		}, -- folding
 		{
 			"kevinhwang91/nvim-ufo",
-			event = "BufRead",
+			event = "LspAttach",
 			dependencies = { "kevinhwang91/promise-async" },
 			config = function()
 				require("ufo").setup({
@@ -281,22 +281,15 @@ lazy.setup({
 				"MunifTanjim/nui.nvim",
 				"rcarriga/nvim-notify",
 			},
-			init = function()
-				-- Register LSP window/showMessage handler early (before VeryLazy).
-				-- This covers LSP messages from startup; those early notifications
-				-- use the current vim.notify implementation until noice.setup()
-				-- replaces the handler/UI on VeryLazy.
-				-- Maps LSP MessageType (1=Error, 2=Warning, 3=Info, 4=Log) to vim.log.levels
+			config = function()
 				local severity =
 					{ vim.log.levels.ERROR, vim.log.levels.WARN, vim.log.levels.INFO, vim.log.levels.DEBUG }
-				vim.lsp.handlers["window/showMessage"] = function(err, result, ctx, _config)
-					-- Handle errors explicitly
+				vim.lsp.handlers["window/showMessage"] = function(err, result, _ctx, _config)
 					if err then
 						local err_msg = type(err) == "table" and err.message or tostring(err)
 						vim.notify("LSP window/showMessage error: " .. err_msg, vim.log.levels.ERROR)
 						return
 					end
-					-- Validate result has required fields before attempting to notify
 					if not result or type(result) ~= "table" then
 						vim.notify("LSP: Invalid window/showMessage payload (missing result)", vim.log.levels.WARN)
 						return
@@ -312,12 +305,10 @@ lazy.setup({
 						)
 						return
 					end
-					-- Clamp type to valid range [1, 4] and floor to ensure integer
 					local msg_type = math.floor(math.max(1, math.min(4, result.type)))
 					vim.notify(result.message, severity[msg_type])
 				end
-			end,
-			config = function()
+
 				require("noice").setup({
 					lsp = {
 						override = {
@@ -476,7 +467,7 @@ lazy.setup({
 				{ "gs", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from window" },
 			},
 		},
-		{ "RRethy/vim-illuminate", event = { "BufReadPost", "BufNewFile" } },
+		{ "RRethy/vim-illuminate", event = "LspAttach" },
 		{
 			"Yggdroot/LeaderF",
 			build = ":LeaderfInstallCExtension",
@@ -658,7 +649,7 @@ lazy.setup({
 		},
 		{
 			"glepnir/lspsaga.nvim",
-			event = "BufRead",
+			event = "LspAttach",
 			-- Explicit dependency ensures nvim-lspconfig (and lsp/lspconfig.lua)
 			-- is initialised before lspsaga sets up its UI.
 			dependencies = {
