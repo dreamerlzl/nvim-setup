@@ -236,7 +236,9 @@ lazy.setup({
 			dependencies = { "kevinhwang91/promise-async" },
 			config = function()
 				require("ufo").setup({
-					close_fold_kinds_ft = { "imports" },
+					close_fold_kinds_for_ft = {
+						java = { "imports" },
+					},
 					provider_selector = function(bufnr, filetype, buftype)
 						return { "lsp", "indent" }
 					end,

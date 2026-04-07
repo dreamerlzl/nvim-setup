@@ -33,6 +33,43 @@ local config = {
 	root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
 }
 
+local function fold_java_imports(bufnr)
+	if not vim.api.nvim_buf_is_valid(bufnr) then
+		return
+	end
+	local winid = vim.fn.bufwinid(bufnr)
+	if winid == -1 then
+		return
+	end
+
+	local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+	local first_import = nil
+	local last_import = nil
+
+	for i, line in ipairs(lines) do
+		if line:match("^import%s") then
+			if first_import == nil then
+				first_import = i
+			end
+			last_import = i
+		end
+	end
+
+	if first_import == nil or last_import == nil then
+		return
+	end
+
+	vim.api.nvim_win_call(winid, function()
+		vim.opt_local.foldmethod = "manual"
+		vim.opt_local.foldenable = true
+		vim.cmd("silent! normal! zE")
+		if first_import < last_import then
+			vim.cmd(("silent! keepjumps %d,%dfold"):format(first_import, last_import))
+		end
+		vim.cmd(("silent! keepjumps %dfoldclose"):format(first_import))
+	end)
+end
+
 config.settings = {
 	java = {
 		import = {
@@ -81,6 +118,8 @@ config.settings = {
 }
 
 config.on_attach = function(client, bufnr)
+	fold_java_imports(bufnr)
+
 	-- Enable completion triggered by <c-x><c-o>
 	-- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -156,5 +195,16 @@ config.on_attach = function(client, bufnr)
 		require("jdtls").organize_imports()
 	end, { noremap = true, silent = true, buffer = bufnr, desc = "Organize imports" })
 end
+
+vim.api.nvim_create_autocmd({ "BufWinEnter", "BufWritePost" }, {
+	buffer = 0,
+	callback = function(args)
+		fold_java_imports(args.buf)
+	end,
+})
+
+vim.schedule(function()
+	fold_java_imports(vim.api.nvim_get_current_buf())
+end)
 
 require("jdtls").start_or_attach(config)
