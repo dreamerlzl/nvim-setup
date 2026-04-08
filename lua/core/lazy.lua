@@ -649,6 +649,9 @@ lazy.setup({
 			},
 			config = function()
 				require("lspsaga").setup({
+					outline = {
+						auto_preview = false,
+					},
 					symbol_in_winbar = {
 						color_mode = false,
 					},
