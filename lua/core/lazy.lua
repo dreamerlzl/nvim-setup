@@ -387,7 +387,23 @@ lazy.setup({
 			"NvChad/nvim-colorizer.lua",
 			event = { "BufReadPost", "BufNewFile" },
 			config = function()
-				require("colorizer").setup()
+				require("colorizer").setup({
+					"css",
+					"scss",
+					"sass",
+					"less",
+					"stylus",
+					"html",
+					"javascript",
+					"javascriptreact",
+					"typescript",
+					"typescriptreact",
+					"vue",
+					"svelte",
+				}, {
+					css = true,
+					mode = "background",
+				})
 			end,
 		},
 		{
