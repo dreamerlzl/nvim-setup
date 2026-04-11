@@ -469,8 +469,8 @@ lazy.setup({
 		},
 		{
 			"lewis6991/gitsigns.nvim",
-			event = { "BufReadPre", "BufNewFile" },
-			dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
+			event = { "BufReadPost", "BufNewFile" },
+			dependencies = { "nvim-lua/plenary.nvim" },
 			config = function()
 				require("plugins/git")()
 			end,

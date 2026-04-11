@@ -1,5 +1,10 @@
 return function()
 	require("gitsigns").setup({
+		on_attach = function(bufnr)
+			if vim.b[bufnr].bigfile then
+				return false
+			end
+		end,
 		signs = {
 			add = {
 				text = "+",
@@ -25,7 +30,6 @@ return function()
 		linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
 		word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
 		watch_gitdir = {
-			interval = 1000,
 			follow_files = true,
 		},
 		attach_to_untracked = true,
