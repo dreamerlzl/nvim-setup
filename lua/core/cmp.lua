@@ -1,8 +1,35 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
 local luasnip = require("luasnip")
+local api = vim.api
+
+local function is_large_buffer(bufnr)
+    local max_filesize = 200 * 1024
+    local ok, stats = pcall(vim.uv.fs_stat, api.nvim_buf_get_name(bufnr))
+    return ok and stats and stats.size > max_filesize
+end
+
+local function limit_cmp_for_large_buffers(bufnr)
+    if not is_large_buffer(bufnr) then
+        return
+    end
+
+    cmp.setup.buffer({
+        sources = {
+            { name = "nvim_lsp" },
+            { name = "luasnip" },
+            { name = "path" },
+        },
+    })
+end
 
 require("luasnip.loaders.from_vscode").lazy_load()
+
+api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+    callback = function(args)
+        limit_cmp_for_large_buffers(args.buf)
+    end,
+})
 
 cmp.setup({
 	snippet = {
@@ -52,6 +79,12 @@ cmp.setup({
 		},
 		{
 			name = "buffer",
+			keyword_length = 3,
+			option = {
+				get_bufnrs = function()
+					return { api.nvim_get_current_buf() }
+				end,
+			},
 		},
 	},
 	formatting = {
