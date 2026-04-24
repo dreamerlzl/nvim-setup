@@ -161,6 +161,13 @@ vim.lsp.config("terraformls", {
 })
 vim.lsp.enable("terraformls")
 
+vim.lsp.config("groovyls", {
+	on_attach = on_attach,
+	capabilities = capabilities,
+	cmd = { vim.fn.exepath("groovy-language-server") },
+})
+vim.lsp.enable("groovyls")
+
 vim.lsp.config("tinymist", {
 	settings = {
 		formatterMode = "typstyle",
