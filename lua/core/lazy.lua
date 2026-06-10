@@ -284,6 +284,10 @@ lazy.setup({
 				"rcarriga/nvim-notify",
 			},
 			config = function()
+				require("notify").setup({
+					background_colour = "#000000",
+				})
+
 				local severity =
 					{ vim.log.levels.ERROR, vim.log.levels.WARN, vim.log.levels.INFO, vim.log.levels.DEBUG }
 				vim.lsp.handlers["window/showMessage"] = function(err, result, _ctx, _config)
@@ -637,7 +641,7 @@ lazy.setup({
 			end,
 			config = function()
 				require("mason-lspconfig").setup({
-					ensure_installed = { "lua_ls", "tinymist", "terraformls", "marksman", "groovyls" },
+					ensure_installed = { "lua_ls", "tinymist", "terraformls", "marksman", "groovyls", "lemminx" },
 					automatic_setup = false,
 					automatic_enable = false,
 				})
@@ -655,7 +659,48 @@ lazy.setup({
 		{
 			"glepnir/lspsaga.nvim",
 			event = "LspAttach",
-			keys = { { "<C-l>", "<cmd>Lspsaga outline<CR>", desc = "Toggle Lspsaga outline" } },
+			keys = {
+				{
+					"<C-l>",
+					function()
+						local bufnr = vim.api.nvim_get_current_buf()
+						local max_attempts = 8
+						local delay_ms = 150
+
+						local function open_outline(attempt)
+							local params = { textDocument = vim.lsp.util.make_text_document_params(bufnr) }
+							local clients =
+								vim.lsp.get_clients({ bufnr = bufnr, method = "textDocument/documentSymbol" })
+
+							if vim.tbl_isempty(clients) then
+								vim.notify("No LSP client for document symbols in this buffer", vim.log.levels.WARN)
+								return
+							end
+
+							vim.lsp.buf_request_all(bufnr, "textDocument/documentSymbol", params, function(results)
+								for _, result in pairs(results) do
+									if result.result and not vim.tbl_isempty(result.result) then
+										vim.cmd("Lspsaga outline")
+										return
+									end
+								end
+
+								if attempt < max_attempts then
+									vim.defer_fn(function()
+										open_outline(attempt + 1)
+									end, delay_ms)
+									return
+								end
+
+								vim.notify("Document symbols are not ready yet, try again shortly", vim.log.levels.INFO)
+							end)
+						end
+
+						open_outline(1)
+					end,
+					desc = "Toggle Lspsaga outline",
+				},
+			},
 			-- Explicit dependency ensures nvim-lspconfig (and lsp/lspconfig.lua)
 			-- is initialised before lspsaga sets up its UI.
 			dependencies = {

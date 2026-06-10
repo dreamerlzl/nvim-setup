@@ -117,6 +117,7 @@ Python        -> ty
 C-C++         -> clangd
 HTML/CSS/JSON -> vscode-html-languageserver
 JavaScript/TypeScript -> ts_ls
+XML           -> lemminx
 --]]
 -- TODO: root dir setup
 
@@ -137,6 +138,7 @@ local servers = {
 	"docker_compose_language_service",
 	"sqls",
 	"marksman",
+	"lemminx",
 }
 
 -- Call setup
