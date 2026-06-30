@@ -360,7 +360,15 @@ lazy.setup({
 				"nvim-tree/nvim-web-devicons",
 			},
 			opts = {
-				enabled = true,
+				enabled = false,
+				-- Use the native in-process LSP completion source instead of the
+				-- implicit nvim-cmp source. The cmp source path calls
+				-- `require('cmp')` on attach, which force-loads the entire nvim-cmp
+				-- tree (cmp-nvim-lsp, LuaSnip, ...) at markdown-open time and
+				-- defeats nvim-cmp's own `InsertEnter` lazy-load. The LSP path
+				-- feeds the same completions through cmp's existing `nvim_lsp`
+				-- source without eagerly requiring cmp.
+				completions = { lsp = { enabled = true } },
 				file_types = { "markdown" },
 				render_modes = { "n", "c", "t" },
 				heading = {
