@@ -349,7 +349,6 @@ lazy.setup({
 		},
 		{
 			"MeanderingProgrammer/render-markdown.nvim",
-			ft = { "markdown" },
 			cmd = { "RenderMarkdown" },
 			keys = {
 				{ "<leader>mp", "<cmd>RenderMarkdown toggle<CR>", desc = "Toggle Markdown Preview" },
@@ -384,8 +383,8 @@ lazy.setup({
 		},
 		{
 			"iamcco/markdown-preview.nvim",
-			ft = { "markdown" },
 			cmd = { "MarkdownPreview", "MarkdownPreviewStop", "MarkdownPreviewToggle" },
+			ft = { "markdown" },
 			build = "cd app && npx --yes yarn install",
 			init = function()
 				vim.g.mkdp_filetypes = { "markdown" }
@@ -397,7 +396,20 @@ lazy.setup({
 		}, -- colorize
 		{
 			"NvChad/nvim-colorizer.lua",
-			event = { "BufReadPost", "BufNewFile" },
+			ft = {
+				"css",
+				"scss",
+				"sass",
+				"less",
+				"stylus",
+				"html",
+				"javascript",
+				"javascriptreact",
+				"typescript",
+				"typescriptreact",
+				"vue",
+				"svelte",
+			},
 			config = function()
 				require("colorizer").setup({
 					"css",
